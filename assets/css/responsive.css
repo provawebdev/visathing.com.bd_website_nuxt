@@ -1,0 +1,974 @@
+/* X-Large devices (large desktops, less than 1400px) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+  .col-lg {
+    flex: 1 0 0;
+  }
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* #hero {
+    background: url("/assets/img/hero-bg.png") no-repeat center center;
+    padding: 150px 0;
+  } */
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (min-width: 768px) and (max-width: 992px) {
+  .apply-prograssing {
+    grid-template-columns: repeat(3, auto);
+    gap: 20px;
+  }
+
+  .apply-prograssing .item {
+    margin: 0;
+  }
+
+  .apply-prograssing .item .btn {
+    display: block;
+    text-align: left;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+
+  #hero {
+    padding: 145px 0;
+  }
+
+  .nav-item {
+    margin-right: 20px;
+  }
+
+  .nav-item:last-child {
+    margin-left: 30px;
+  }
+
+  .hero-content {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .explore-section-header {
+    width: 70%;
+  }
+
+  .nav-search-bar {
+    margin-right: 20px;
+  }
+
+  .section-header {
+    width: 70%;
+  }
+
+  #hero {
+    padding: 120px 0;
+  }
+
+  .requirement-checker {
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .hero-subtitle {
+    font-size: 34px;
+  }
+
+  .hero-content {
+    width: 70%;
+  }
+
+  .navbar-light .navbar-toggler {
+    color: rgb(0, 0, 0);
+    border: none;
+    font-size: 18px;
+    padding: 0;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none !important;
+  }
+
+  .navbar-light .navbar-toggler-icon {
+    background-image: url("../img/toggler.png");
+  }
+
+  .select-box {
+    margin-bottom: 20px;
+  }
+
+  .requirement-checker .btn-gradient {
+    align-self: center;
+    margin: 0;
+  }
+
+  #hero {
+    padding: 80px 0;
+    background-position: 100% center;
+  }
+
+  .offcanvas-start {
+    width: 350px;
+  }
+
+  .step-box {
+    height: auto;
+    width: auto;
+  }
+
+  .step-box h3 {
+    font-size: 14px;
+  }
+
+  .step-box p {
+    font-size: 12px;
+  }
+
+  /* Visa fees & processing time Page */
+  #service-lists-wrapper .service-item-body .visa-fee-form-wrapper .form-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #service-lists-wrapper .service-item-body .service-change-form-wrapper .form-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .service-content h3 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 990px) {
+  .navbar .nav-item .dropdown-menu {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all ease-in-out 0.3s;
+  }
+
+  .navbar .nav-item:hover > .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0px);
+    visibility: visible;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .swiper-slide {
+    margin: 0 10px;
+  }
+
+  .select-box {
+    width: 100%;
+  }
+
+  .content-box {
+    margin-bottom: 80px;
+  }
+  .content-text h2 {
+    font-size: 24px;
+  }
+
+  /* Visa Application Status Page */
+  .case-officer {
+    margin: 0;
+  }
+  .select-box label {
+    font-size: 14px;
+  }
+
+  .select-option {
+    font-size: 12px;
+  }
+
+  .requirement-checker .btn-gradient {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .ques-select {
+    font-size: 16px;
+    padding: 15px 0 15px 15px;
+  }
+
+  .ques-box > label {
+    font-size: 16px;
+  }
+
+  .ques-box {
+    padding: 25px 0 25px 25px;
+  }
+
+  #circle canvas {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  #circle span {
+    font-size: 34px;
+  }
+
+  .check-ques,
+  .check-progress {
+    height: 100%;
+  }
+
+  .get-visa-item-top span {
+    margin: 35px 0 20px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+  }
+
+  .get-visa-item-top svg {
+    margin: 0 60px 20px;
+    width: 60px;
+  }
+
+  .get-visa-item-top {
+    background-size: contain;
+    margin-bottom: 0;
+  }
+
+  .get-visa-item p {
+    padding: 0 15px;
+  }
+
+  .service-item {
+    margin-bottom: 25px;
+  }
+
+  #services .col-md-6:nth-child(5) .service-item,
+  #services .col-md-6:nth-child(6) .service-item {
+    margin-bottom: 0;
+  }
+
+  .media-library-item .card-text {
+    font-size: 16px;
+    line-height: 30px;
+    margin: 15px 0 15px 15px;
+  }
+
+  .media-library-item {
+    margin-bottom: 20px;
+  }
+
+  #media-library .col-md-6:nth-child(5) .media-library-item,
+  #media-library .col-md-6:nth-child(6) .media-library-item {
+    margin-bottom: 0;
+  }
+
+  #news .col-md-6:nth-child(3) .news-item,
+  #news .col-md-6:nth-child(4) .news-item {
+    margin-bottom: 0;
+  }
+
+  #partner-section {
+    padding: 22px;
+  }
+
+  .content-text h2 {
+    font-size: 24px;
+  }
+
+  .content-image {
+    /* position: relative; */
+    margin: 0 15px;
+  }
+
+  /* Visa Application Status Page */
+  .case-officer {
+    margin: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  /*
+*    ==================================
+*             Typography Start
+*    ==================================
+*/
+  h1 {
+    font-size: 34px;
+  }
+
+  .fs-md-6 {
+    font-size: 6px;
+  }
+
+  .fs-md-10 {
+    font-size: 10px;
+  }
+
+  .fs-md-12 {
+    font-size: 12px;
+  }
+
+  .fs-md-14 {
+    font-size: 14px;
+  }
+
+  .fs-md-16 {
+    font-size: 16px;
+  }
+
+  .fs-md-20 {
+    font-size: 20px;
+  }
+
+  .fs-md-24 {
+    font-size: 24px;
+  }
+
+  .fs-md-34 {
+    font-size: 34px;
+  }
+
+  .fs-md-48 {
+    font-size: 48px;
+  }
+
+  #service-lists-wrapper .service-item-body {
+    padding: 25px 15px 15px;
+  }
+
+  /*
+*    ==================================
+*             Typography End
+*    ==================================
+*/
+  .apply-prograssing {
+    grid-template-columns: repeat(3, auto);
+    gap: 20px;
+  }
+
+  .apply-prograssing .item {
+    margin: 0
+  }
+
+  .apply-prograssing .item .btn {
+    display: block;
+    text-align: left;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  .navbar-light .navbar-toggler-icon {
+    width: 18px;
+  }
+
+  .nav-search-bar {
+    width: 155px;
+    height: 30px;
+  }
+
+  .nav-search-input {
+    font-size: 12px;
+    padding: 9px 0 8px 5px;
+    width: calc(100% - 40px);
+}
+
+  .nav-search-icon {
+    width: 37px;
+    height: 29px;
+    font-size: 12px;
+  }
+
+  .logo {
+    width: 110px;
+  }
+
+  .navbar {
+    height: 50px;
+  }
+
+  .hero-content {
+    width: 92%;
+  }
+
+  .payment-methods span:first-child {
+    width: 100px;
+    margin-right: 20px;
+  }
+
+  .footer-top {
+    padding: 60px 0;
+  }
+
+  .item-1,
+  .item-2 {
+    margin-bottom: 60px;
+  }
+
+  .section-header {
+    width: 80%;
+  }
+
+  .section-header h2 {
+    font-size: 24px;
+  }
+
+  .section-header p {
+    font-size: 16px;
+  }
+
+  .step-box {
+    width: 100%;
+    height: 100%;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .step-box h3 {
+    font-size: 14px;
+  }
+
+  .step-box p {
+    font-size: 12px;
+  }
+
+  .media-library-item {
+    margin-bottom: 20px;
+    /* height: auto; */
+  }
+
+  .news-item {
+    height: 100%;
+    margin-bottom: 20px;
+  }
+
+  .col-md-6:last-child .media-library-item {
+    height: 100%;
+  }
+
+  /* .col-md-6:first-child .media-library-item.news-item {
+    height: 100%;
+  } */
+
+  .ques-select {
+    font-size: 16px;
+    padding: 15px 0 15px 15px;
+  }
+
+  .ques-box > label {
+    font-size: 16px;
+  }
+
+  .ques-box {
+    padding: 25px 0 25px 25px;
+  }
+
+  .check-ques,
+  .check-progress {
+    height: 390px;
+  }
+
+  .step-box-wrapper {
+    margin-bottom: 15px;
+  }
+
+  /* About Us Page */
+
+  .content-text {
+    margin-bottom: 30px;
+  }
+
+  .client-group .nav-item{
+    width: auto;
+    font-size: 12px;
+  }
+
+  /* Sign In Page */
+  .signin-form {
+    width: auto;
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+
+  .signin {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+
+  .signin-or-with::before,
+  .signin-or-with::after {
+    width: 170px;
+  }
+
+  /* Visa Application Status Page */
+  .application-status {
+    margin-top: 60px;
+  }
+
+  .applicant-details .card-body {
+    padding: 18px 15px 18px 20px;
+  }
+
+  .page-content .col-lg-4 .col-md-6.col-lg-12:first-child .applicant-details {
+    margin-bottom: 30px;
+  }
+
+  /* .requirement-checker {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  } */
+
+  #complete-form-wrapper .complete-form-body .complete-form-container {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #e-visa-box-wrapper .e-visa-processing-body .e-visa-processing-container {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .visa-free .content-text {
+    width: 514px;
+  }
+
+  .visa-free .content-image-gallery .flag-info h3 {
+    padding: 10px 0 15px;
+    font-size: 12px;
+    margin: 0;
+}
+  .divider-lg {
+    margin-bottom: 15px;
+  }
+.visa-free .content-image-gallery .flag-info {
+    width: 100px;
+    height: 95px;
+    margin-bottom: 20px;
+}
+  .flexible-submission .content-text {
+    width: 660px;
+  }
+  .sidebar .tags-list span {
+    padding: 2px 5px;
+  }
+  .sidebar .post-item-title {
+    font-size: 16px;
+  }
+  .back-to-top {
+    display: none !important;
+  }
+  .my-120 {
+    margin: 60px 0 !important;
+  }
+  .step-box::after {
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #396ce0;
+    left: calc(50% - 15px);
+  }
+  #services .col-lg-4:nth-child(-n + 3) .service-item {
+    margin-bottom: 0;
+  }
+  #services .service-item {
+    margin-bottom: 30px !important;
+  }
+  .col-lg-4:last-child .contact-info-item {
+    margin-top: 20px;
+  }
+  .form-field select.form-select {
+    padding: 8px 10px;
+  }
+  .input-field {
+    padding: 2px 10px;
+  }
+  .blog-details .news-item-title {
+    font-size: 24px;
+    line-height: 38px;
+  }
+  .blog-details .author-info.d-flex {
+    display: grid !important;
+    gap: 20px;
+  }
+  .page-name h1, .content-text h2 {
+    font-size: 28px;
+    line-height: 38px;
+  }
+  section .title {
+    font-size: 28px;
+    line-height: 38px;
+  }
+  .list-items ul li .item-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+  section h2 {
+    font-size: 28px;
+    line-height: 38px;
+  }
+  .signin-form .content-text h2 {
+    margin-bottom: 15px;
+  }
+  .applicant-details .card-header {
+    font-size: 18px;
+    line-height: 32px;
+  }
+  /* About Us Page */
+  .page-name {
+    padding: 45px 0;
+  }
+  #eligibility-form .list-form-plan label span {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .navbar-nav .dropdown-menu {
+    opacity: 0;
+    height: 0;
+    display: block;
+    transition: all ease-in-out 0.3s;
+    border: none;
+    text-align: center;
+  }
+  .navbar-nav .dropdown-menu li {
+    height: 0;
+    transition: all ease-out 2s;
+  }
+  .navbar-nav .nav-link {
+    text-align: center;
+  }
+  .navbar-nav .dropdown-menu.show {
+    opacity: 1;
+    height: 100%;
+    margin-bottom: 20px;
+  }
+  .navbar-nav .dropdown-menu.show li {
+    height: 100%;
+  }
+  .nav-item:last-child {
+    margin: 0 !important;
+  }
+}
+@media (max-width: 767px) {
+  .requirement-checker {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+  .fs-sm-6 {
+    font-size: 6px;
+  }
+
+  .fs-sm-10 {
+    font-size: 10px;
+  }
+
+  .fs-sm-12 {
+    font-size: 12px;
+  }
+
+  .fs-sm-14 {
+    font-size: 14px;
+  }
+
+  .fs-sm-16 {
+    font-size: 16px;
+  }
+
+  .fs-sm-20 {
+    font-size: 20px;
+  }
+
+  .fs-sm-24 {
+    font-size: 24px;
+  }
+
+  .fs-sm-34 {
+    font-size: 34px;
+  }
+
+  .fs-sm-48 {
+    font-size: 48px;
+  }
+  .page-name h1, .content-text h2, section .title {
+    font-size: 24px;
+  }
+  .online-apply-header {
+    display: grid;
+    gap: 10px;
+    padding: 17px 20px;
+    justify-content: inherit;
+  }
+  .apply-cuntry-flug img {
+    height: 30px;
+  }
+  .online-apply-header .apply-button a {
+    float: right;
+  }
+  .info-box-wrapper tbody tr :last-child::before {
+    margin: 0 20px 0 0;
+  }
+  .apply-prograssing {
+    grid-template-columns: repeat(2, auto);
+  }
+  .online-apply-body {
+    padding: 15px 20px 20px;
+  }
+  #service-lists-wrapper .service-item-body .download-list {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+  }
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .hero-subtitle {
+    font-size: 24px;
+  }
+
+  /* About Us Page */
+  .content-box {
+    margin-bottom: 60px;
+  }
+
+  /* Sign In Page */
+  .signin {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .signin-form {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .requirement-checker {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .select-box label,
+  .select-option {
+    font-size: 14px;
+  }
+
+  .requirement-checker .btn-gradient {
+    font-size: 14px;
+  }
+
+  .hero-content {
+    width: 90%;
+  }
+
+  #hero {
+    padding: 80px 0;
+    background-image: url("../img/hero-bg-sm.png");
+  }
+
+  .offcanvas-start {
+    width: 280px;
+  }
+
+  .section-header {
+    width: 80%;
+  }
+
+  .section-header h2 {
+    font-size: 24px;
+  }
+
+  .section-header p {
+    font-size: 16px;
+  }
+
+  .triangle-down {
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 10px solid rgb(62 115 227);
+    left: 1px;
+  }
+
+  .check-ques {
+    margin-bottom: 40px;
+  }
+
+  .get-visa-item {
+    margin-bottom: 20px;
+  }
+
+  #services .service-item {
+    margin-bottom: 20px !important;
+    transform: none;
+  }
+
+  .news-item {
+    margin-bottom: 0;
+  }
+
+  .footer-top {
+    padding: 60px 0;
+  }
+
+  .copyright {
+    margin-top: 15px;
+  }
+
+  .footer-newsletter {
+    width: 270px;
+  }
+
+  .item-4-content li:first-child {
+    margin-bottom: 25px;
+  }
+
+  .footer-item h3 {
+    margin-bottom: 25px;
+  }
+
+  .item-1 {
+    margin-bottom: 30px;
+  }
+
+  .item-4 {
+    margin-top: 30px;
+  }
+
+  .step-box {
+    height: 70px;
+    width: auto;
+  }
+
+  .step-box h3 {
+    font-size: 12px;
+  }
+
+  .step-box p {
+    font-size: 10px;
+  }
+
+  .item-1,
+  .item-2 {
+    margin-bottom: 30px;
+  }
+
+  #partner-section {
+    padding: 8px;
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    padding: 0 5px;
+  }
+
+  /* Sign In Page */
+
+  .signin-or-with::before,
+  .signin-or-with::after {
+    width: 116px;
+  }
+
+  .signin-form .content-text h2 {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  /* Sign Up Page */
+  .client-group {
+    margin: 30px 0 35px;
+  }
+
+
+  /* Visa Application Status Page */
+  .applicant-details .card-header {
+    font-size: 16px;
+  }
+
+  .application-status table thead tr th {
+    font-size: 14px;
+  }
+
+  .application-status table tbody tr td {
+    font-size: 12px;
+  }
+
+  /* Visa fees & processing time Page */
+  #service-lists-wrapper .service-item-body .visa-fee-form-wrapper .form-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #service-lists-wrapper .service-item-body .service-change-form-wrapper .form-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /*  Complete Application Form Page */
+  #complete-form-wrapper .complete-form-body .complete-form-container {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+    margin: 0 auto;
+  }
+  #e-visa-box-wrapper .e-visa-processing-body .e-visa-processing-container {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .visa-free .content-text {
+    width: auto;
+  }
+  .divider-lg {
+    margin-bottom: 15px;
+  }
+  .blog .main-content .news-item {
+    margin-bottom: 20px !important;
+  }
+  .blog .main-content .row:not(:last-child) {
+    margin-bottom: 0;
+  }
+  #media-library .col-lg-4:nth-child(-n + 3) .media-library-item {
+    margin-bottom: 0;
+  }
+  .step-box {
+    height: 100%;
+    width: auto;
+    padding: 10px;
+  }
+  #media-library .media-library-item {
+    height: auto;
+    margin-bottom: 20px !important;
+  }
+  #services .col-lg-4:nth-child(-n + 3) .service-item {
+    margin-bottom: 0;
+  }
+
+  .step-box::after {
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #396ce0;
+    left: calc(50% - 12px);
+  }
+  .contact-info-item {
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
