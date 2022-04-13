@@ -26,8 +26,8 @@
             <!-- Logo Here -->
             <nuxt-link class="navbar-brand" to="/"><img alt="" class="logo" src="~/assets/img/logo.png"></nuxt-link>
             <div class="d-flex d-lg-none">
-                <form class="nav-search-bar border-radius-5">
-                    <input class="nav-search-input" placeholder="Application tracking" type="search">
+                <form class="nav-search-bar border-radius-5" role="form" @submit.prevent="submit">
+                    <input class="nav-search-input" placeholder="Application tracking" type="text" name="search" v-model="search" required>
                     <button class="nav-search-icon bgc-gradient border-radius-5" type="submit"><span
                             class="fas fa-search"></span></button>
                 </form>
@@ -60,8 +60,8 @@
                             <nuxt-link to="/visa-eligibility-checker" class="btn btn-gradient">Visa Eligibility Checker</nuxt-link>
                         </li>
                     </ul>
-                    <form class="nav-search-bar border-radius-5 d-none d-lg-flex">
-                        <input class="nav-search-input" placeholder="Application tracking" type="search">
+                    <form class="nav-search-bar border-radius-5 d-none d-lg-flex" role="form" @submit.prevent="submit">
+                        <input class="nav-search-input" placeholder="Application tracking" type="text" name="search" v-model="search" required>
                         <button class="nav-search-icon bgc-gradient border-radius-5" type="submit"><span
                                 class="fas fa-search"></span></button>
                     </form>
@@ -110,15 +110,37 @@ export default {
    data() {
     return {
       services: [],
+      search: "",
     };
   },
   created() {
     this.$axios
-      .get("https://b2bdemo.visathing.in/api/ser_list")
+      .get("http://localhost:8084/api/ser_list")
       .then((response) => {
           (this.services = response.data.services);
          // console.log(response.data.services);
       });
+  },
+    methods: {
+     submit() {
+      this.$axios
+        .post("https://visathing.com.bd/track/status?status=" + this.search)
+        .then(
+          ({ data }) => (
+            (this.travel_purpose = this.search)
+          )
+        )
+        .catch((error) => console.log(error));
+      if (this.search) {
+        this.$router
+          .push({
+            path: "/visa-application-status/",
+            slug: this.search,
+          
+          })
+          .bind(this.search);
+      }
+    },
   },
 };
 </script>

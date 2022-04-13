@@ -67,58 +67,11 @@
                         value="Next"
                         class="list-form-btn"
                       >
-                        Next {{ key }}- {{ total }}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <!-- Form Section Here -->
-                <!-- <div
-                  v-for="(quest, ques_key) in checker_question"
-                  :key="ques_key"
-                  v-bind:id="'tabs-' + ques_key"
-                >
-                  <div v-if="'show' + ques_key">
-                    <h3>{{ ques_key + 1 }}. {{ quest.question }}</h3>
-                    <div
-                      v-for="(ans, ans_key) in country.country_answers"
-                      :key="ans_key"
-                      v-show="ans.checker_question_id == quest.id"
-                      class="form-check ques-option"
-                    >
-                    
-                      <input
-                        class="form-check-input"
-                        id="sate_1_checkbox_one"
-                        :name="'q' + ques_key"
-                        :v-model="'q' + ques_key"
-                        :value="ans.point"
-                        type="radio"
-                      />
-                      <label class="form-check-label" for="sate_1_checkbox_one">
-                        {{ ans.answer }}
-                      </label>
-                    </div>
-                    <div class="d-flex gap-4 mt-4">
-                      <input
-                        type="button"
-                        id="btnPrevious"
-                        value="Bank"
-                        class="list-form-btn"
-                      />
-                      <button
-                        @click.prevent="'point' + ques_key"
-                        type="button"
-                        id="btnNext"
-                        value="Next"
-                        class="list-form-btn"
-                      >
                         Next
                       </button>
                     </div>
                   </div>
-                  
-                </div> -->
+                </div>
               </div>
             </div>
           </div>
@@ -126,10 +79,10 @@
         <div class="col-md-6">
           <div class="check-progress">
             <div class="position-relative" id="circle">
-              <span>{{ result }}%</span>
+              <span>{{ result}}%</span>
             </div>
             <button class="btn-gradient">
-              Download PDF {{ result }} Percent: {{percent}}<span class="fas fa-download"></span>
+               Score Percent : {{ percent}}
             </button>
           </div>
         </div>
@@ -163,7 +116,7 @@ export default {
   data() {
     return {
       key: 0,
-      total: 0,
+      total: null,
       percent: 0,
       result: 0,
       country: 0,
@@ -192,15 +145,7 @@ export default {
           this.country_list = response.data.country_list;
           this.checker_question = this.country.country_questions;
           this.country_answers = this.country.country_answers;
-          //this.question = checker_questions[0].id;
           this.total = this.country.country_questions.length;
-          this.result = question.reduce((a, b) => {
-            parseInt(a.key) + parseInt(b.key);
-          });
-
-          // this.result += parseInt([this.q, 10]);
-
-          // console.log(result);
         }.bind(this)
       );
     },
@@ -215,7 +160,7 @@ export default {
       if (this.key < newTotal) {
         this.key++;
         let countPercent = 100/newTotal;
-        this.percent += countPercent;
+        this.percent += Math.round(countPercent);
 
         this.result += question[0];
         console.log(this.percent);

@@ -18,7 +18,7 @@
                 class="form-select select-option"
                 v-model="fields.cityzen_cty"
               >
-                <option selected>Bangladesh</option>
+                <option value="" selected>Select Your Cityzen Country</option>
                 <option value="1">Bangladesh</option>
               </select>
             </div>
@@ -29,6 +29,7 @@
                 class="form-select select-option"
                 v-model="fields.search"
               >
+               <option value="" selected> Select Country </option>
                 <option
                   v-for="(cty, key) in country_list"
                   :key="key"
@@ -45,7 +46,7 @@
                 class="form-select select-option"
                 v-model="fields.travel_purpose"
               >
-                <option selected>Choose if you want</option>
+                <option value="" selected>Choose if you want</option>
                 <option
                   v-for="(tvl, tvl_key) in tvl_purpose"
                   :key="tvl_key"
@@ -75,7 +76,7 @@ import {
 } from "axios-extensions";
 
 const http = axios.create({
-  baseURL: "https://b2bdemo.visathing.in/api",
+  baseURL: "http://localhost:8084/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -101,17 +102,16 @@ export default {
   },
   created() {
     this.$axios
-      .get("https://b2bdemo.visathing.in/api/country_name")
+      .get("http://localhost:8084/api/country_name")
       .then((response) => {
         this.country_list = response.data.country_list;
         this.tvl_purpose = response.data.tvl_purpose;
-        //  console.log(response.data.country_list);
       });
   },
   methods: {
     submit() {
       this.$axios
-        .post("https://b2bdemo.visathing.in/api/country_search/" + this.fields.search)
+        .post("http://localhost:8084/api/country_search/" + this.fields.search)
         .then(
           //  (response) => (this.allusers = response.data)
           ({ data }) => (
@@ -127,7 +127,7 @@ export default {
           .push({
             path: "/" + this.fields.search,
             slug: this.fields.search,
-           // params: { name: this.fields.travel_purpose },
+            // params: { name: this.fields.travel_purpose },
             // query: {
             //   travel_purpose: this.fields.travel_purpose,
             //   cityzen_cty: this.fields.cityzen_cty,

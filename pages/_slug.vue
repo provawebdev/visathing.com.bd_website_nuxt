@@ -13,7 +13,7 @@
               <div class="online-apply-header">
                 <div class="apply-cuntry-flug fs-20 fs-sm-12">
                   <img
-                    :src="'https://b2bdemo.visathing.in/storage/flag/' + data.flag"
+                    :src="'http://localhost:8084/storage/flag/' + data.flag"
                     height="50px"
                     alt="cuntry-flug-img"
                   />
@@ -742,7 +742,7 @@
                   <a
                     class="btn btn-gradient"
                     :href="
-                      'https://b2bdemo.visathing.in/storage/app_form/' + app.app_form
+                      'http://localhost:8084/storage/app_form/' + app.app_form
                     "
                     download
                     >Download</a
@@ -829,7 +829,7 @@ import {
   throttleAdapterEnhancer,
 } from "axios-extensions";
 const http = axios.create({
-  baseURL: "https://b2bdemo.visathing.in/api",
+  baseURL: "http://localhost:8084/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -903,7 +903,7 @@ export default {
 
   created() {
     this.$axios
-      .get("https://b2bdemo.visathing.in/api/country/" + this.$route.params.slug)
+      .get("http://localhost:8084/api/country/" + this.$route.params.slug)
       .then((response) => {
         this.data = response.data.data;
         this.checklists = response.data.checklists;
@@ -921,18 +921,31 @@ export default {
       //this.service = this.fields.service;
       this.result2 = parseInt(this.fields.service) * parseInt(this.fields.no_of_traveler);
     },
-    submit() 
-      {
-        this.$axios
-          .post("https://b2bdemo.visathing.in/api/country_search/", this.fields.search)
-          .then(
-            //  (response) => (this.allusers = response.data)
-            ({ data }) => (
-              (this.fields = {})
-            )
+     submit() {
+      this.$axios
+        .post("http://localhost:8084/api/country_search/" + this.fields.search)
+        .then(
+          ({ data }) => (
+            (this.travel_purpose = this.fields.travel_purpose),
+            (this.cityzen_cty = this.fields.cityzen_cty),
+            (this.fields = {})
           )
-          .catch((error) => console.log(error));
+        )
+        .catch((error) => console.log(error));
+      if (this.fields) {
+        this.$router
+          .push({
+            path: "/" + this.fields.search,
+            slug: this.fields,
+           // params: { name: this.fields.travel_purpose },
+            // query: {
+            //   travel_purpose: this.fields.travel_purpose,
+            //   cityzen_cty: this.fields.cityzen_cty,
+            // },
+          })
+          .bind(this.fields);
       }
+    },
   },
 };
 </script>

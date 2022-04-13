@@ -77,7 +77,7 @@ export default {
 //   methods: {
 //     getApi() {
 //       this.$axios
-//         .get("https://b2bdemo.visathing.in/api/country_name")
+//         .get("http://localhost:8084/api/country_name")
 //         .then((response) => {
 //           console.log(response.data);
 //         });

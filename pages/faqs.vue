@@ -11,7 +11,7 @@ import {
   throttleAdapterEnhancer,
 } from "axios-extensions";
 const http = axios.create({
-  baseURL: "https://b2bdemo.visathing.in/api",
+  baseURL: "http://localhost:8084/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -32,7 +32,7 @@ export default {
     };
   },
   created() {
-    this.$axios.get("https://b2bdemo.visathing.in/api/manu_list/").then((response) => {
+    this.$axios.get("http://localhost:8084/api/manu_list/").then((response) => {
       this.data = response.data.about;
       console.log( response.data.about);
     });
