@@ -4,12 +4,10 @@
     <div class="container">
         <div class="section-header">
             <h2>Services</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt morbi sit sed netus diam justo,
-                elementum at. Mauris dui.</p>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6" v-for="(ser, key) in services" :key="key" v-show="key == 0">
-                <a href="/visa-consultancy.html">
+            <div class="col-lg-4 col-md-6" v-if="services[0]">
+                <nuxt-link v-bind:to="'/services/'+services[0].slug">
                     <div class="service-item">
                         <div class="service-icon">
                             <svg fill="none" height="24" viewBox="0 0 24 24" width="24"
@@ -30,15 +28,14 @@
                             </svg>
                         </div>
                         <div class="service-content">
-                            <h3>{{ser.name}}</h3>
-                            <p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Tellus.</p>
+                            <h3>{{services[0].name}}</h3>
+                            <p v-html="services[0].summary"></p>
                         </div>
                     </div>
-                </a>
-
+                </nuxt-link>
             </div>
-            <div class="col-lg-4 col-md-6" v-for="(ser, key) in services" :key="key" v-show="key == 1">
-                <a href="/visa-processing-in-india.html">
+            <div class="col-lg-4 col-md-6" v-if="services[1]">
+                <nuxt-link v-bind:to="'/services/'+services[1].slug">
                     <div class="service-item">
                         <div class="service-icon">
                             <svg fill="none" height="24" viewBox="0 0 24 24" width="24"
@@ -89,15 +86,14 @@
                             </svg>
                         </div>
                         <div class="service-content">
-                            <h3>Visa Processing in India</h3>
-                            <p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Tellus.</p>
+                            <h3>{{services[1].name}}</h3>
+                            <p v-html="services[1].summary"></p>
                         </div>
                     </div>
-                </a>
-
+                </nuxt-link>
             </div>
-            <div class="col-lg-4 col-md-6" v-for="(ser, key) in services" :key="key" v-show="key == 2">
-                <a href="/visa-processing-in-nepal.html">
+            <div class="col-lg-4 col-md-6" v-if="services[2]">
+                <nuxt-link v-bind:to="'/services/'+services[2].slug">
                     <div class="service-item">
                         <div class="service-icon">
                             <svg fill="none" height="24" viewBox="0 0 24 24" width="24"
@@ -127,15 +123,15 @@
                             </svg>
                         </div>
                         <div class="service-content">
-                            <h3>Visa Processing in Nepal</h3>
-                            <p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Tellus.</p>
+                            <h3>{{services[2].name}}</h3>
+                            <p v-html="services[2].summary"></p>
                         </div>
                     </div>
-                </a>
+                </nuxt-link>
 
             </div>
-            <div class="col-lg-4 col-md-6" v-for="(ser, key) in services" :key="key" v-show="key == 3">
-                <a href="/e-visa-processing.html">
+            <div class="col-lg-4 col-md-6" v-if="services[3]">
+                <nuxt-link v-bind:to="'/services/'+services[3].slug">
                     <div class="service-item">
                         <div class="service-icon">
                             <svg fill="none" height="24" viewBox="0 0 24 24" width="24"
@@ -159,15 +155,15 @@
                             </svg>
                         </div>
                         <div class="service-content">
-                            <h3>E-Visa Processing</h3>
-                            <p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Tellus.</p>
+                            <h3>{{services[3].name}}</h3>
+                            <p v-html="services[3].summary"></p>
                         </div>
                     </div>
-                </a>
+                </nuxt-link>
 
             </div>
-            <div class="col-lg-4 col-md-6" v-for="(ser, key) in services" :key="key" v-show="key == 4">
-                <a href="/one-way-collection.html">
+            <div class="col-lg-4 col-md-6" v-if="services[4]">
+                <nuxt-link v-bind:to="'/services/'+services[4].slug">
                     <div class="service-item">
                         <div class="service-icon">
                             <svg fill="none" height="24" viewBox="0 0 24 24" width="24"
@@ -198,15 +194,14 @@
                             </svg>
                         </div>
                         <div class="service-content">
-                            <h3>One Way Collection</h3>
-                            <p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Tellus.</p>
+                            <h3>{{services[4].name}}</h3>
+                            <p v-html="services[4].summary"></p>
                         </div>
                     </div>
-                </a>
-
+                </nuxt-link>
             </div>
-            <div class="col-lg-4 col-md-6" v-for="(ser, key) in services" :key="key" v-show="key == 5">
-                <a href="/document-legalization.html">
+            <div class="col-lg-4 col-md-6" v-if="services[5]">
+                <nuxt-link v-bind:to="'/services/'+services[5].slug">
                     <div class="service-item">
                         <div class="service-icon">
                             <svg fill="none" height="24" viewBox="0 0 24 24" width="24"
@@ -241,12 +236,11 @@
                             </svg>
                         </div>
                         <div class="service-content">
-                            <h3>Documents Legalization</h3>
-                            <p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Tellus.</p>
+                            <h3>{{services[5].name}}</h3>
+                            <p v-html="services[5].summary"></p>
                         </div>
                     </div>
-                </a>
-
+                </nuxt-link>
             </div>
         </div>
     </div>
@@ -280,7 +274,7 @@ export default {
   },
   created() {
     this.$axios
-      .get("http://localhost:8084/api/country_name")
+      .get("http://localhost:8084/api/ser_list")
       .then((response) => {
           (this.services = response.data.services);
          // console.log(response.data.services);

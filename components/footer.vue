@@ -6,51 +6,50 @@
     <div class="footer-top">
         <div class="container">
             <div class="row ">
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-5 col-md-6 col-12">
                     <div class="footer-item item-1">
                         <h3>Disclaimer</h3>
                         <ul class="item-1-content">
-                            <li>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Fermentum vitae turpis morbi
-                                diam adipiscing placerat pellentesque tortor in.
+                            <li>Due to the periodic changes of information/ requirement/ document, VISAThing doesn’t provide any confirmation, guarantee or representation, express or implied, that the information contained or referenced herein is completely accurate or final. VISAThing also doesn’t assure the grant of visa for its ‘Visa logistics support’. Visa grant is the distinct decision of embassy or consulate of the respective countries.
                             </li>
                             <li>
                                 <ul class="d-flex">
-                                    <li><a href="https://www.facebook.com/" target="_blank"><span
-                                            class="fab fa-facebook-f"></span></a></li>
-                                    <li><a href="https://www.instagram.com/" target="_blank"><span
-                                            class="fab fa-instagram"></span></a></li>
-                                    <li><a href="https://twitter.com/" target="_blank"><span
-                                            class="fab fa-twitter"></span></a></li>
-                                    <li><a href="https://www.youtube.com/" target="_blank"><span
-                                            class="fab fa-youtube"></span></a></li>
+                                    <li><nuxt-link to="https://www.facebook.com/" target="_blank"><span
+                                            class="fab fa-facebook-f"></span></nuxt-link></li>
+                                    <li><nuxt-link to="https://www.instagram.com/" target="_blank"><span
+                                            class="fab fa-instagram"></span></nuxt-link></li>
+                                    <li><nuxt-link to="https://twitter.com/" target="_blank"><span
+                                            class="fab fa-twitter"></span></nuxt-link></li>
+                                    <li><nuxt-link to="https://www.youtube.com/" target="_blank"><span
+                                            class="fab fa-youtube"></span></nuxt-link></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-6">
+                <div class="col-lg-2 col-md-6 col-6">
                     <div class="footer-item item-2">
                         <h3>Menu</h3>
                         <ul class="item-2-content">
-                            <li><a href="/about.html"><span class="fas fa-circle"></span>About Us</a></li>
-                            <li><a href="/basic-information.html"><span class="fas fa-circle"></span>Services</a>
+                            <li><nuxt-link to="/about"><span class="fas fa-circle"></span>About Us</nuxt-link></li>
+                            <li><nuxt-link to="/services"><span class="fas fa-circle"></span>Services</nuxt-link>
                             </li>
-                            <li><a href="/appointment.html"><span class="fas fa-circle"></span>Appointment</a></li>
-                            <li><a href="/contacts.html"><span class="fas fa-circle"></span>Contact
-                                Us</a></li>
+                            <li><nuxt-link to="/appointment"><span class="fas fa-circle"></span>Appointment</nuxt-link></li>
+                            <li><nuxt-link to="/contacts"><span class="fas fa-circle"></span>Contact
+                                Us</nuxt-link></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-6">
+                <div class="col-lg-2 col-md-6 col-6">
                     <div class="footer-item item-3">
                         <h3>Quick Links</h3>
                         <ul class="item-3-content">
-                            <li><a href="/signin.html"><span class="fas fa-circle"></span>Sign In/Sign Up</a></li>
-                            <li><a href="/termsandconditions.html"><span class="fas fa-circle"></span>Terms &
-                                Conditions</a></li>
-                            <li><a href="/privacy-policy.html"><span class="fas fa-circle"></span>Privacy &
-                                Policy</a></li>
-                            <li><a href="/refund-policy.html"><span class="fas fa-circle"></span>Refund Policy</a>
+                            <li><nuxt-link to="/signin"><span class="fas fa-circle"></span>Sign In/Sign Up</nuxt-link></li>
+                            <li><nuxt-link to="/terms-and-conditions"><span class="fas fa-circle"></span>Terms &
+                                Conditions</nuxt-link></li>
+                            <li><nuxt-link to="/privacy-policy"><span class="fas fa-circle"></span>Privacy &
+                                Policy</nuxt-link></li>
+                            <li><nuxt-link to="/refund-policy"><span class="fas fa-circle"></span>Refund Policy</nuxt-link>
                             </li>
                         </ul>
                     </div>
@@ -86,7 +85,7 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-lg-7 col-md-6 order-1 order-md-0">
                     <div class="copyright">
-                        <p class="fs-14">Copyright @ 2021. All Rights Reserved | VISAThing is a registered
+                        <p class="fs-14">Copyright @ 2022. All Rights Reserved | VISAThing is a registered
                             Trademark of Your
                             Trip Mate Ltd.
                         </p>
@@ -106,14 +105,14 @@
 <!-- Footer End -->
 
 <!-- Back to top -->
-<a class="back-to-top" href="#">
+<nuxt-link class="back-to-top" to="#">
     <svg fill="none" height="8" viewBox="0 0 14 8" width="14"
-         xmlns="http://www.w3.org/2000/svg">
+         xmlns="https://www.w3.org/2000/svg">
         <path
                 d="M6.99928 2.82783L2.04928 7.77783L0.635281 6.36383L6.99928 -0.000168403L13.3633 6.36383L11.9493 7.77783L6.99928 2.82783Z"
                 fill="#2B2B2B"/>
     </svg>
-</a>
+</nuxt-link>
   </div>
 </template>
 

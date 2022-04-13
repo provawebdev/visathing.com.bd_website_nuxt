@@ -6,18 +6,16 @@
     <div class="topbar d-none d-lg-block">
         <div class="container d-flex justify-content-between">
             <ul class="topbar-left d-flex">
-                <li><a href="tel:+880 1642924081"><span class="fas fa-phone-alt"></span>+880 1642924081</a></li>
-                <li><a href="mailto:info@gmail.com"><span class="fas fa-envelope"></span>info@gmail.com</a></li>
-                <li><span class="fas fa-map-marker-alt"></span>3517 W. Gray St.
-                    Utica, Pennsylvania 57867
-                </li>
+                <li><nuxt-link to="tel:+880 1642924081"><span class="fas fa-phone-alt"></span> (+88) 0196 777 7788 (Hotline)</nuxt-link></li>
+                <li><nuxt-link to="mailto:info@gmail.com"><span class="fas fa-envelope"></span> cr@visathing.com</nuxt-link></li>
+                <li><span class="fas fa-map-marker-alt"></span>1st Floor, Homestead Gulshan Link Tower Gulshan-Badda link Road, Gulshan-1, Dhaka-1212</li>
             </ul>
             <ul class="topbar-right d-flex">
-                <li class="topbar-signin"><a href="/signin.html">
+                <li class="topbar-signin"><nuxt-link to="/signin">
                     <span class="fas fa-user-alt"></span>Sign in
-                </a></li>
-                <li class="topbar-signup"><a href="/signup.html"><span class="fas fa-sign-out-alt"></span>Sign
-                    Up</a></li>
+                </nuxt-link></li>
+                <li class="topbar-signup"><nuxt-link to="/signin"><span class="fas fa-sign-out-alt"></span>Sign
+                    Up</nuxt-link></li>
             </ul>
         </div>
     </div>
@@ -26,7 +24,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <!-- Logo Here -->
-            <a class="navbar-brand" href="/index.html"><img alt="" class="logo" src="~/assets/img/logo.png"></a>
+            <nuxt-link class="navbar-brand" to="/"><img alt="" class="logo" src="~/assets/img/logo.png"></nuxt-link>
             <div class="d-flex d-lg-none">
                 <form class="nav-search-bar border-radius-5">
                     <input class="nav-search-input" placeholder="Application tracking" type="search">
@@ -48,28 +46,18 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
-                            <a aria-current="page" class="nav-link active"> <nuxt-link to="/"> Home </nuxt-link></a>
+                            <nuxt-link to="/" aria-current="page" class="nav-link active"> Home </nuxt-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"><nuxt-link to="/about"> About </nuxt-link></a>
+                            <nuxt-link to="/about" class="nav-link"> About </nuxt-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/basic-information.html">Our Services</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/visa-consultancy.html">- Visa Consultancy</a></li>
-                                <li><a class="dropdown-item" href="/visa-processing-in-india.html">- Visa Processing in
-                                    India</a></li>
-                                <li><a class="dropdown-item" href="/visa-processing-in-nepal.html">- Visa Processing in
-                                    Nepal</a></li>
-                                <li><a class="dropdown-item" href="/e-visa-processing.html">- E-Visa Processing</a></li>
-                                <li><a class="dropdown-item" href="/one-way-collection.html">- One Way Collection</a></li>
-                                <li><a class="dropdown-item" href="/document-legalization.html">- Document
-                                    Legalization</a></li>
-                            </ul>
-                        </li>
+                        <nuxt-link to="/services" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> Our services </nuxt-link>
+                        <ul class="dropdown-menu">
+                            <li v-for="(ser, key) in services" :key="key"><nuxt-link v-bind:to="'/services/' + ser.slug" class="dropdown-item"> {{ser.name}} </nuxt-link></li>
+                          </ul>
                         <li class="nav-item">
-                            <a class="btn btn-gradient" href="/visa-eligibility-checker.html">Visa Eligibility
-                                Checker</a>
+                            <nuxt-link to="/visa-eligibility-checker" class="btn btn-gradient">Visa Eligibility Checker</nuxt-link>
                         </li>
                     </ul>
                     <form class="nav-search-bar border-radius-5 d-none d-lg-flex">
@@ -83,28 +71,19 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link active"><nuxt-link to="/"> Home </nuxt-link></a>
+                        <nuxt-link class="nav-link active" to="/"> Home </nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <a aria-current="page" class="nav-link"><nuxt-link to="/about"> About </nuxt-link></a>
+                        <nuxt-link to="/about" aria-current="page" class="nav-link"> About </nuxt-link>
                     </li>
                     <li class="nav-item dropdown">
                         <nuxt-link to="/services" class="nav-link  dropdown-toggle" data-bs-toggle="dropdown"> Our services </nuxt-link>
                         <ul class="dropdown-menu">
-                            <li v-for="(ser, key) in services" :key="key"><nuxt-link v-bind:to="'/' + ser.name" class="dropdown-item"> {{ser.name}} </nuxt-link></li>
-                            <!--<li><a class="dropdown-item" href="/visa-processing-in-india.html">Visa Processing in
-                                India</a></li>
-                            <li><a class="dropdown-item" href="/visa-processing-in-nepal.html">Visa Processing in
-                                Nepal</a></li>
-                            <li><a class="dropdown-item" href="/e-visa-processing.html">E-Visa Processing</a></li>
-                            <li><a class="dropdown-item" href="/one-way-collection.html">One Way Collection</a></li>
-                            <li><a class="dropdown-item" href="/document-legalization.html">Document
-                                Legalization</a></li> -->
-                        </ul>
+                            <li v-for="(ser, key) in services" :key="key"><nuxt-link v-bind:to="'/services/' + ser.slug" class="dropdown-item"> {{ser.name}} </nuxt-link></li>
+                          </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-gradient" href="/visa-eligibility-checker.html">Visa Eligibility
-                            Checker</a>
+                        <nuxt-link to="/visa-eligibility-checker" class="btn btn-gradient"> Visa Eligibility Checker </nuxt-link>
                     </li>
                 </ul>
                 <form class="nav-search-bar border-radius-5 d-none d-lg-flex">
@@ -135,7 +114,7 @@ export default {
   },
   created() {
     this.$axios
-      .get("http://localhost:8084/api/ser_list")
+      .get("https://b2bdemo.visathing.in/api/ser_list")
       .then((response) => {
           (this.services = response.data.services);
          // console.log(response.data.services);

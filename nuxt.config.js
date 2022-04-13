@@ -9,7 +9,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+     // { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -17,14 +17,14 @@ export default {
     ],
     script: [
       // { src: 'https://unpkg.com/codyhouse-framework/main/assets/js/util.js', async: true },
-      // {  src: '/js/bootstrap.bundle.min.js', body: true},
-      // { src: '/js/jquery.min.js' ,body: true},
-      { type: 'text/javascript', src: '/js/swiper-bundle.min.js', body: true },
-      // { src: '/js/circle-progress.min.js', body: true},
+       {  src: '/js/bootstrap.bundle.min.js', body: true},
+       { src: '/js/jquery.min.js' ,body: true},
+      //{ type: 'text/javascript', src: '/js/swiper-bundle.min.js', body: true },
+       { src: '/js/circle-progress.min.js', body: true},
       //{ src: '/js/script.js', body: true},
       { type: 'text/javascript', src: '/js/custom.min.js', body: true },
       // { type: 'text/javascript', src: 'http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js' ,body: true},
-      //  { type: 'text/javascript', src: '/js/jquery-ui.js', body: true}
+        { type: 'text/javascript', src: '/js/jquery-ui.js', body: true}
     ],
     htmlAttrs: {
       class: 'js'

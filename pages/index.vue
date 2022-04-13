@@ -1,44 +1,6 @@
 <template>
   <div>
-    <!-- Hero section Start -->
-    <section id="hero">
-      <div class="container">
-        <!-- Hero Content -->
-
-        <div class="hero-content">
-          <h1 @click="getApi" class="hero-title">Your Visa Partner.</h1>
-          <h2 class="hero-subtitle">Need a Visa?</h2>
-        </div>
-        <div class="requirement-checker">
-          <div class="select-box">
-            <label>I'm a Citizen Of</label>
-            <select aria-label="select" class="form-select select-option">
-              <option selected>Bangladesh</option>
-              <option value="1">Bangladesh</option>
-            </select>
-          </div>
-          <div class="select-box">
-            <label>Travelling to</label>
-            <select aria-label="select" class="form-select select-option">
-              <option selected>Belgium</option>
-              <option value="1">Belgium</option>
-            </select>
-          </div>
-          <div class="select-box">
-            <label>Purpose of Travelling</label>
-            <select aria-label="select" class="form-select select-option">
-              <option selected>Choose if you want</option>
-              <option value="1">One</option>
-            </select>
-          </div>
-          <button class="btn-gradient">
-            <a href="/basic-information.html">Check Requirements</a>
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- Hero section End -->
-
+    <CheckRequirement />
     <ExploreVisa />
     <EligibilityChecking />
     <EasySteps />
@@ -75,6 +37,7 @@
 <script>
 import axios from "axios";
 import Logo from "~/components/NuxtLogo.vue";
+import CheckRequirement from "../components/CheckRequirement";
 import ExploreVisa from "../components/ExploreVisa";
 import EligibilityChecking from "../components/EligibilityChecking";
 import EasySteps from "../components/EasySteps";
@@ -90,6 +53,7 @@ import {
 export default {
   components: {
     Logo,
+    CheckRequirement,
     ExploreVisa,
     EligibilityChecking,
     EasySteps,
@@ -113,7 +77,7 @@ export default {
 //   methods: {
 //     getApi() {
 //       this.$axios
-//         .get("http://localhost:8084/api/country_name")
+//         .get("https://b2bdemo.visathing.in/api/country_name")
 //         .then((response) => {
 //           console.log(response.data);
 //         });

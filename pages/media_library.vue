@@ -1,7 +1,7 @@
 <template>
   <div>
        <nuxt-child />
-        <h1> Media Library main</h1>
+        
   </div>
 </template>
 

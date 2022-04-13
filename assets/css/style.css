@@ -1168,7 +1168,9 @@ section p {
     margin-bottom: 20px;
     border-radius: 5px;
 }
-
+.ques-select >option{
+    background: #333;
+}
 .ques-box {
     padding: 30px 0 35px 25px;
     border: 1px solid var(--color-white);

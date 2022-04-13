@@ -7,91 +7,97 @@
       </div>
 
       <div class="row justify-content-md-between justify-content-center mb-4">
-        <div
-          class="col-md-2 col-4"
-          v-for="(data, key) in data_all"
-          :key="key"
-          v-show="key == 0"
-        >
+        <div class="col-md-2 col-4">
           <a
             href="/visa-free.html"
             class="tablinks"
             onmouseover="openCity(event,'exploreVisa0')"
           >
             <div class="step-box border-radius-5 text-center">
-              <h3>{{ data.name }}</h3>
-              <p>({{ data.countries_explore.length }} Countries)</p>
+              <h3>{{ datas1.name }}</h3>
+              <p
+                v-for="(data, key) in data_all"
+                :key="key"
+                v-show="'D1' + key == 'D1' + 0"
+              >
+                ({{ data.countries_explore.length }} Countries)
+              </p>
             </div>
           </a>
         </div>
-        <div
-          class="col-md-2 col-4"
-          v-for="(data2, key2) in data_all"
-          :key="key2"
-          v-show="key2 == 1"
-        >
+        <div class="col-md-2 col-4">
           <a
-            href="/on-arrival-visa.html"
+            href="#"
             class="tablinks"
             onmouseover="openCity(event, 'exploreVisa1')"
           >
             <div class="step-box border-radius-5 text-center">
-              <h3>{{ data2.name }}</h3>
-              <p>({{ data2.countries_explore.length }} Countries)</p>
+              <h3>{{ datas2.name }}</h3>
+              <p
+                v-for="(data2, key2) in data_all"
+                :key="key2"
+                v-show="'D2' + key2 == 'D2' + 1"
+              >
+                ({{ data2.countries_explore.length }} Countries)
+              </p>
             </div>
           </a>
         </div>
-        <div
-          class="col-md-2 col-4"
-          v-for="(data3, key3) in data_all"
-          :key="key3"
-          v-show="key3 == 2"
-        >
+        <div class="col-md-2 col-4">
           <a
             href="/e-visa.html"
             class="tablinks"
             onmouseover="openCity(event, 'exploreVisa2')"
           >
             <div class="step-box border-radius-5 text-center">
-              <h3>{{ data3.name }}</h3>
-              <p>({{ data3.countries_explore.length }} Countries)</p>
+              <h3>{{ datas3.name }}</h3>
+              <p
+                v-for="(data3, key3) in data_all"
+                :key="key3"
+                v-show="'D3' + key3 == 'D3' + 2"
+              >
+                ({{ data3.countries_explore.length }} Countries)
+              </p>
             </div>
           </a>
         </div>
         <div class="col-12 d-md-none">
           <div class="divider-lg"></div>
         </div>
-        <div
-          class="col-md-2 col-4"
-          v-for="(data4, key4) in data_all"
-          :key="key4"
-          v-show="key4 == 3"
-        >
+        <div class="col-md-2 col-4">
           <a
             href="/flexible-submission.html"
             class="tablinks"
             onmouseover="openCity(event, 'exploreVisa3')"
           >
             <div class="step-box border-radius-5 text-center">
-              <h3>{{ data4.name }}</h3>
-              <p>({{ data4.countries_explore.length }} Countries)</p>
+              <h3>{{ datas4.name }}</h3>
+              <p
+                v-for="(data4, key4) in data_all"
+                :key="key4"
+                v-show="'D4' + key4 == 'D4' + 3"
+              >
+                ({{ data4.countries_explore.length }} Countries)
+              </p>
             </div>
           </a>
         </div>
-        <div
-          class="col-md-2 col-4"
-          v-for="(data5, key5) in data_all"
-          :key="key5"
-          v-show="key5 == 4"
-        >
+        <div class="col-md-2 col-4">
           <a
             href="/flexible-submission.html"
             class="tablinks"
             onmouseover="openCity(event, 'exploreVisa4')"
           >
             <div class="step-box border-radius-5 text-center">
-              <h3>{{ data5.name }}</h3>
-              <p>({{ data5.countries_explore.length }} Countries)</p>
+              <h3>{{ datas5.name }}</h3>
+              <p
+                v-for="(data5, key5) in data_all"
+                :key="key5">
+               <span v-if="'D5' + key5 === 'D5' + 4"
+              >
+                ({{ data5.countries_explore.length }} Countries)
+               </span>
+              </p>
             </div>
           </a>
         </div>
@@ -113,6 +119,7 @@
                 :key="c1"
               >
                 <img
+                  v-if="cty1.flag"
                   class="h-64 w-64"
                   style="height: 124px; width: 190px"
                   :alt="cty1.name"
@@ -141,6 +148,7 @@
                 :key="c2"
               >
                 <img
+                  v-if="cty2.flag"
                   class="h-64 w-64"
                   style="height: 124px; width: 190px"
                   :alt="cty2.name"
@@ -169,6 +177,7 @@
                 :key="c3"
               >
                 <img
+                v-if="cty3.flag"
                   class="h-64 w-64"
                   style="height: 124px; width: 190px"
                   :alt="cty3.name"
@@ -197,6 +206,7 @@
                 :key="c4"
               >
                 <img
+                v-if="cty4.flag"
                   class="h-64 w-64"
                   style="height: 124px; width: 190px"
                   :alt="cty4.name"
@@ -225,6 +235,7 @@
                 :key="c5"
               >
                 <img
+                v-if="cty5.flag"
                   class="h-64 w-64"
                   style="height: 124px; width: 190px"
                   :alt="cty5.name"
@@ -273,6 +284,7 @@ export default {
 
   data() {
     return {
+      key: 0,
       data_all: [],
       datas: [],
       datas1: [],
@@ -280,7 +292,7 @@ export default {
       datas3: [],
       datas4: [],
       datas5: [],
-      services: [],
+      // services: [],
       //banners: ["/slider-1.png", "/slider-2.png", "/slider-3.png"],
       swiperOption: {
         slidesPerView: 4,
@@ -458,20 +470,10 @@ export default {
           (this.datas3 = response.data.datas3),
           (this.datas4 = response.data.datas4),
           (this.datas5 = response.data.datas5),
-          (this.data_all = response.data.data_all),
-          (this.services = response.data.services);
-         // console.log(response.data.datas1);
+          (this.data_all = response.data.data_all);
+        // (this.services = response.data.services);
+        // console.log(response.data.datas1);
       });
-
-    // try {
-    //   let res = await http.get(
-    //     "http://localhost:8084/api/country_name"
-    //   );
-    //   this.datas = res.data.datas;
-    //   console.log(res.data.datas);
-    // } catch (error) {
-    //   console.log(error);
-    // }
   },
 
   methods: {

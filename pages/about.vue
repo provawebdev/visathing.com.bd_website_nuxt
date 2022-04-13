@@ -1,10 +1,10 @@
 <template>
   <div>
-   <nuxt-child />
+   <nuxt-child :data="data" />
     <!-- Page Name -->
     <section class="page-name text-center">
       <div class="container">
-        <h1>About Us</h1>
+        <h1>{{data.name}}</h1>
       </div>
     </section>
     <!-- Page Name -->
@@ -15,109 +15,57 @@
           <div class="row align-items-center">
             <div class="col-lg-6 col-12 order-1 order-lg-0">
               <div class="content-image">
-                <!--<img src="./assets/img/about-img-4.png" class="img-fluid" alt=""> -->
+                <img :src="'https://b2bdemo.visathing.in/storage/Menu/' + data.image" class="img-fluid" :alt="data.name">
               </div>
             </div>
             <div class="col-lg-6 col-12">
               <div class="content-text">
-                <h2>About Us</h2>
-                <p>
-                  VISAThing is a registered trademark of Your Trip Mate Limited
-                  based out of Bangladesh. We are a travel technology company
-                  striving to build a convenient travel ecosystem by connecting
-                  different immigration/consular authorities to global
-                  population of travelers with the help of innovative services
-                  and latest technologies.
-                </p>
-                <button class="about-btn">Contact Us</button>
+                <h2>{{data.name}}</h2>
+                <p v-html="data.body"> </p>
+                <a class="about-btn">Contact Us</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="content-box content-box-2">
+      </div>
+        <div class="container" v-for="(con, key2) in data.contents" :key="key2">
+        <div v-show="key2 == 0" class="content-box content-box-2">
           <div class="row">
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-6 col-12" >
               <div class="content-text">
-                <h2>What We Do?</h2>
-                <p>
-                  We aggressively target any issues in the global travel
-                  scenario and don’t rest until we find a solution. As VISAThing
-                  was founded in Bangladesh, we started from the scratch by
-                  eliminating recurring visa hassles one by one for Bangladeshi
-                  travelers.
-                </p>
-                <p>
-                  Over the years we have successfully eradicated the lack of
-                  accurate travel/visa information by building the largest visa
-                  database www.visathing.com with accurate visa and travel
-                  information. We tried to answer the questions of the
-                  Bangladeshi travelers by dedicated visa hotline and social
-                  medias. We have developed services that would guide a traveler
-                  prepare a visa application with proper documentation with our
-                  premium consultancy.
-                </p>
-                <p>
-                  We have enabled travelers to avoid unnecessary cross-country
-                  trips to non-resident embassies for visa processing with our
-                  Visa Processing Service. We have catered the need of students
-                  who would be lost and could use some guidance on picking the
-                  most suitable universities and study program and carry out the
-                  entire process including Admission and Student Visa
-                  Processing.
-                </p>
-                <p>
-                  We have built Visa Management System and enabled individual
-                  travelers, business entities and government/non-government
-                  offices to apply for visa online, find requirements, create
-                  individual/organization profile and much more. Our Online
-                  Passport Tracking and Notification System keep them posted;
-                  always! Thus, we have become the visa partner of Bangladeshi
-                  travelers who relies on us heavily to guide them through the
-                  taxing visa journeys.
-                </p>
-              </div>
+                <h2>{{con.name}} {{key2}}</h2>
+                <p v-html="con.body"> </p>
+                 </div>
             </div>
             <div class="col-lg-6 col-12">
               <div class="content-image">
-                <!--<img src="./assets/img/about-img-4.png" class="img-fluid" alt=""> -->
+                <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image" class="img-fluid" :alt="con.name"> 
               </div>
             </div>
           </div>
         </div>
-        <div class="content-box content-box-3">
+        <div v-show="key2 == 1" class="content-box content-box-3" >
           <div class="row">
             <div class="col-lg-6 col-12 order-1 order-lg-0">
               <div class="content-image">
-                <!--<img src="./assets/img/about-img-4.png" class="img-fluid" alt=""> -->
+                 <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image" class="img-fluid" alt=""> 
               </div>
             </div>
             <div class="col-lg-6 col-12">
               <div class="content-text">
-                <h2>Our Mission</h2>
-                <p>
-                  Our mission is to eliminate the fear of complicated processing
-                  systems for acquiring visa/travel permits from every
-                  international traveler and help every government to make
-                  efficient & informed visa decision.
-                </p>
-                <h2>Our Vision</h2>
-                <p>
-                  Our vision is to significantly minimize human intervention and
-                  maximize virtual communications and the inclusion of
-                  computerized service processes in the travel document
-                  acquisition system. We believe it will create a borderless
-                  travel experience for every international traveler.
-                </p>
+                <h2>{{con.name}} {{key2}}</h2>
+               <p v-html="con.body"> </p>
               </div>
             </div>
           </div>
         </div>
-        <div class="content-box content-box-4">
+        <div v-show="key2 == 2" class="content-box content-box-4">
           <div class="row">
             <div class="col-lg-6 col-12">
               <div class="content-text">
-                <h2>Why Visathing is The Best?</h2>
-                <ul class="reason-list">
+                <h2>{{con.name}} {{key2}}</h2>
+                <p v-html="con.body"> </p>
+                <!-- <ul class="reason-list">
                   <li>
                     <span>01</span>
                     <p>
@@ -129,41 +77,14 @@
                     <span>02</span>
                     <p>We are fast, efficient and simple</p>
                   </li>
-                  <li>
-                    <span>03</span>
-                    <p>
-                      We ensure the accuracy of the information and provide
-                      complete transparency about the services
-                    </p>
-                  </li>
-                  <li>
-                    <span>04</span>
-                    <p>
-                      We ensure proper security and privacy protection standard
-                      while using your information for visa
-                      processing/legalization purposes
-                    </p>
-                  </li>
-                  <li>
-                    <span>05</span>
-                    <p>
-                      We serve thousands of clients every year from different
-                      fields such as individual travelers, businesses, corporate
-                      houses, conglomerates, International agencies,
-                      government/non-government institutions etc.
-                    </p>
-                  </li>
-                </ul>
-                <p>
-                  Our customer relations team ensures the best possible Customer
-                  Support keeping you updated and notified about each step of
-                  your service processing, answering queries and so on.
-                </p>
+                 
+                </ul> -->
+               
               </div>
             </div>
             <div class="col-lg-6 col-12">
               <div class="content-image">
-                <!--<img src="./assets/img/about-img-4.png" class="img-fluid" alt=""> -->
+                 <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image" class="img-fluid" alt=""> 
               </div>
             </div>
           </div>
@@ -172,11 +93,39 @@
     </section>
   </div>
 </template>
-
 <script>
+import axios from "axios";
+import bgImg from "assets/img/basic-checklist-banner.png";
+import {
+  cacheAdapterEnhancer,
+  throttleAdapterEnhancer,
+} from "axios-extensions";
+const http = axios.create({
+  baseURL: "https://b2bdemo.visathing.in/api",
+
+  adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
+    threshold: 10 * 1000,
+  }),
+});
 export default {
-  head: {
-    titleTemplate: "About US - %s",
+  head() {
+    return {
+      title: "",
+      titleTemplate: `%s ${this.$route.name} - VISAThing`,
+    };
+  },
+  data() {
+    return {
+      datas: {},
+      data: [],
+      image: bgImg,
+    };
+  },
+  created() {
+    this.$axios.get("https://b2bdemo.visathing.in/api/manu_list/").then((response) => {
+      this.data = response.data.about;
+      console.log( response.data.about);
+    });
   },
 };
 </script>
