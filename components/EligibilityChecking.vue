@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="d-flex gap-4 mt-4">
-                      <button v-if="key === total"
+                      <button v-if="key +1 === total"
                         @click.prevent="nextQst()"
                         type="button"
                         id="btnNext"
@@ -69,14 +69,14 @@
                         >
                         Check Score
                       </button>
-                       <button v-if="key < total"
+                       <button v-if="key + 1 < total"
                         @click.prevent="nextQst()"
                         type="button"
                         id="btnNext"
                         value="Next"
                         class="list-form-btn"
                       >
-                        Next {{key}} {{total}}
+                        Next {{key + 1}} {{total}}
                       </button>
                     </div>
                   </div>
