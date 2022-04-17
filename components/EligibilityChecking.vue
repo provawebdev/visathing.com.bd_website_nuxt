@@ -64,10 +64,10 @@
                         @click.prevent="nextQst()"
                         type="button"
                         id="btnNext"
-                        value="Next"
+                        value="Check Score"
                         class="list-form-btn"
                         >
-                        Get Score
+                        Check Score
                       </button>
                        <button v-if="key < total"
                         @click.prevent="nextQst()"
@@ -76,7 +76,7 @@
                         value="Next"
                         class="list-form-btn"
                       >
-                        Next {{total}}
+                        Next {{key}} {{total}}
                       </button>
                     </div>
                   </div>
