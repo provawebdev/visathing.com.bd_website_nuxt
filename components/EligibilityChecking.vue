@@ -66,6 +66,16 @@
                         id="btnNext"
                         value="Next"
                         class="list-form-btn"
+                       v-if="key === total">
+                        Get Score
+                      </button>
+                       <button
+                        @click.prevent="nextQst()"
+                        type="button"
+                        id="btnNext"
+                        value="Next"
+                        class="list-form-btn"
+                        v-if="key > total"
                       >
                         Next
                       </button>
