@@ -27,7 +27,7 @@
               <select
                 aria-label="select"
                 class="form-select select-option"
-                v-model="fields.search"
+                v-model="fields.search" required
               >
                <option value="" selected> Select Country </option>
                 <option
