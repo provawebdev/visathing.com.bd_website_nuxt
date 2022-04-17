@@ -66,7 +66,7 @@
                         id="btnNext"
                         value="Next"
                         class="list-form-btn"
-                        v-if="key +1 === total">
+                        v-if="key === total">
                         Get Score
                       </button>
                        <button
@@ -75,7 +75,7 @@
                         id="btnNext"
                         value="Next"
                         class="list-form-btn"
-                        v-if="key +1 > total"
+                        v-if="key < total"
                       >
                         Next
                       </button>
