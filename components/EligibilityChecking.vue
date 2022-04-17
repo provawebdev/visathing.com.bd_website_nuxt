@@ -76,7 +76,7 @@
                         value="Next"
                         class="list-form-btn"
                       >
-                        Next {{key + 1}} {{total}}
+                        Next
                       </button>
                     </div>
                   </div>
