@@ -86,7 +86,7 @@
                         <nuxt-link to="/visa-eligibility-checker" class="btn btn-gradient"> Visa Eligibility Checker </nuxt-link>
                     </li>
                 </ul>
-                <form class="nav-search-bar border-radius-5 d-none d-lg-flex">
+                <form class="nav-search-bar border-radius-5 d-none d-lg-flex" @submit.prevent="submit">
                     <input class="nav-search-input" placeholder="Application tracking" type="search">
                     <button class="nav-search-icon bgc-gradient border-radius-5" type="submit"><span
                             class="fas fa-search"></span></button>
@@ -134,7 +134,7 @@ export default {
       if (this.search) {
         this.$router
           .push({
-            path: "/visa-application-status/",
+            path: "/visa-application-status/" + this.search,
             slug: this.search,
           
           })
