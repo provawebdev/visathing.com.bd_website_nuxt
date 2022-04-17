@@ -76,7 +76,7 @@
                         value="Next"
                         class="list-form-btn"
                       >
-                        Next
+                        Next {{total}}
                       </button>
                     </div>
                   </div>
