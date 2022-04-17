@@ -123,7 +123,7 @@
                   class="h-64 w-64"
                   style="height: 124px; width: 190px"
                   :alt="cty1.name"
-                  :src="'http://localhost:8084/storage/flag/' + cty1.flag"
+                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty1.flag"
                 />
                 <p>{{ cty1.name }}</p>
               </div>
@@ -152,7 +152,7 @@
                   class="h-64 w-64"
                   style="height: 124px; width: 190px"
                   :alt="cty2.name"
-                  :src="'http://localhost:8084/storage/flag/' + cty2.flag"
+                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty2.flag"
                 />
                 <p>{{ cty2.name }}</p>
               </div>
@@ -181,7 +181,7 @@
                   class="h-64 w-64"
                   style="height: 124px; width: 190px"
                   :alt="cty3.name"
-                  :src="'http://localhost:8084/storage/flag/' + cty3.flag"
+                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty3.flag"
                 />
                 <p>{{ cty3.name }}</p>
               </div>
@@ -210,7 +210,7 @@
                   class="h-64 w-64"
                   style="height: 124px; width: 190px"
                   :alt="cty4.name"
-                  :src="'http://localhost:8084/storage/flag/' + cty4.flag"
+                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty4.flag"
                 />
                 <p>{{ cty4.name }}</p>
               </div>
@@ -239,7 +239,7 @@
                   class="h-64 w-64"
                   style="height: 124px; width: 190px"
                   :alt="cty5.name"
-                  :src="'http://localhost:8084/storage/flag/' + cty5.flag"
+                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty5.flag"
                 />
                 <p>{{ cty5.name }}</p>
               </div>
@@ -268,7 +268,7 @@ import {
 } from "axios-extensions";
 
 const http = axios.create({
-  baseURL: "http://localhost:8084/api",
+  baseURL: "https://b2bdemo.visathing.in/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -463,7 +463,7 @@ export default {
   },
   created() {
     this.$axios
-      .get("http://localhost:8084/api/country_name")
+      .get("https://b2bdemo.visathing.in/api/country_name")
       .then((response) => {
         (this.datas1 = response.data.datas1),
           (this.datas2 = response.data.datas2),

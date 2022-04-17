@@ -38,7 +38,7 @@
                 </p>
               </div>
               <img
-                :src="'http://localhost:8084/storage/Content/' + data.image"
+                :src="'https://b2bdemo.visathing.in/storage/Content/' + data.image"
                 class="img-fluid"
                 :alt="data.name"
               />
@@ -77,7 +77,7 @@
                   class="post-item d-flex align-items-start"
                 >
                   <img
-                    :src="'http://localhost:8084/storage/Content/' + con.image"
+                    :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image"
                     :alt="con.name"
                   />
                   <div class="post-item-body">
@@ -148,7 +148,7 @@ import {
   throttleAdapterEnhancer,
 } from "axios-extensions";
 const http = axios.create({
-  baseURL: "http://localhost:8084/api",
+  baseURL: "https://b2bdemo.visathing.in/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -169,7 +169,7 @@ export default {
   },
   created() {
     this.$axios
-      .get("http://localhost:8084/api/content_show/" + this.$route.params.slug)
+      .get("https://b2bdemo.visathing.in/api/content_show/" + this.$route.params.slug)
       .then((response) => {
         this.data = response.data.content;
         console.log(response.data.content);

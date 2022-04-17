@@ -115,7 +115,7 @@ export default {
   },
   created() {
     this.$axios
-      .get("http://localhost:8084/api/ser_list")
+      .get("https://b2bdemo.visathing.in/api/ser_list")
       .then((response) => {
           (this.services = response.data.services);
          // console.log(response.data.services);

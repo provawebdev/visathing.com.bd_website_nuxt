@@ -15,7 +15,7 @@
           <div class="row align-items-center">
             <div class="col-lg-6 col-12 order-1 order-lg-0">
               <div class="content-image">
-                <img :src="'http://localhost:8084/storage/Menu/' + data.image" class="img-fluid" :alt="data.name">
+                <img :src="'https://b2bdemo.visathing.in/storage/Menu/' + data.image" class="img-fluid" :alt="data.name">
               </div>
             </div>
             <div class="col-lg-6 col-12">
@@ -39,7 +39,7 @@
             </div>
             <div class="col-lg-6 col-12">
               <div class="content-image">
-                <img :src="'http://localhost:8084/storage/Content/' + con.image" class="img-fluid" :alt="con.name"> 
+                <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image" class="img-fluid" :alt="con.name"> 
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@
           <div class="row">
             <div class="col-lg-6 col-12 order-1 order-lg-0">
               <div class="content-image">
-                 <img :src="'http://localhost:8084/storage/Content/' + con.image" class="img-fluid" alt=""> 
+                 <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image" class="img-fluid" alt=""> 
               </div>
             </div>
             <div class="col-lg-6 col-12">
@@ -84,7 +84,7 @@
             </div>
             <div class="col-lg-6 col-12">
               <div class="content-image">
-                 <img :src="'http://localhost:8084/storage/Content/' + con.image" class="img-fluid" alt=""> 
+                 <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image" class="img-fluid" alt=""> 
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@ import {
   throttleAdapterEnhancer,
 } from "axios-extensions";
 const http = axios.create({
-  baseURL: "http://localhost:8084/api",
+  baseURL: "https://b2bdemo.visathing.in/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -122,7 +122,7 @@ export default {
     };
   },
   created() {
-    this.$axios.get("http://localhost:8084/api/manu_list/").then((response) => {
+    this.$axios.get("https://b2bdemo.visathing.in/api/manu_list/").then((response) => {
       this.data = response.data.about;
       console.log( response.data.about);
     });

@@ -101,7 +101,7 @@ import {
 } from "axios-extensions";
 
 const http = axios.create({
-  baseURL: "http://localhost:8084/api",
+  baseURL: "https://b2bdemo.visathing.in/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -139,7 +139,7 @@ export default {
       this.key = 0;
       this.question = [this.question[this.key]];
       this.result = 0;
-      axios.get("http://localhost:8084/api/eligibility_cheker_qus").then(
+      axios.get("https://b2bdemo.visathing.in/api/eligibility_cheker_qus").then(
         function (response) {
           this.country = this.country;
           this.country_list = response.data.country_list;

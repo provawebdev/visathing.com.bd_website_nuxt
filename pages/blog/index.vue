@@ -21,7 +21,7 @@
               <img
                 alt="..."
                 class="card-img-top"
-                :src="'http://localhost:8084/storage/Content/' + con.image"
+                :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image"
               />
               <div class="item-content">
                 <div class="news-item-header">
@@ -233,7 +233,7 @@ import {
   throttleAdapterEnhancer,
 } from "axios-extensions";
 const http = axios.create({
-  baseURL: "http://localhost:8084/api",
+  baseURL: "https://b2bdemo.visathing.in/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -255,7 +255,7 @@ export default {
   },
   created() {
     this.$axios
-      .get("http://localhost:8084/api/manu_show/" + this.$route.name)
+      .get("https://b2bdemo.visathing.in/api/manu_show/" + this.$route.name)
       .then((response) => {
         this.data = response.data.menu;
         console.log(response.data);

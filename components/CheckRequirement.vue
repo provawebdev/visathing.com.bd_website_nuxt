@@ -76,7 +76,7 @@ import {
 } from "axios-extensions";
 
 const http = axios.create({
-  baseURL: "http://localhost:8084/api",
+  baseURL: "https://b2bdemo.visathing.in/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -102,7 +102,7 @@ export default {
   },
   created() {
     this.$axios
-      .get("http://localhost:8084/api/country_name")
+      .get("https://b2bdemo.visathing.in/api/country_name")
       .then((response) => {
         this.country_list = response.data.country_list;
         this.tvl_purpose = response.data.tvl_purpose;
@@ -111,7 +111,7 @@ export default {
   methods: {
     submit() {
       this.$axios
-        .post("http://localhost:8084/api/country_search/" + this.fields.search)
+        .post("https://b2bdemo.visathing.in/api/country_search/" + this.fields.search)
         .then(
           //  (response) => (this.allusers = response.data)
           ({ data }) => (

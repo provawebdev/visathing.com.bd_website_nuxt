@@ -256,7 +256,7 @@ import {
 } from "axios-extensions";
 
 const http = axios.create({
-  baseURL: "http://localhost:8084/api",
+  baseURL: "https://b2bdemo.visathing.in/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -274,7 +274,7 @@ export default {
   },
   created() {
     this.$axios
-      .get("http://localhost:8084/api/ser_list")
+      .get("https://b2bdemo.visathing.in/api/ser_list")
       .then((response) => {
           (this.services = response.data.services);
          // console.log(response.data.services);

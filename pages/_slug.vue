@@ -13,7 +13,7 @@
               <div class="online-apply-header">
                 <div class="apply-cuntry-flug fs-20 fs-sm-12">
                   <img
-                    :src="'http://localhost:8084/storage/flag/' + data.flag"
+                    :src="'https://b2bdemo.visathing.in/storage/flag/' + data.flag"
                     height="50px"
                     alt="cuntry-flug-img"
                   />
@@ -742,7 +742,7 @@
                   <a
                     class="btn btn-gradient"
                     :href="
-                      'http://localhost:8084/storage/app_form/' + app.app_form
+                      'https://b2bdemo.visathing.in/storage/app_form/' + app.app_form
                     "
                     download
                     >Download</a
@@ -829,7 +829,7 @@ import {
   throttleAdapterEnhancer,
 } from "axios-extensions";
 const http = axios.create({
-  baseURL: "http://localhost:8084/api",
+  baseURL: "https://b2bdemo.visathing.in/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -903,7 +903,7 @@ export default {
 
   created() {
     this.$axios
-      .get("http://localhost:8084/api/country/" + this.$route.params.slug)
+      .get("https://b2bdemo.visathing.in/api/country/" + this.$route.params.slug)
       .then((response) => {
         this.data = response.data.data;
         this.checklists = response.data.checklists;
@@ -923,7 +923,7 @@ export default {
     },
      submit() {
       this.$axios
-        .post("http://localhost:8084/api/country_search/" + this.fields.search)
+        .post("https://b2bdemo.visathing.in/api/country_search/" + this.fields.search)
         .then(
           ({ data }) => (
             (this.travel_purpose = this.fields.travel_purpose),
