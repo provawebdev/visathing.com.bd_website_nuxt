@@ -218,6 +218,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Logo from "~/components/NuxtLogo.vue";
 import {
   cacheAdapterEnhancer,
@@ -266,7 +267,7 @@ export default {
       e.preventDefault();
 
       this.$axios
-        .get("https://visathing.com.bd/track/status?status=" + this.search)
+        .get("https://visathing.com.bd/track/status/" + this.search)
         .then(({ data }) => (this.travel_purpose = this.search))
         .catch((error) => console.log(error));
       if (this.search) {
