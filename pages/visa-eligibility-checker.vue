@@ -29,85 +29,7 @@
                 <div class="col-lg-6 col-md-9 mb-lg-0">
                   <form id='eligibility-form'>
                     <div class="list-form-country">
-                      <select class="form-select">
-                        <option selected>Belgium</option>
-                        <option value="1">One</option>
-                      </select>
-                    </div>
-                    <div class="list-form-age">
-                      <select class="form-select">
-                        <option selected>Age 18-30 Years</option>
-                        <option value="1">One</option>
-                      </select>
-                    </div>
-                    <div class="list-form-plan">
-                        <div id="tabs">
-                          <ul class="d-none">
-                            <li><a href="#tabs-1">Tab 1</a></li>
-                            <li><a href="#tabs-2">Tab 2</a></li>
-                          </ul>
-                          <!-- Form Section Here -->
-                          <div id="tabs-1">
-                            <label><span>01. How Log Do Yo Plan To Stay?</span></label>
-                            <div class="form-check form-option">
-                              <input class="form-check-input" type="radio" name="checkbox" id="sate_one_one">
-                              <label class="form-check-label" for="sate_one_one">
-                                Less then 90 days
-                              </label>
-                            </div>
-                            <div class="form-check form-option">
-                              <input class="form-check-input" type="radio" name="checkbox" id="sate_one_two">
-                              <label class="form-check-label" for="sate_one_two">
-                                More then 190 days
-                              </label>
-                            </div>
-                          </div>
-                          <div id="tabs-2">
-                            <label><span>02. How Log Do Yo Plan To Stay?</span></label>
-                            <div class="form-check form-option">
-                              <input class="form-check-input" type="radio" name="checkbox" id="sate_two_one">
-                              <label class="form-check-label" for="sate_two_one">
-                                Less then 190 days
-                              </label>
-                            </div>
-                            <div class="form-check form-option">
-                              <input class="form-check-input" type="radio" name="checkbox" id="sate_two_two">
-                              <label class="form-check-label" for="sate_two_two">
-                                More then 290 days
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- Next Prev Button Here -->
-                        <div class="mt-4">
-                          <input type="button" id="btnPrevious" value="Bank" class="form-previous-btn"/>
-                          <input type="button" id="btnNext" value="Next" class="form-next-btn" />
-                        </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="col-lg-6 col-md-9 col-sm-12 mt-4">
-                  <div class="check-progress">
-                    <div id="circle" class="position-relative"><span>85%</span></div>
-                    <button class="btn-gradient">Download PDF <span class="fas fa-download"></span></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-    <section id="eligibility-checker-wrapper">
-    <div class="container">
-      <div class="section-header text-white">
-        <h2>Visa Eligibility Checker</h2>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="check-ques">
-            <select
+                       <select
               @change="getCountries($event)"
               class="form-select ques-select"
               name="country"
@@ -124,16 +46,15 @@
                 {{ cty.name }}
               </option>
             </select>
-            <div class="ques-box" name="question">
-              <div id="tabs">
-                <ul class="d-none">
-                  <li><nuxt-link to="#tabs-0">Tab 0</nuxt-link></li>
-                  <li><nuxt-link to="#tabs-1">Tab 1</nuxt-link></li>
-                  <li><nuxt-link to="#tabs-2">Tab 2</nuxt-link></li>
-                  <li><nuxt-link to="#tabs-3">Tab 3</nuxt-link></li>
-                  <li><nuxt-link to="#tabs-4">Tab 4</nuxt-link></li>
-                </ul>
-                <div v-bind:id="'tabs-' + 0">
+                    </div>
+                   
+                    <div class="list-form-plan">
+                        <div id="tabs">
+                          <ul class="d-none">
+                            <li><a href="#tabs-1">Tab 1</a></li>
+                            <li><a href="#tabs-2">Tab 2</a></li>
+                          </ul>
+                          <div v-bind:id="'tabs-' + 0">
                   <div v-if="checker_question != null">
                     <h3>{{ key + 1 }}. {{ checker_question[key].question }}</h3>
                     <div
@@ -158,14 +79,14 @@
                       </label>
                     </div>
 
-                    <div class="d-flex gap-4 mt-4">
+                    <div class="mt-4">
                     <input type="button" id="btnPrevious" value="Bank" class="form-previous-btn"/>
                       <button v-if="key +1 === total"
                         @click.prevent="nextQst()"
                         type="button"
                         id="btnNext"
                         value="Check Score"
-                        class="list-form-btn"
+                        class="form-next-btn"
                         >
                         Check Score
                       </button>
@@ -174,30 +95,32 @@
                         type="button"
                         id="btnNext"
                         value="Next"
-                        class="list-form-btn"
+                        class="form-next-btn"
                       >
                         Next
                       </button>
                     </div>
                   </div>
                 </div>
+                        </div>
+                      
+                    </div>
+                  </form>
+                </div>
+                <div class="col-lg-6 col-md-9 col-sm-12 mt-4">
+                  <div class="check-progress">
+                    <div id="circle" class="position-relative"><span>{{ result}}%</span></div>
+                    <button class="btn-gradient">Score {{ percent}} </button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="check-progress">
-            <div class="position-relative" id="circle">
-              <span>{{ result}}%</span>
-            </div>
-            <button class="btn-gradient">
-               Score Percent : {{ percent}}
-            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
+
   </div>
 </template>
 <script>

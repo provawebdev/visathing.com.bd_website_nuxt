@@ -53,8 +53,8 @@
               class="nav-search-input"
               placeholder="Application tracking"
               type="text"
-              name="search"
-              :v-model="search"
+              name="status"
+              v-model="fields.status"
               required
             />
             <button
@@ -131,15 +131,15 @@
               role="form"
               @submit.prevent="submit"
             >
-             <p v-if="errors.length">
-              <span class="fa fa-asterisk text-danger"></span>
-            </p>
+              <p v-if="errors.length">
+                <span class="fa fa-asterisk text-danger"></span>
+              </p>
               <input
                 class="nav-search-input"
                 placeholder="Application tracking"
                 type="text"
-                name="search"
-                :v-model="search"
+                name="status"
+                v-model="fields.status"
                 required
               />
               <button
@@ -200,7 +200,9 @@
             <input
               class="nav-search-input"
               placeholder="Application tracking"
-              type="search"
+              type="text"
+              name="status"
+              v-model="fields.status"
             />
             <button
               class="nav-search-icon bgc-gradient border-radius-5"
@@ -240,7 +242,9 @@ export default {
   data() {
     return {
       services: [],
-      search: "",
+      fields: {
+        status: "",
+      },
       errors: [],
     };
   },
@@ -248,38 +252,44 @@ export default {
     this.$axios
       .get("https://b2bdemo.visathing.in/api/ser_list")
       .then((response) => {
-          (this.services = response.data.services);
-         // console.log(response.data.services);
+        this.services = response.data.services;
+        // console.log(response.data.services);
       });
   },
   methods: {
     submit: function (e) {
-      if (this.search) {
+      if (this.fields.status) {
         return true;
       }
-
       this.errors = [];
-
-      if (!this.search) {
+      if (!this.fields.status) {
         this.errors.push("required.");
       }
-
       e.preventDefault();
-
       this.$axios
-        .get("https://visathing.com.bd/track/status/" + this.search)
-        .then(({ data }) => (this.search = this.search))
+        .get("https://visathing.com.bd/api/track/status/" + this.fields.status)
+        .then(({ data }) => (this.fields.status = this.fields.status))
         .catch((error) => console.log(error));
-      if (this.search) {
+      if (this.fields.status) {
         this.$router
           .push({
-            path: "/visa-application-status/" + this.search,
-            slug: this.search,
+            path: "/visa-application-status/" + this.fields.status,
+            slug: this.fields.status,
+            params: { name: this.fields.status },
           })
-          .bind(this.search);
+          .bind(this.fields.status);
       }
-      console.log(this.search);
+      console.log(this.fields.status);
     },
+    // submit() {
+    //   this.$router
+    //     .push({
+    //       path: "/visa-application-status/" + this.fields.status,
+    //       slug: this.fields.status,
+    //       params: { name: this.fields.status},
+    //     })
+    //     .bind(this.fields.status);
+    // },
   },
 };
 </script>

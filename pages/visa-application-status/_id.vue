@@ -216,21 +216,21 @@ export default {
   data() {
     return {
       query: "",
-      data: [],
+      data: {},
       
       fields: {
-        search: "",
+        status: "",
       },
       
     };
   },
-
-  created() {
+   created() {
     this.$axios
-      .get("https://visathing.com.bd/track/status?status=" + this.$route.params.id)
+      .get("https://visathing.com.bd/api/track/status/" + this.$route.params.id)
       .then((response) => {
-        this.data = response.data.data;
-        // console.log( response.data.checklists);
+        this.data = this.$route.params.id;
+        //this.data = response.data.content;
+        console.log(this.$route.params.id);
       });
   },
   methods: {
