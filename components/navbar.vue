@@ -17,8 +17,7 @@
             >
           </li>
           <li>
-            <span class="fas fa-map-marker-alt"></span>1st Floor, Homestead
-            Gulshan Link Tower Gulshan-Badda link Road, Gulshan-1, Dhaka-1212
+            <span class="fas fa-map-marker-alt"></span>1st Floor, Homestead Gulshan Link Tower, DCC TA-99, Gulshan-Badda link Road, Gulshan-1, Dhaka-1212
           </li>
         </ul>
         <ul class="topbar-right d-flex">

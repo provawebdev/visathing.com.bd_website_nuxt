@@ -83,9 +83,9 @@
         </div>
       </div>
       <div class="view-all-btn">
-        <a href="/blog">
+        <nuxt-link to="/blog">
           <button class="btn-gradient">View All</button>
-        </a>
+        </nuxt-link>
       </div>
     </div>
   </section>
