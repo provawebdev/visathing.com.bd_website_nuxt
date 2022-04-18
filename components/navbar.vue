@@ -268,7 +268,7 @@ export default {
 
       this.$axios
         .get("https://visathing.com.bd/track/status/" + this.search)
-        .then(({ data }) => (this.travel_purpose = this.search))
+        .then(({ data }) => (this.search = this.search))
         .catch((error) => console.log(error));
       if (this.search) {
         this.$router
