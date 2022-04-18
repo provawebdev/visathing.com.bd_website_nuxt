@@ -219,6 +219,18 @@
 
 <script>
 import Logo from "~/components/NuxtLogo.vue";
+import {
+  cacheAdapterEnhancer,
+  throttleAdapterEnhancer,
+} from "axios-extensions";
+
+const http = axios.create({
+  baseURL: "https://b2bdemo.visathing.in/api",
+
+  adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
+    threshold: 10 * 1000,
+  }),
+});
 export default {
   components: {
     Logo,
