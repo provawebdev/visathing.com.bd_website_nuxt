@@ -54,7 +54,7 @@
               placeholder="Application tracking"
               type="text"
               name="search"
-              v-model="search"
+              :v-model="search"
               required
             />
             <button
@@ -139,7 +139,7 @@
                 placeholder="Application tracking"
                 type="text"
                 name="search"
-                v-model="search"
+                :v-model="search"
                 required
               />
               <button
@@ -240,7 +240,7 @@ export default {
   data() {
     return {
       services: [],
-      search: null,
+      search: "",
       errors: [],
     };
   },
