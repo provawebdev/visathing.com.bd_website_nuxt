@@ -197,7 +197,7 @@
                       Checklist
                     </button>
                   </li>
-                  <li class="fs-16" role="presentation">
+                  <!-- <li class="fs-16" role="presentation">
                     <button
                       class=""
                       id="cmc-tab"
@@ -210,7 +210,7 @@
                     >
                       Customize My Checklist
                     </button>
-                  </li>
+                  </li> -->
                   <li class="fs-16" role="presentation">
                     <button
                       class=""
@@ -316,13 +316,13 @@
               <!-- ----------------------------------------------------------------------- -->
               <!--                   Customize my checklist body content                   -->
               <!-- ----------------------------------------------------------------------- -->
-              <div
+              <!-- <div
                 class="tab-pane fade"
                 id="cmc"
                 role="tabpanel"
                 aria-labelledby="cmc-tab"
               >
-                <!-- line 1 -->
+               
                 <div class="checklist-container">
                   <div class="row align-items-end">
                     <div class="col-lg-6 col-md-12 mb-lg-0">
@@ -351,7 +351,7 @@
                                 <li><a href="#tabs-3">Tab 3</a></li>
                                 <li><a href="#tabs-4">Tab 4</a></li>
                               </ul>
-                              <!-- Form Section Here -->
+                             
                               <div id="tabs-1">
                                 <h5>
                                   <span
@@ -609,7 +609,7 @@
                                 </div>
                               </div>
                             </div>
-                            <!-- Next Prev Button Here -->
+                          
                             <div class="mt-4">
                               <input
                                 type="button"
@@ -640,7 +640,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- ----------------------------------------------------------------------- -->
               <!--                Visa Fees & Processing Time body content                 -->
               <!-- ----------------------------------------------------------------------- -->
