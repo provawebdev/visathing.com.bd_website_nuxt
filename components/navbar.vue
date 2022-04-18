@@ -219,18 +219,6 @@
 
 <script>
 import Logo from "~/components/NuxtLogo.vue";
-import {
-  cacheAdapterEnhancer,
-  throttleAdapterEnhancer,
-} from "axios-extensions";
-
-const http = axios.create({
-  baseURL: "https://b2bdemo.visathing.in/api",
-
-  adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
-    threshold: 10 * 1000,
-  }),
-});
 export default {
   components: {
     Logo,
@@ -238,12 +226,19 @@ export default {
   name: "Navbar",
   data() {
     return {
-      // services: [],
+      services: [],
       search: null,
       errors: [],
     };
   },
-  created() {},
+  created() {
+    this.$axios
+      .get("https://b2bdemo.visathing.in/api/ser_list")
+      .then((response) => {
+          (this.services = response.data.services);
+         // console.log(response.data.services);
+      });
+  },
   methods: {
     submit: function (e) {
       if (this.search) {
