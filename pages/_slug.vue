@@ -15,7 +15,7 @@
                   <img
                     :src="'https://b2bdemo.visathing.in/storage/flag/' + data.flag"
                     height="50px"
-                    alt="cuntry-flug-img"
+                    :alt="data.name"
                   />
                   {{ data.name }} Visa From Bangladesh
                 </div>
@@ -653,7 +653,7 @@
                 <!-- Form 1 -->
                 <div class="visa-fee-form-wrapper">
                   <h3 class="fs-24">Visa Fee Checker</h3>
-                  <form role="form" @submit.prevent="submit">
+                  <form role="form">
                     <div class="form-wrapper">
                       <div class="form-item">
                         <h4 class="fs-16">Country</h4>
@@ -663,34 +663,35 @@
                       </div>
                       <div class="form-item">
                         <h4 class="fs-16">Passport Type</h4>
-                        <select class="form-select" v-model="fields.passport_type , selected">
+                        <select class="form-select" v-model="fields.passport_type">
                           <option :value="null" selected> Select Passport Type </option>
                           <option v-for="(p_type, p_key) in passport_types" :key="p_key" :value="p_type.id">{{p_type.name}}</option>
                           </select>
                       </div>
                       <div class="form-item">
                         <h4 class="fs-16">Visa Type</h4>
-                        <select class="form-select" v-model="fields.visa_type , selected">
-                        <option :value="null" selected> Select Visa Type </option>
-                           <option v-for="(v_type, v_key) in data.visacat" :key="v_key" :value="v_type.id">{{v_type.name}}</option>
+                        <select class="form-select"  v-model="fields.visa_type" @change="findFee()">
+                        <option value="null" selected> Select Visa Type </option>
+                           <option v-for="(v_type, v_key) in visa_types" :key="v_key" :value="v_type.id">{{v_type.name}} </option>
                         </select>
                       </div>
                       <div class="form-item">
                         <h4 class="fs-16">Number of Entry</h4>
-                        <select class="form-select" v-model="fields.visa_fee , selected">
-                          <option :value="null" selected> Select Number of Entry </option>
-                           <option v-for="(vt, vt_key) in visa_fees" :key="vt_key" :value="vt.visa_fee">{{vt.entry_name}}</option>
+                        <select class="form-select" v-model="fields.visa_fee">
+                          <option value="null" selected>  Select Number of Entry </option>
+                           <option v-for="(vt, vt_key) in visafees" :key="vt_key" :value="vt.visa_fee">{{vt.entry_name}}</option>
                         </select>
                       </div>
                       <div class="form-item">
                         <input
                           type="submit"
                           class="btn btn-gradient fs-14"
-                          value="Check Visa Fee"
+                          value="Check Visa Fee" 
                         />
                       </div>
                     </div>
                   </form>
+                 <br> <h3 class="fs-24"> Visa Fee: {{this.fields.visa_fee}}</h3>
                 </div>
                 <!-- Form 2 -->
                 <div class="service-change-form-wrapper">
@@ -761,7 +762,7 @@
                 <div class="useful-link-wrapper">
                   <img
                     class="text-center"
-                    src="/assets/img/404.png"
+                    src="~/assets/img/404.png"
                     alt="404-image"
                     width="100%"
                   />
@@ -884,7 +885,9 @@ export default {
       appform: [],
       travel_purpose: [],
       passport_types: [],
+      visa_types: [],
       visa_fees: [],
+      visafees: [],
       image: bgImg,
       fields: {
         country: "",
@@ -893,6 +896,8 @@ export default {
         cityzen_cty: "",
         service: "",
         no_of_traveler: "",
+        passport_type: "",
+        visa_type: "",
       },
       result2: 0,
       selected: 'null',
@@ -903,7 +908,11 @@ export default {
 
   created() {
     this.$axios
-      .get("https://b2bdemo.visathing.in/api/country/" + this.$route.params.slug)
+      .get("https://b2bdemo.visathing.in/api/country/" + this.$route.params.slug , {
+        search: this.search, 
+        travel_purpose: this.travel_purpose,
+        cityzen_cty: this.cityzen_cty
+      })
       .then((response) => {
         this.data = response.data.data;
         this.checklists = response.data.checklists;
@@ -913,13 +922,24 @@ export default {
         this.visa_fees = response.data.visa_fees;
         this.country_list = response.data.country_list;
         this.tvl_purpose = response.data.tvl_purpose;
-        // console.log( response.data.checklists);
+        this.travel_purpose= response.data.travel_purpose;
+        this.visa_types = response.data.visa_types;
+       //  console.log( response.data);
       });
   },
   methods: {
      calculate2() {
       //this.service = this.fields.service;
       this.result2 = parseInt(this.fields.service) * parseInt(this.fields.no_of_traveler);
+    },
+   
+    async findFee() {
+    try {
+      const res = await http.get("https://b2bdemo.visathing.in/api/visafee_search/"+ this.data.id + "/" + this.fields.passport_type + "/" + this.fields.visa_type);
+      this.visafees = res.data.visafees;
+    } catch (error) {
+      console.log(error);
+  }
     },
      submit() {
       this.$axios
@@ -937,15 +957,11 @@ export default {
           .push({
             path: "/" + this.fields.search,
             slug: this.fields,
-           // params: { name: this.fields.travel_purpose },
-            // query: {
-            //   travel_purpose: this.fields.travel_purpose,
-            //   cityzen_cty: this.fields.cityzen_cty,
-            // },
           })
           .bind(this.fields);
       }
     },
+   
   },
 };
 </script>

@@ -111,7 +111,12 @@ export default {
   methods: {
     submit() {
       this.$axios
-        .post("https://b2bdemo.visathing.in/api/country_search/" + this.fields.search)
+        .post("https://b2bdemo.visathing.in/api/country_search/" + this.fields.search ,   {
+        search: this.fields.search, 
+        travel_purpose: this.fields.travel_purpose,
+        cityzen_cty: this.fields.cityzen_cty
+    },)
+        
         .then(
           //  (response) => (this.allusers = response.data)
           ({ data }) => (
@@ -119,6 +124,7 @@ export default {
             (this.cityzen_cty = this.fields.cityzen_cty),
             (this.fields = {}),
             console.log(data)
+            
           )
         )
         .catch((error) => console.log(error));
