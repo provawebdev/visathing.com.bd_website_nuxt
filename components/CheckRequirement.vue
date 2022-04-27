@@ -40,19 +40,19 @@
               </select>
             </div>
             <div class="select-box">
-              <label>Purpose of Travelling</label>
+              <label>Visa Category</label>
               <select
                 aria-label="select"
                 class="form-select select-option"
-                v-model="fields.travel_purpose"
+                v-model="fields.v_category"
               >
                 <option value="" selected>Choose if you want</option>
                 <option
-                  v-for="(tvl, tvl_key) in tvl_purpose"
-                  :key="tvl_key"
-                  :value="tvl_key"
+                  v-for="(v_category, vc_key) in v_categories"
+                  :key="vc_key"
+                  :value="v_category.id"
                 >
-                  {{ tvl }}
+                  {{ v_category.name }}
                 </option>
               </select>
             </div>
@@ -89,13 +89,13 @@ export default {
   data() {
     return {
       country_list: [],
-      tvl_purpose: [],
+      v_categories: [],
       search: "",
-      travel_purpose: "",
+      v_category: "",
       cityzen_cty: "",
       fields: {
         search: "",
-        travel_purpose: "",
+        v_category: "",
         cityzen_cty: "",
       },
     };
@@ -105,7 +105,7 @@ export default {
       .get("https://b2bdemo.visathing.in/api/country_name")
       .then((response) => {
         this.country_list = response.data.country_list;
-        this.tvl_purpose = response.data.tvl_purpose;
+        this.v_categories = response.data.v_categories;
       });
   },
   methods: {
@@ -113,15 +113,15 @@ export default {
       this.$axios
         .post("https://b2bdemo.visathing.in/api/country_search/" + this.fields.search ,   {
         search: this.fields.search, 
-        travel_purpose: this.fields.travel_purpose,
+        v_category: this.fields.v_category,
         cityzen_cty: this.fields.cityzen_cty
     },)
         
         .then(
           //  (response) => (this.allusers = response.data)
           ({ data }) => (
-            (this.travel_purpose = this.fields.travel_purpose),
-            (this.cityzen_cty = this.fields.cityzen_cty),
+           // (this.v_category = this.fields.v_category),
+           // (this.cityzen_cty = this.fields.cityzen_cty),
             (this.fields = {}),
             console.log(data)
             
@@ -133,9 +133,9 @@ export default {
           .push({
             path: "/" + this.fields.search,
             slug: this.fields.search,
-            // params: { name: this.fields.travel_purpose },
+            // params: { name: this.fields.v_category },
             // query: {
-            //   travel_purpose: this.fields.travel_purpose,
+            //   v_category: this.fields.v_category,
             //   cityzen_cty: this.fields.cityzen_cty,
             // },
           })
@@ -148,9 +148,9 @@ export default {
     //     .push({
     //       path: "/" + this.fields.search,
     //       slug: this.fields,
-    //       travel_purpose: this.fields.travel_purpose,
+    //       v_category: this.fields.v_category,
     //       cityzen_cty: this.fields.cityzen_cty,
-    //       params: { name: this.fields.travel_purpose},
+    //       params: { name: this.fields.v_category},
     //     })
     //     .bind(this.fields);
     // },

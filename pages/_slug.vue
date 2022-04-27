@@ -75,20 +75,11 @@
                   >{{ ser.name }}</a
                 >
               </div>
-              <!--<div class="item">
-                <a
-                  href="#"
-                  class="btn fs-14 fs-sm-10 btn-outline-light notchecked"
-                  >Documents Legalization</a
-                >
-              </div>-->
             </div>
           </div>
-          <!-- Banner bottom button section end ---->
         </div>
       </div>
     </section>
-    <!-- Basic info banner end -->
 
     <!-- Requirements Form Box Start -->
     <section id="requirement-form-wrapper">
@@ -116,7 +107,7 @@
               <select
                 aria-label="select"
                 class="form-select select-option"
-                v-model="fields.search"
+                v-model="fields.search" @change="findVC"
               >
                 <option
                   v-for="(cty, key) in country_list"
@@ -128,25 +119,38 @@
               </select>
             </div>
             <div class="select-box">
-              <label>Purpose of Travelling</label>
+              <label>Visa Category</label>
               <select
                 aria-label="select"
                 class="form-select select-option"
-                v-model="fields.travel_purpose"
+                v-model="fields.v_category" v-if="this.fields.search" onClick={this.onShow.bind(this)}
               >
                 <option selected>Choose if you want</option>
                 <option
-                  v-for="(tvl, tvl_key) in tvl_purpose"
-                  :key="tvl_key"
-                  :value="tvl_key"
+                  v-for="(v_category, vc_key) in country.visacat"
+                  :key="vc_key"
+                  :value="v_category.id"
+                > 
+                  {{ v_category.name }}
+                </option>
+              </select>
+               <select
+                aria-label="select"
+                class="form-select select-option"
+                v-model="fields.v_category" v-else
+              >
+                <option selected>Choose if you want</option>
+                <option
+                  v-for="(v_category, vc_key) in v_categories"
+                  :key="vc_key"
+                  :value="v_category.id"
                 >
-                  {{ tvl }}
+                  {{ v_category.name }}
                 </option>
               </select>
             </div>
             <button class="btn-gradient" type="submit">
               Check Requirements
-              <!-- <nuxt-link v-bind:to="'/' + fields.search"> Check Requirements </nuxt-link> -->
             </button>
           </div>
         </form>
@@ -293,8 +297,11 @@
                 role="tabpanel"
                 aria-labelledby="checklist-tab"
               >
-                <!-- line 1 -->
-                <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
+              <div v-if="this.fields.v_category">
+                {{this.fields.v_category}}
+              </div>
+              <div v-else>
+                 <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
                   <h3 class="fs-20">{{ vcat.name }} Required</h3>
                   <div class="list-items">
                     <ul
@@ -313,334 +320,11 @@
                   </div>
                 </div>
               </div>
+              </div>
               <!-- ----------------------------------------------------------------------- -->
               <!--                   Customize my checklist body content                   -->
               <!-- ----------------------------------------------------------------------- -->
-              <!-- <div
-                class="tab-pane fade"
-                id="cmc"
-                role="tabpanel"
-                aria-labelledby="cmc-tab"
-              >
-               
-                <div class="checklist-container">
-                  <div class="row align-items-end">
-                    <div class="col-lg-6 col-md-12 mb-lg-0">
-                      <form id="checklist-form">
-                        <div class="list-form-country">
-                          <h4 class="fs-20">Country</h4>
-                          <select class="form-select">
-                            <option selected>Belgium</option>
-                            <option value="1">One</option>
-                          </select>
-                        </div>
-                        <div class="list-form-type">
-                          <h4 class="fs-20">Passport Type</h4>
-                          <select class="form-select">
-                            <option selected>Ordinary passport</option>
-                            <option value="1">One</option>
-                          </select>
-                        </div>
-                        <div>
-                          <h4 class="fs-20">Passport Validity</h4>
-                          <div class="list-form-passport">
-                            <div id="tabs">
-                              <ul class="d-none">
-                                <li><a href="#tabs-1">Tab 1</a></li>
-                                <li><a href="#tabs-2">Tab 2</a></li>
-                                <li><a href="#tabs-3">Tab 3</a></li>
-                                <li><a href="#tabs-4">Tab 4</a></li>
-                              </ul>
-                             
-                              <div id="tabs-1">
-                                <h5>
-                                  <span
-                                    >Your Current Passport Has a Minimum
-                                    Validity of</span
-                                  >
-                                </h5>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_1_one"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_1_one"
-                                  >
-                                    Less then 6 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_1_two"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_1_two"
-                                  >
-                                    Less then 8 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_1_three"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_1_three"
-                                  >
-                                    Less then 10 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_1_four"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_1_four"
-                                  >
-                                    Less then 12 month
-                                  </label>
-                                </div>
-                              </div>
-                              <div id="tabs-2">
-                                <h5>
-                                  <span
-                                    >Your Current Passport Has a Minimum
-                                    Validity of</span
-                                  >
-                                </h5>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_2_one"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_2_one"
-                                  >
-                                    Less then 14 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_2_two"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_2_two"
-                                  >
-                                    Less then 16 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_2_three"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_2_three"
-                                  >
-                                    Less then 18 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_2_four"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_2_four"
-                                  >
-                                    Less then 20 month
-                                  </label>
-                                </div>
-                              </div>
-                              <div id="tabs-3">
-                                <h5>
-                                  <span
-                                    >Your Current Passport Has a Minimum
-                                    Validity of</span
-                                  >
-                                </h5>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_3_one"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_3_one"
-                                  >
-                                    Less then 22 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_3_two"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_3_two"
-                                  >
-                                    Less then 24 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_3_three"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_3_three"
-                                  >
-                                    Less then 26 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_3_four"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_3_four"
-                                  >
-                                    Less then 28 month
-                                  </label>
-                                </div>
-                              </div>
-                              <div id="tabs-4">
-                                <h5>
-                                  <span
-                                    >Your Current Passport Has a Minimum
-                                    Validity of</span
-                                  >
-                                </h5>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_4_one"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_4_one"
-                                  >
-                                    Less then 30 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_4_two"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_4_two"
-                                  >
-                                    Less then 32 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_4_three"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_4_three"
-                                  >
-                                    Less then 34 month
-                                  </label>
-                                </div>
-                                <div class="form-check list-form-option">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="checkbox"
-                                    id="step_4_four"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="step_4_four"
-                                  >
-                                    Less then 36 month
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                          
-                            <div class="mt-4">
-                              <input
-                                type="button"
-                                id="btnPrevious"
-                                value="Bank"
-                                class="form-previous-btn"
-                              />
-                              <input
-                                type="button"
-                                id="btnNext"
-                                value="Next"
-                                class="form-next-btn"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 mt-4">
-                      <div class="check-progress">
-                        <div id="circle" class="position-relative">
-                          <span>85%</span>
-                        </div>
-                        <button class="btn-gradient">
-                          Download PDF <span class="fas fa-download"></span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
+            
               <!-- ----------------------------------------------------------------------- -->
               <!--                Visa Fees & Processing Time body content                 -->
               <!-- ----------------------------------------------------------------------- -->
@@ -883,16 +567,15 @@ export default {
       data: [],
       checklists: [],
       appform: [],
-      travel_purpose: [],
+      v_category: [],
       passport_types: [],
       visa_types: [],
-      visa_fees: [],
       visafees: [],
       image: bgImg,
       fields: {
         country: "",
         search: "",
-        travel_purpose: "",
+        v_category: "",
         cityzen_cty: "",
         service: "",
         no_of_traveler: "",
@@ -903,6 +586,7 @@ export default {
       selected: 'null',
       selected2: 1,
       country_list: [],
+      country: "",
     };
   },
 
@@ -910,26 +594,22 @@ export default {
     this.$axios
       .get("https://b2bdemo.visathing.in/api/country/" + this.$route.params.slug , {
         search: this.search, 
-        travel_purpose: this.travel_purpose,
+        v_category: this.v_category,
         cityzen_cty: this.cityzen_cty
       })
       .then((response) => {
         this.data = response.data.data;
         this.checklists = response.data.checklists;
         this.appform = response.data.appform;
-        this.travel_purpose = response.data.travel_purpose;
         this.passport_types = response.data.passport_types;
-        this.visa_fees = response.data.visa_fees;
         this.country_list = response.data.country_list;
-        this.tvl_purpose = response.data.tvl_purpose;
-        this.travel_purpose= response.data.travel_purpose;
+        this.v_categories = response.data.v_categories;
         this.visa_types = response.data.visa_types;
        //  console.log( response.data);
       });
   },
   methods: {
      calculate2() {
-      //this.service = this.fields.service;
       this.result2 = parseInt(this.fields.service) * parseInt(this.fields.no_of_traveler);
     },
    
@@ -939,26 +619,43 @@ export default {
       this.visafees = res.data.visafees;
     } catch (error) {
       console.log(error);
-  }
+    }
     },
-     submit() {
+    async findVC() {
+    try {
+      const res = await http.get("https://b2bdemo.visathing.in/api/vcategory_search/"+ this.fields.search);
+      this.country = res.data.country;
+     // console.log(res.data.country)
+    } catch (error) {
+      console.log(error);
+    }
+    },
+    submit() {
       this.$axios
-        .post("https://b2bdemo.visathing.in/api/country_search/" + this.fields.search)
-        .then(
+        .get("https://b2bdemo.visathing.in/api/country/" + this.fields.search ,   {
+        search: this.fields.search, 
+        v_category: this.fields.v_category,
+        cityzen_cty: this.fields.cityzen_cty
+    },)
+       .then(
           ({ data }) => (
-            (this.travel_purpose = this.fields.travel_purpose),
+            (this.v_category = this.fields.v_category),
             (this.cityzen_cty = this.fields.cityzen_cty),
             (this.fields = {})
+            //console.log(fields)
+            
           )
         )
         .catch((error) => console.log(error));
-      if (this.fields) {
+        if (this.fields) {
         this.$router
           .push({
             path: "/" + this.fields.search,
-            slug: this.fields,
+            slug: this.fields.search,
+            params: {  v_category: this.fields.v_category },
           })
           .bind(this.fields);
+          console.log(this.fields)
       }
     },
    
