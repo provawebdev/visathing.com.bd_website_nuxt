@@ -122,7 +122,7 @@ export default {
   created() {
     this.$axios.get("https://b2bdemo.visathing.in/api/manu_list/").then((response) => {
       this.data = response.data.about;
-      console.log( response.data.about);
+    //  console.log( response.data.about);
     });
   },
 };

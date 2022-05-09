@@ -117,7 +117,7 @@ export default {
   },
   created() {
     this.$axios
-      .get("https://b2bdemo.visathing.in/api/manu_list")
+      .get("https://b2bdemo.visathing.in/api/content_list")
       .then((response) => {
         this.contents = response.data.contents;
         // console.log(response.data.services);

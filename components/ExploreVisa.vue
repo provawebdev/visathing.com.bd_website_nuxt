@@ -121,7 +121,7 @@
                 <img
                   v-if="cty1.flag"
                   class="h-64 w-64"
-                  style="height: 124px; width: 190px"
+                  style="height: 126px; width: 190px"
                   :alt="cty1.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty1.flag"
                 />
@@ -150,7 +150,7 @@
                 <img
                   v-if="cty2.flag"
                   class="h-64 w-64"
-                  style="height: 124px; width: 190px"
+                  style="height: 126px; width: 190px"
                   :alt="cty2.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty2.flag"
                 />
@@ -179,7 +179,7 @@
                 <img
                 v-if="cty3.flag"
                   class="h-64 w-64"
-                  style="height: 124px; width: 190px"
+                  style="height: 126px; width: 190px"
                   :alt="cty3.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty3.flag"
                 />
@@ -208,7 +208,7 @@
                 <img
                 v-if="cty4.flag"
                   class="h-64 w-64"
-                  style="height: 124px; width: 190px"
+                  style="height: 126px; width: 190px"
                   :alt="cty4.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty4.flag"
                 />
@@ -237,7 +237,7 @@
                 <img
                 v-if="cty5.flag"
                   class="h-64 w-64"
-                  style="height: 124px; width: 190px"
+                  style="height: 126px; width: 190px"
                   :alt="cty5.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty5.flag"
                 />

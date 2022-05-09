@@ -258,7 +258,7 @@ export default {
       .get("https://b2bdemo.visathing.in/api/manu_show/" + this.$route.name)
       .then((response) => {
         this.data = response.data.menu;
-        console.log(response.data);
+       // console.log(response.data);
       });
   },
   methods: {

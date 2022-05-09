@@ -16,9 +16,9 @@
               <select
                 aria-label="select"
                 class="form-select select-option"
-                v-model="fields.cityzen_cty , selected"
+                v-model="fields.cityzen_cty"
               >
-                 <option :selected="selected">Bangladesh</option>
+                 <option value="bangladesh">Bangladesh</option>
                  <option value="visathing.in">India</option>
                  <option value="np.visathing.com">Nepal</option>
               </select>
@@ -62,7 +62,7 @@
                 class="form-select select-option"
                 v-model="fields.v_category" v-else
               >
-                <option selected>Choose if you want</option>
+                <option value="">Choose if you want</option>
                 <option
                   v-for="(v_category, vc_key) in v_categories"
                   :key="vc_key"
@@ -113,9 +113,8 @@ export default {
       fields: {
         search: "",
         v_category: "",
-        cityzen_cty: "",
+        cityzen_cty: 'bangladesh',
       },
-      selected: 'null',
     };
   },
   created() {

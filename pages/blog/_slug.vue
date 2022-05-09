@@ -172,7 +172,7 @@ export default {
       .get("https://b2bdemo.visathing.in/api/content_show/" + this.$route.params.slug)
       .then((response) => {
         this.data = response.data.content;
-        console.log(response.data.content);
+       // console.log(response.data.content);
       });
   },
   methods: {

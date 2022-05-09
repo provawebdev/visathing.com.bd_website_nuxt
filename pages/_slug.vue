@@ -98,8 +98,9 @@
                 class="form-select select-option"
                 v-model="fields.cityzen_cty"
               >
-                <option selected>Bangladesh</option>
-                <option value="1">Bangladesh</option>
+                <option value="bangladesh">Bangladesh</option>
+                 <option value="visathing.in">India</option>
+                 <option value="np.visathing.com">Nepal</option>
               </select>
             </div>
             <div class="select-box">
@@ -109,6 +110,7 @@
                 class="form-select select-option"
                 v-model="fields.search" @change="findVC"
               >
+               <option value="" selected> Select Country </option>
                 <option
                   v-for="(cty, key) in country_list"
                   :key="key"
@@ -125,7 +127,7 @@
                 class="form-select select-option"
                 v-model="fields.v_category" v-if="this.fields.search" onClick={this.onShow.bind(this)}
               >
-                <option selected>Choose if you want</option>
+                <option value="" selected>Choose if you want</option>
                 <option
                   v-for="(v_category, vc_key) in country.visacat"
                   :key="vc_key"
@@ -365,21 +367,21 @@
                       <div class="form-item">
                         <h4 class="fs-16">Passport Type</h4>
                         <select class="form-select" v-model="fields.passport_type">
-                          <option :value="null" selected> Select Passport Type </option>
+                          <option value="" selected> Select Passport Type </option>
                           <option v-for="(p_type, p_key) in passport_types" :key="p_key" :value="p_type.id">{{p_type.name}}</option>
                           </select>
                       </div>
                       <div class="form-item">
                         <h4 class="fs-16">Visa Type</h4>
                         <select class="form-select"  v-model="fields.visa_type" @change="findFee()">
-                        <option value="null" selected> Select Visa Type </option>
+                        <option value="" selected> Select Visa Type </option>
                            <option v-for="(v_type, v_key) in visa_types" :key="v_key" :value="v_type.id">{{v_type.name}} </option>
                         </select>
                       </div>
                       <div class="form-item">
                         <h4 class="fs-16">Number of Entry</h4>
                         <select class="form-select" v-model="fields.visa_fee">
-                          <option value="null" selected>  Select Number of Entry </option>
+                          <option value="" selected>  Select Number of Entry </option>
                            <option v-for="(vt, vt_key) in visafees" :key="vt_key" :value="vt.visa_fee">{{vt.entry_name}}</option>
                         </select>
                       </div>
@@ -594,7 +596,7 @@ export default {
         country: "",
         search: "",
         v_category: "",
-        cityzen_cty: "",
+        cityzen_cty: "bangladesh",
         service: "",
         no_of_traveler: "",
         passport_type: "",
@@ -621,6 +623,7 @@ export default {
         this.country_list = response.data.country_list;
         this.v_categories = response.data.v_categories;
         this.visa_types = response.data.visa_types;
+        this.country = data.id;
       });
   },
   methods: {
