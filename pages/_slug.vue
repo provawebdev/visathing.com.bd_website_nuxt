@@ -297,8 +297,25 @@
                 role="tabpanel"
                 aria-labelledby="checklist-tab"
               >
-              <div v-if="this.fields.v_category">
-                {{this.fields.v_category}}
+              <div v-if="v_category">
+                 <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
+                  <h3 class="fs-20" v-if="v_category == vcat.id">{{ vcat.name }} Required</h3>
+                  <div class="list-items" v-if="v_category == vcat.id">
+                    <ul
+                      v-for="(check, check_key) in checklists"
+                      :key="check_key"
+                    >
+                      <li v-if="vcat.id == check.pivot.vcat_id">
+                        <div class="item-icon">
+                          <span>{{ check_key + 1 }}</span>
+                        </div>
+                        <div class="item-content">
+                          {{ check.name }}: {{ check.short_details }}
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
               <div v-else>
                  <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
@@ -523,7 +540,7 @@ const http = axios.create({
 export default {
   head() {
     return {
-      title: "",
+      title: `%s ${this.data.name} - VISAThing`,
       titleTemplate: `%s ${this.data.name} - VISAThing`,
       meta: [
            {
@@ -567,7 +584,8 @@ export default {
       data: [],
       checklists: [],
       appform: [],
-      v_category: [],
+      v_categories: [],
+      v_category: {},
       passport_types: [],
       visa_types: [],
       visafees: [],
@@ -593,9 +611,7 @@ export default {
   created() {
     this.$axios
       .get("https://b2bdemo.visathing.in/api/country/" + this.$route.params.slug , {
-        search: this.search, 
-        v_category: this.v_category,
-        cityzen_cty: this.cityzen_cty
+       // v_category: this.$route.params.v_category,
       })
       .then((response) => {
         this.data = response.data.data;
@@ -605,7 +621,6 @@ export default {
         this.country_list = response.data.country_list;
         this.v_categories = response.data.v_categories;
         this.visa_types = response.data.visa_types;
-       //  console.log( response.data);
       });
   },
   methods: {
@@ -621,44 +636,36 @@ export default {
       console.log(error);
     }
     },
+
     async findVC() {
     try {
       const res = await http.get("https://b2bdemo.visathing.in/api/vcategory_search/"+ this.fields.search);
       this.country = res.data.country;
-     // console.log(res.data.country)
     } catch (error) {
       console.log(error);
     }
     },
-    submit() {
+
+   submit() {
       this.$axios
         .get("https://b2bdemo.visathing.in/api/country/" + this.fields.search ,   {
-        search: this.fields.search, 
-        v_category: this.fields.v_category,
-        cityzen_cty: this.fields.cityzen_cty
     },)
-       .then(
-          ({ data }) => (
-            (this.v_category = this.fields.v_category),
-            (this.cityzen_cty = this.fields.cityzen_cty),
-            (this.fields = {})
-            //console.log(fields)
-            
-          )
-        )
-        .catch((error) => console.log(error));
-        if (this.fields) {
+   .then(
+      ({ data }) => (
+        (this.fields = {})
+      )
+    )
+    .catch((error) => console.log(error));
+      if (this.fields) {
         this.$router
           .push({
             path: "/" + this.fields.search,
-            slug: this.fields.search,
-            params: {  v_category: this.fields.v_category },
+           // params: { v_category: this.fields.v_category },
           })
-          .bind(this.fields);
-          console.log(this.fields)
+          this.v_category = this.fields.v_category;
+          // console.log(this.fields.v_category)
       }
     },
-   
   },
 };
 </script>

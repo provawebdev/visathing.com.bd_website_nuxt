@@ -20,9 +20,7 @@
             </div>
             <div class="col-lg-6 col-12">
               <div class="content-text">
-                <h2>{{data.name}}</h2>
                 <p v-html="data.body"> </p>
-                <a class="about-btn">Contact Us</a>
               </div>
             </div>
           </div>

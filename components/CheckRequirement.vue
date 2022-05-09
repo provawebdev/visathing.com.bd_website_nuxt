@@ -16,10 +16,11 @@
               <select
                 aria-label="select"
                 class="form-select select-option"
-                v-model="fields.cityzen_cty"
+                v-model="fields.cityzen_cty , selected"
               >
-                <option value="" selected>Select Your Cityzen Country</option>
-                <option value="1">Bangladesh</option>
+                 <option :selected="selected">Bangladesh</option>
+                 <option value="visathing.in">India</option>
+                 <option value="np.visathing.com">Nepal</option>
               </select>
             </div>
             <div class="select-box">
@@ -27,7 +28,8 @@
               <select
                 aria-label="select"
                 class="form-select select-option"
-                v-model="fields.search" required
+                @change="findVC"
+                v-model="fields.search" required 
               >
                <option value="" selected> Select Country </option>
                 <option
@@ -44,9 +46,23 @@
               <select
                 aria-label="select"
                 class="form-select select-option"
-                v-model="fields.v_category"
+                v-model="fields.v_category" v-if="this.fields.search" onClick={this.onShow.bind(this)}
               >
                 <option value="" selected>Choose if you want</option>
+                <option
+                  v-for="(v_category, vc_key) in country.visacat"
+                  :key="vc_key"
+                  :value="v_category.id"
+                > 
+                  {{ v_category.name }}
+                </option>
+              </select>
+               <select
+                aria-label="select"
+                class="form-select select-option"
+                v-model="fields.v_category" v-else
+              >
+                <option selected>Choose if you want</option>
                 <option
                   v-for="(v_category, vc_key) in v_categories"
                   :key="vc_key"
@@ -90,14 +106,16 @@ export default {
     return {
       country_list: [],
       v_categories: [],
+      country: "",
       search: "",
-      v_category: "",
-      cityzen_cty: "",
+      v_category: {},
+      cityzen_cty: {},
       fields: {
         search: "",
         v_category: "",
         cityzen_cty: "",
       },
+      selected: 'null',
     };
   },
   created() {
@@ -109,37 +127,30 @@ export default {
       });
   },
   methods: {
+      async findVC() {
+    try {
+      const res = await http.get("https://b2bdemo.visathing.in/api/vcategory_search/"+ this.fields.search);
+      this.country = res.data.country;
+    } catch (error) {
+      console.log(error);
+    }
+    },
     submit() {
       this.$axios
-        .post("https://b2bdemo.visathing.in/api/country_search/" + this.fields.search ,   {
-        search: this.fields.search, 
-        v_category: this.fields.v_category,
-        cityzen_cty: this.fields.cityzen_cty
+        .get("https://b2bdemo.visathing.in/api/country/" + this.fields.search ,   {
     },)
-        
-        .then(
-          //  (response) => (this.allusers = response.data)
-          ({ data }) => (
-           // (this.v_category = this.fields.v_category),
-           // (this.cityzen_cty = this.fields.cityzen_cty),
-            (this.fields = {}),
-            console.log(data)
-            
-          )
-        )
-        .catch((error) => console.log(error));
+   .then(
+      ({ data }) => (
+        (this.fields = {})
+      )
+    )
+    .catch((error) => console.log(error));
       if (this.fields) {
         this.$router
           .push({
             path: "/" + this.fields.search,
-            slug: this.fields.search,
-            // params: { name: this.fields.v_category },
-            // query: {
-            //   v_category: this.fields.v_category,
-            //   cityzen_cty: this.fields.cityzen_cty,
-            // },
           })
-          .bind(this.fields);
+          this.v_category = this.fields.v_category;
       }
     },
 

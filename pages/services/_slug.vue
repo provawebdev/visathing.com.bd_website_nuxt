@@ -164,7 +164,7 @@ export default {
       .then((response) => {
         this.data = response.data.data;
         this.service = response.data.service;
-        console.log(response.data.service);
+       // console.log(response.data.service);
       });
   },
 };

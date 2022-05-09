@@ -154,7 +154,12 @@ export default {
           this.country_list = response.data.country_list;
           this.checker_question = this.country.country_questions;
           this.country_answers = this.country.country_answers;
-          this.total = this.country.country_questions.length;
+          if(this.country.country_questions){
+             this.total = this.country.country_questions.length;
+          }
+          else{
+            this.total = 0;
+          }
         }.bind(this)
       );
     },
@@ -172,9 +177,7 @@ export default {
         this.percent += Math.round(countPercent);
 
         this.result += question[0];
-        console.log(this.percent);
-
-        // console.log(result);
+       // console.log(this.percent);
       }
     },
   },
