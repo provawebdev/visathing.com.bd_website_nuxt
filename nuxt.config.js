@@ -74,11 +74,31 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    ['@nuxtjs/google-analytics', { ua: 'UA-56018274-1' }],
+    //['@nuxtjs/google-analytics', { ua: 'UA-56018274-1' }],
+    '@nuxtjs/google-gtag',
 
     // Inline definition
     function () { }
   ],
+  'google-gtag':{
+    id: 'UA-56018274-1', // required
+    config:{
+      anonymize_ip: true, // anonymize IP 
+      send_page_view: false, // might be necessary to avoid duplicated page track on page reload
+      linker:{
+        domains:['visathing.com','visathing.com.bd']
+      }
+    },
+    debug: true, // enable to track in dev mode
+    disableAutoPageTrack: false, // disable if you don't want to track each page route with router.afterEach(...)
+    // optional you can add more configuration like [AdWords](https://developers.google.com/adwords-remarketing-tag/#configuring_the_global_site_tag_for_multiple_accounts)
+    // additionalAccounts:[{
+    //   id: 'AW-XXXX-XX', // required if you are adding additional IDs
+    //   config:{
+    //     send_page_view:false // optional configurations
+    //   }
+    // }]
+   },
 
   axios: {
     baseURL: 'http://localhost:8084/api',
