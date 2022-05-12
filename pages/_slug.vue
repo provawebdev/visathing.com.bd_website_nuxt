@@ -304,15 +304,15 @@
                   <h3 class="fs-20" v-if="v_category == vcat.id">{{ vcat.name }} Required</h3>
                   <div class="list-items" v-if="v_category == vcat.id">
                     <ul
-                      v-for="(check, check_key) in checklists"
-                      :key="check_key"
+                      v-for="(check, index) in checklists"
+                      :key="index"
                     >
                       <li v-if="vcat.id == check.pivot.vcat_id">
                         <div class="item-icon">
-                          <span>{{ check_key + 1 }}</span>
+                          <span>*</span>
                         </div>
                         <div class="item-content">
-                          {{ check.name }}: {{ check.short_details }}
+                           {{ check.name }}: {{ check.short_details }}
                         </div>
                       </li>
                     </ul>

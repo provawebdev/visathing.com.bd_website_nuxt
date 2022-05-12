@@ -80,12 +80,15 @@
                     <th>Remarks</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody v-if="cc_update >0">
                   <tr v-for="(cc, cc_key) in cc_update" :key="cc_key">
                     <td v-if="cc.created_at">{{ cc.created_at}}</td>
                     <td colspan="2" v-if="cc.client_status">{{cc.client_status}}</td> <td colspan="2" v-else>{{cc.custom_status}}</td>
                     <td v-if="cc.remark"> {{ cc.remark }} </td>
                   </tr>
+                </tbody>
+                <tbody v-else>
+                  <tr><td colspan="2">No data found</td> </tr>
                 </tbody>
               </table>
             </div>
@@ -113,7 +116,7 @@ export default {
   head() {
     return {
       title: "",
-      titleTemplate: `%s ${this.data.name} - VISAThing`,
+      titleTemplate: `Visa Application - VISAThing`,
       meta: [
            {
           hid: "keyords",
