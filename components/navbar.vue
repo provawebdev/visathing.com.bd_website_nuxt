@@ -22,9 +22,9 @@
         </ul>
         <ul class="topbar-right d-flex">
           <li class="topbar-signin">
-            <nuxt-link to="/signin">
+            <a href="https://visathing.org/">
               <span class="fas fa-user-alt"></span>Sign in
-            </nuxt-link>
+            </a>
           </li>
           <li class="topbar-signup">
             <nuxt-link to="/signin"
@@ -256,30 +256,53 @@ export default {
       });
   },
   methods: {
-    submit: function (e) {
-      if (this.fields.status) {
-        return true;
-      }
-      this.errors = [];
-      if (!this.fields.status) {
-        this.errors.push("required.");
-      }
-      e.preventDefault();
+  //   submit: function (e) {
+  //     if (this.fields.status) {
+  //       return true;
+  //     }
+  //     this.errors = [];
+  //     if (!this.fields.status) {
+  //       this.errors.push("required.");
+  //     }
+  //     e.preventDefault();
+
+  //    this.$axios
+  //       .get("http://localhost:8082/api/get_tracking/" + this.fields.status ,   {
+  //   },)
+  //  .then(
+  //     ({ data }) => (
+  //       (this.fields = {})
+  //     )
+  //   )
+  //   .catch((error) => console.log(error));
+  //     if (this.fields) {
+  //       this.$router
+  //         .push({
+  //           path: "/visa-application-status/" + this.status,
+  //         })
+  //          console.log(this.fields);
+  //     }
+  //   },
+
+ submit() {
       this.$axios
-        .get("https://visathing.com.bd/api/track/status/" + this.fields.status)
-        .then(({ data }) => (this.fields.status = this.fields.status))
-        .catch((error) => console.log(error));
-      if (this.fields.status) {
+        .get("http://localhost:8082/api/track_website/" + this.fields.status,{
+    },)
+   .then(
+      ({ data }) => (
+        (this.fields = {})
+      )
+    )
+    .catch((error) => console.log(error));
+      if (this.fields) {
         this.$router
           .push({
             path: "/visa-application-status/" + this.fields.status,
-            slug: this.fields.status,
-            params: { name: this.fields.status },
           })
-          .bind(this.fields.status);
+           console.log(this.fields.status)
       }
-      console.log(this.fields.status);
     },
+
     // submit() {
     //   this.$router
     //     .push({

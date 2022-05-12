@@ -299,7 +299,7 @@
                 role="tabpanel"
                 aria-labelledby="checklist-tab"
               >
-              <div v-if="v_category">
+              <div v-if="v_category >0">
                  <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
                   <h3 class="fs-20" v-if="v_category == vcat.id">{{ vcat.name }} Required</h3>
                   <div class="list-items" v-if="v_category == vcat.id">

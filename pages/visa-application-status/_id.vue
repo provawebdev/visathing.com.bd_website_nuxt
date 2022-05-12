@@ -19,19 +19,19 @@
                       <tbody>
                         <tr>
                           <td>Applicant Name</td>
-                          <td>: &nbsp; Mirza Niaz Zaman Elin</td>
+                          <td>: &nbsp; {{data.name}}</td>
                         </tr>
                         <tr>
                           <td>Tracking Number</td>
-                          <td>: &nbsp; 2009210859</td>
+                          <td>: &nbsp; {{data.tracking_no}}</td>
                         </tr>
                         <tr>
                           <td>Passport Number</td>
-                          <td>: &nbsp; EG018474745</td>
+                          <td>: &nbsp; {{data.current_passport}}</td>
                         </tr>
                         <tr>
                           <td>Country</td>
-                          <td>: &nbsp; Bangladesh</td>
+                          <td v-for="(cty, cty_key) in data.countries" :key="cty_key">: &nbsp; {{data.countries[0].name}}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -44,8 +44,7 @@
                   <div class="card-body d-flex align-items-center">
                     <img src="" alt="" />
                     <div class="case-officer-info">
-                      <h3>Shakil Khan</h3>
-                      <p>info@youremail.com</p>
+                      <h3>{{case_officer.name}}</h3>
                     </div>
                   </div>
                 </div>
@@ -58,11 +57,11 @@
                       <tbody>
                         <tr>
                           <td>Mobile Number</td>
-                          <td>: &nbsp; +880 123 4567 890</td>
+                          <td>: &nbsp; +{{case_officer.phone}}</td>
                         </tr>
                         <tr>
                           <td>Email</td>
-                          <td>: &nbsp; info@youremail.com</td>
+                          <td>: &nbsp; support@visathing.com</td>
                         </tr>
                       </tbody>
                     </table>
@@ -82,72 +81,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>03/11/2020</td>
-                    <td colspan="2">New Appoinment Date 10/11/2020</td>
-                  </tr>
-                  <tr>
-                    <td>27/10/2020</td>
-                    <td colspan="2">
-                      NOC affidavit on parental cosent is reuired
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>27/10/2020</td>
-                    <td colspan="2">
-                      Updated bank statement ( original ) is required
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>27/10/2020</td>
-                    <td colspan="2">
-                      Travel Health insurance with COVID cover is required
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>27/10/2020</td>
-                    <td colspan="2">
-                      Submission attempt was not successful updated documents
-                      required
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>27/10/2020</td>
-                    <td colspan="2">
-                      VFS appointment arranged on22 OCtobor 2020
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>27/10/2020</td>
-                    <td colspan="2">
-                      Original invitation letter reached delhi from ukraine on
-                      19 October 2020
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>17/10/2020</td>
-                    <td colspan="2">
-                      Application submission pending original invitation letter
-                      required.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>24/09/2020</td>
-                    <td colspan="2">Document dispatched from office</td>
-                  </tr>
-                  <tr>
-                    <td>24/09/2020</td>
-                    <td colspan="2">Final review</td>
-                  </tr>
-                  <tr>
-                    <td>24/09/2020</td>
-                    <td colspan="2">
-                      File submission appointment date 5/10/2020
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>22/09/2020</td>
-                    <td colspan="2">Full application receive</td>
+                  <tr v-for="(cc, cc_key) in cc_update" :key="cc_key">
+                    <td v-if="cc.created_at">{{ cc.created_at}}</td>
+                    <td colspan="2" v-if="cc.client_status">{{cc.client_status}}</td> <td colspan="2" v-else>{{cc.custom_status}}</td>
+                    <td v-if="cc.remark"> {{ cc.remark }} </td>
                   </tr>
                 </tbody>
               </table>
@@ -166,7 +103,7 @@ import {
   throttleAdapterEnhancer,
 } from "axios-extensions";
 const http = axios.create({
-  baseURL: "https://visathing.com.bd/",
+  baseURL: "https://visathing.com.bd/api",
 
   adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
     threshold: 10 * 1000,
@@ -217,20 +154,21 @@ export default {
     return {
       query: "",
       data: {},
-      
+      case_officer:[],
+      cc_update: [],
       fields: {
         status: "",
       },
-      
     };
   },
    created() {
     this.$axios
-      .get("https://visathing.com.bd/api/track/status/" + this.$route.params.id)
+      .get("https://visathing.com.bd/api/track_website/" + this.$route.params.id)
       .then((response) => {
-        this.data = this.$route.params.id;
-        //this.data = response.data.content;
-        console.log(this.$route.params.id);
+        this.data = response.data.data;
+        this.case_officer = response.data.case_officer;
+        this.cc_update = response.data.cc_update;
+        // console.log(response.data.data);
       });
   },
   methods: {
