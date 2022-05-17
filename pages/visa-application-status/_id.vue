@@ -80,11 +80,11 @@
                     <th>Remarks</th>
                   </tr>
                 </thead>
-                <tbody v-if="cc_update >0">
+                <tbody v-if="cc_update">
                   <tr v-for="(cc, cc_key) in cc_update" :key="cc_key">
-                    <td v-if="cc.created_at">{{ cc.created_at}}</td>
+                    <td v-if="cc.created_at"> {{ formatDate(cc.created_at) }}</td>
                     <td colspan="2" v-if="cc.client_status">{{cc.client_status}}</td> <td colspan="2" v-else>{{cc.custom_status}}</td>
-                    <td v-if="cc.remark"> {{ cc.remark }} </td>
+                    <td colspan="2" v-if="cc.remark"> {{ cc.remark }} </td>
                   </tr>
                 </tbody>
                 <tbody v-else>
@@ -175,7 +175,10 @@ export default {
       });
   },
   methods: {
-    
+    formatDate(date) {
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      return new Date(date).toLocaleDateString("en-us", options);
+    },
   },
 };
 </script>

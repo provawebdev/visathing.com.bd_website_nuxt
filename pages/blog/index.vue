@@ -57,13 +57,14 @@
                   </p>
                 </div>
                 <div class="news-item-body py-0">
-                  <h3 class="news-item-title">{{ con.name }}</h3>
+                  <h3 class="news-item-title"> <nuxt-link :to="`/blog/${con.slug}`">{{ con.name }}</nuxt-link></h3>
                   <p class="news-item-text" v-html="con.body"></p>
                 </div>
                 <div class="news-item-footer d-flex justify-content-between">
                   <nuxt-link class="news-item-link" v-bind:to="'/blog/' + con.slug"
                     >Read More</nuxt-link
                   >
+                 
                   <a class="news-item-link" href="#">
                     <svg
                       fill="none"

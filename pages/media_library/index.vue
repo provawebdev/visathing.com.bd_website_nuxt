@@ -9,18 +9,18 @@
     <div class="container">
      
       <div class="row">
-        <div
-          class="col-lg-4 col-md-6"
-          v-for="(con, key) in data"
+        <div v-for="(con, key) in contents"
           :key="key"
+          v-show="con.url"
+          class="col-lg-4 col-md-4"
         >
-          <div class="media-library-item card" v-show="con.url">
+          <div class="media-library-item card">
             <iframe
               class="card-img-top"
               :src="'https://www.youtube.com/embed/' + con.url"
             >
             </iframe>
-            <h3 class="card-text"><nuxt-link :to="`/media_library/${con.id}`">{{ con.name }}</nuxt-link></h3>
+            <h3 class="card-text">{{ con.name }}</h3>
             
           </div>
         </div>
@@ -54,14 +54,14 @@ export default {
   },
   data() {
     return {
-      datas: {},
+      contents: {},
       data: [],
       image: bgImg,
     };
   },
   created() {
-    this.$axios.get("https://b2bdemo.visathing.in/api/manu_list/").then((response) => {
-      this.data = response.data.contents;
+    this.$axios.get("https://b2bdemo.visathing.in/api/content_list/").then((response) => {
+      this.contents = response.data.contents_all;
       //console.log( response.data.terms);
     });
   },
