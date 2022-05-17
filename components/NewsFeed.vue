@@ -4,10 +4,6 @@
     <div class="container">
       <div class="section-header">
         <h2>News Feed</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
-          morbi sit sed netus diam justo, elementum at. Mauris dui.
-        </p>
       </div>
       <div class="row g-3">
         <div
