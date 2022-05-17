@@ -16,11 +16,12 @@
               <select
                 aria-label="select"
                 class="form-select select-option"
+                @change="onChange()"
                 v-model="fields.cityzen_cty"
               >
                  <option value="bangladesh">Bangladesh</option>
-                 <option value="visathing.in">India</option>
-                 <option value="np.visathing.com">Nepal</option>
+                 <option value="https://visathing.in"> India </option> 
+                 <option value="https://np.visathing.com">Nepal</option>
               </select>
             </div>
             <div class="select-box">
@@ -152,7 +153,15 @@ export default {
           this.v_category = this.fields.v_category;
       }
     },
-
+    onChange() {
+       if (this.fields.cityzen_cty) {
+        var url = this.fields.cityzen_cty; // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+        }
+        }
     // submit() {
     //   this.$router
     //     .push({

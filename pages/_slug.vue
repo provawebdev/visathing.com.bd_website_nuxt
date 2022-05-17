@@ -170,7 +170,7 @@
           <div class="col-lg-3 col-md-5 col-sm-12 mb-5">
             <div class="left-sidebar-widget">
               <div class="sidebar-header">
-                <h4 class="fs-20">Services For Belgium</h4>
+                <h4 class="fs-20">Services For {{data.name}}</h4>
               </div>
 
               <div class="sidebar-lists">
@@ -470,7 +470,7 @@
                     width="100%"
                   />
                   <h5 class="fs-24 fs-md-20">
-                    Unavailable Useful Links For Belgium
+                    Unavailable Useful Links For {{data.name}}
                   </h5>
                 </div>
               </div>
