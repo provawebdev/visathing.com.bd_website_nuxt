@@ -20,7 +20,7 @@
             </div>
             <div class="col-lg-6 col-12">
               <div class="content-text">
-                <p v-html="data.body"> </p>
+                <div v-html="data.body"> </div>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@
             <div class="col-lg-6 col-12" >
               <div class="content-text">
                 <h2>{{con.name}} </h2>
-                <p v-html="con.body"> </p>
+                <div v-html="con.body"> </div>
                  </div>
             </div>
             <div class="col-lg-6 col-12">
@@ -52,7 +52,7 @@
             <div class="col-lg-6 col-12">
               <div class="content-text">
                 <h2>{{con.name}} </h2>
-               <p v-html="con.body"> </p>
+               <div v-html="con.body"> </div>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@
             <div class="col-lg-6 col-12">
               <div class="content-text">
                 <h2>{{con.name}} </h2>
-                <p v-html="con.body"> </p>
+                <div v-html="con.body"> </div>
                 <!-- <ul class="reason-list">
                   <li>
                     <span>01</span>
