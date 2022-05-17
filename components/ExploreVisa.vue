@@ -133,28 +133,28 @@
           </div>
         </div>
       </div>
-      <div id="exploreVisa1" class="tabcontent" style="display: none">
+       <div id="exploreVisa1" class="tabcontent" style="display: none">
         <!-- Swiper -->
         <div class="flag-slider-wrapper">
           <div
-            v-swiper:mySwiper="swiperOption2"
+            v-swiper:mySwiper2="swiperOption2"
             class="w-5/6 ml-auto relative swiper-container flag-slider clearfix"
             :loadtheme="false"
           >
             <div class="swiper-wrapper">
               <div
                 class="swiper-slide"
-                v-for="(cty2, c2) in datas2.countries_explore"
-                :key="c2"
+                v-for="(cty5, c5) in datas5.countries_explore"
+                :key="c5"
               >
                 <img
-                  v-if="cty2.flag"
+                v-if="cty5.flag"
                   class="h-64 w-64"
                   style="height: 126px; width: 190px"
-                  :alt="cty2.name"
-                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty2.flag"
+                  :alt="cty5.name"
+                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty5.flag"
                 />
-                <p>{{ cty2.name }}</p>
+                <p>{{ cty5.name }}</p>
               </div>
             </div>
             <div class="swiper-button-prev" slot="button-prev"></div>
@@ -162,7 +162,7 @@
           </div>
         </div>
       </div>
-      <div id="exploreVisa2" class="tabcontent" style="display: none">
+        <div id="exploreVisa2" class="tabcontent" style="display: none">
         <!-- Swiper -->
         <div class="flag-slider-wrapper">
           <div
@@ -173,17 +173,17 @@
             <div class="swiper-wrapper">
               <div
                 class="swiper-slide"
-                v-for="(cty3, c3) in datas3.countries_explore"
-                :key="c3"
+                v-for="(cty5, c5) in datas5.countries_explore"
+                :key="c5"
               >
                 <img
-                v-if="cty3.flag"
+                v-if="cty5.flag"
                   class="h-64 w-64"
                   style="height: 126px; width: 190px"
-                  :alt="cty3.name"
-                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty3.flag"
+                  :alt="cty5.name"
+                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty5.flag"
                 />
-                <p>{{ cty3.name }}</p>
+                <p>{{ cty5.name }}</p>
               </div>
             </div>
             <div class="swiper-button-prev" slot="button-prev"></div>
@@ -295,9 +295,9 @@ export default {
       // services: [],
       //banners: ["/slider-1.png", "/slider-2.png", "/slider-3.png"],
       swiperOption: {
-        slidesPerView: 4,
+        slidesPerView: 5,
         spaceBetween: -10,
-        slidesPerGroup: 4,
+        slidesPerGroup: 5,
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {
@@ -328,9 +328,9 @@ export default {
         },
       },
       swiperOption2: {
-        slidesPerView: 3,
+        slidesPerView: 5,
         spaceBetween: -10,
-        slidesPerGroup: 3,
+        slidesPerGroup: 5,
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {
@@ -361,9 +361,9 @@ export default {
         },
       },
       swiperOption3: {
-        slidesPerView: 3,
+        slidesPerView: 5,
         spaceBetween: -10,
-        slidesPerGroup: 3,
+        slidesPerGroup: 5,
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {
@@ -394,9 +394,9 @@ export default {
         },
       },
       swiperOption4: {
-        slidesPerView: 3,
+        slidesPerView: 5,
         spaceBetween: -10,
-        slidesPerGroup: 3,
+        slidesPerGroup: 5,
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {
@@ -427,9 +427,9 @@ export default {
         },
       },
       swiperOption5: {
-        slidesPerView: 3,
+        slidesPerView: 5,
         spaceBetween: -10,
-        slidesPerGroup: 3,
+        slidesPerGroup: 5,
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {

@@ -6,12 +6,11 @@
         <h2>Media Library</h2>
       </div>
       <div class="row">
-        <div
-          class="col-lg-4 col-md-6"
-          v-for="(con, key) in contents"
-          :key="key"
+        <div v-for="(con, key) in contents"
+          :key="key" v-show="con.url"
+          class="col-lg-4 col-md-4"
         >
-          <div class="media-library-item card" v-show="con.url">
+          <div class="media-library-item card">
             <iframe
               class="card-img-top"
               :src="'https://www.youtube.com/embed/' + con.url"
@@ -20,37 +19,6 @@
             <h3 class="card-text">{{ con.name }}</h3>
           </div>
         </div>
-        <!--<div class="col-lg-4 col-md-6">
-                <div class="media-library-item card">
-                    <img alt="..." class="card-img-top" src="~/assets/img/media-2.png">
-                    <h3 class="card-text">How to address the challenges in Croatia Visa & Work Permit Processing
-                    </h3>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="media-library-item card">
-                    <img alt="..." class="card-img-top" src="~/assets/img/media-3.png">
-                    <h3 class="card-text">Latest update on Romania work permit visa processing | visathing</h3>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="media-library-item card">
-                    <img alt="..." class="card-img-top" src="~/assets/img/media-4.png">
-                    <h3 class="card-text">Serbia Work Permit Visa for Bangladeshi Update visa processing</h3>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="media-library-item card">
-                    <img alt="..." class="card-img-top" src="~/assets/img/media-5.png">
-                    <h3 class="card-text">UK Visa Requirements and Processing Tips | VISAThing</h3>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="media-library-item card">
-                    <img alt="..." class="card-img-top" src="~/assets/img/media-6.png">
-                    <h3 class="card-text">Latest update on Croatia work permit visa processing</h3>
-                </div>
-            </div> -->
       </div>
       <div class="view-all-btn">
         <nuxt-link to="/media_library">

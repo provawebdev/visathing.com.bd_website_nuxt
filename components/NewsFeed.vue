@@ -14,7 +14,7 @@
           v-for="(con, key) in contents"
           :key="key"
           v-show="con.category == 'News Feed'"
-          class="col-lg-4 col-md-6"
+          class="col-lg-4 col-md-4"
         >
           <div class="media-library-item card news-items">
             <img
