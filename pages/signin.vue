@@ -55,7 +55,8 @@
               role="tabpanel"
               aria-labelledby="freelancer-tab"
             >
-              <form>
+              <form method="post" action="https://visathing.org/b2cuser">
+                <input type="hidden" name="_token" value="csrf_token()">
                 <div class="form-field">
                   <label for="inputUsername" class="form-label"
                     >Country Code</label

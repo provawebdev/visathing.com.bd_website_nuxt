@@ -542,8 +542,8 @@ const http = axios.create({
 export default {
   head() {
     return {
-      title: `%s ${this.data.name} - VISAThing`,
-      titleTemplate: `%s ${this.data.name} - VISAThing`,
+      title: `${this.data.name} - ${this.data.meta_title}`,
+      titleTemplate: `${this.data.name} - Visa From Bangladesh`,
       meta: [
            {
           hid: "keyords",

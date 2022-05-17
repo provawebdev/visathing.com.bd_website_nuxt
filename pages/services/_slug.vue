@@ -148,8 +148,8 @@ const http = axios.create({
 export default {
   head() {
     return {
-      title: "",
-      titleTemplate: `%s ${this.data.name} - VISAThing`,
+      title: "${this.data.name}",
+      titleTemplate: `${this.data.name} - Service`,
     };
   },
   data() {
