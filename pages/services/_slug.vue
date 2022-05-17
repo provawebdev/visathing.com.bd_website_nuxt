@@ -69,7 +69,7 @@
           >
             <div class="online-application box-item">
               <div class="icon-box">
-                <img
+                <img style="height: 51px; width:51px;"
                   :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image"
                   :alt="con.name"
                 />
