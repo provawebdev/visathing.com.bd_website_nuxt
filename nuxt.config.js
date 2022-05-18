@@ -74,8 +74,8 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    //['@nuxtjs/google-analytics', { ua: 'UA-56018274-1' }],
     '@nuxtjs/google-gtag',
+    '@privyid/nuxt-csrf',
 
     // Inline definition
     function () { }

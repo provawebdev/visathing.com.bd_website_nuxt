@@ -55,8 +55,8 @@
               role="tabpanel"
               aria-labelledby="freelancer-tab"
             >
-              <form method="post" action="https://visathing.org/b2cuser">
-                <input type="hidden" name="_token" value="csrf_token()">
+              <form method="post" @submit.prevent="register">
+                <input type="hidden" name="_token" :value="csrf">
                 <div class="form-field">
                   <label for="inputUsername" class="form-label"
                     >Country Code</label
@@ -389,3 +389,44 @@
     </section>
   </div>
 </template>
+<script>
+// import Notification from '../components/Notification';
+
+export default {
+  components: {
+   // Notification,
+  },
+
+  data() {
+    return {
+      phone: '',
+      email: '',
+      password: '',
+      error: null
+    }
+  },
+
+  methods: {
+    async register() {
+      try {
+        await this.$axios.post('register', {
+          phone: this.phone,
+          email: this.email,
+          password: this.password
+        })
+
+        await this.$auth.loginWith('local', {
+          data: {
+          email: this.email,
+          password: this.password
+          },
+        })
+
+        this.$router.push('/')
+      } catch (e) {
+        this.error = e.response.data.message
+      }
+    }
+  }
+}
+</script>

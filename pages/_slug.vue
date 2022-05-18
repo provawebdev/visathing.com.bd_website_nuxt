@@ -309,7 +309,7 @@
                     >
                       <li v-if="vcat.id == check.pivot.vcat_id">
                         <div class="item-icon">
-                          <span>*</span>
+                          <span>{{check.pivot.orderby}}</span>
                         </div>
                         <div class="item-content">
                            {{ check.name }}: {{ check.short_details }}
@@ -329,7 +329,7 @@
                     >
                       <li v-if="vcat.id == check.pivot.vcat_id">
                         <div class="item-icon">
-                          <span>{{ check_key + 1 }}</span>
+                          <span>{{check.pivot.orderby}}</span>
                         </div>
                         <div class="item-content">
                           {{ check.name }}: {{ check.short_details }}
@@ -663,10 +663,8 @@ export default {
         this.$router
           .push({
             path: "/" + this.fields.search,
-           // params: { v_category: this.fields.v_category },
           })
           this.v_category = this.fields.v_category;
-          // console.log(this.fields.v_category)
       }
     },
   },
