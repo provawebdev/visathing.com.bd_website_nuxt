@@ -14,7 +14,7 @@
         <div class="row justify-content-center">
           <div :class="{ 'col-lg-12 col-md-12 mb-5': data.image === null }" class="col-lg-6 col-md-10 mb-5">
             <h2 class="fs-34 fs-sm-24 mb-3">{{ data.name }}</h2>
-            <p v-html="data.body"></p>
+            <div v-html="data.body"></div>
           </div>
           <div v-if="data.image" class="col-lg-6 col-md-10">
             <img
@@ -112,7 +112,7 @@
                       data-bs-parent="#accordionExample"
                     >
                       <div class="accordion-body">
-                        <p v-html="con.body"></p>
+                        <div v-html="con.body"></div>
                       </div>
                     </div>
                   </div>

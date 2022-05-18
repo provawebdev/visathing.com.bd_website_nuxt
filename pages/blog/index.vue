@@ -9,7 +9,7 @@
     <section class="pt-0" id="news">
       <div class="container">
         <div class="section-header">
-          <p v-html="data.body"></p>
+          <div v-html="data.body"></div>
         </div>
         <div class="row g-3">
           <div

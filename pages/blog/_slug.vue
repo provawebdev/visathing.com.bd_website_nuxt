@@ -42,7 +42,7 @@
                 class="img-fluid"
                 :alt="data.name"
               />
-              <p v-html="data.body"></p>
+              <div v-html="data.body"></div>
             </div>
           </div>
           <div class="col-lg-4 col-md-5">
