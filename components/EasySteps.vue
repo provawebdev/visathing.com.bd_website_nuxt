@@ -8,8 +8,9 @@
                 elementum at. Mauris dui.</p>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <a href="/complete-online-application-form.html">
+            <div v-if="contents[0]"
+                :key="key" class="col-md-4">
+                <nuxt-link v-bind:to="'/steps/' + contents[0].slug">
                     <div class="get-visa-item">
                         <div class="get-visa-item-top">
                             <span>1</span>
@@ -71,12 +72,12 @@
                                         fill="#A6D786"/>
                             </svg>
                         </div>
-                        <p>Complete Online Application From</p>
+                        <p>{{contents[0].name}}</p>
                     </div>
-                </a>
+                </nuxt-link>
             </div>
-            <div class="col-md-4">
-                <a href="/provide-documents-make-payment.html">
+            <div v-if="contents[1]" class="col-md-4">
+                <nuxt-link v-bind:to="'/steps/'+ contents[1].slug">
                     <div class="get-visa-item">
                         <div class="get-visa-item-top">
                             <span>2</span>
@@ -123,13 +124,12 @@
                                 </defs>
                             </svg>
                         </div>
-                        <p>Make Payment & Provide
-                            Documents</p>
+                        <p>{{ contents[1].name}}</p>
                     </div>
-                </a>
+                </nuxt-link>
             </div>
-            <div class="col-md-4">
-                <a href="/receive-your-visa.html">
+            <div v-if="contents[2]" class="col-md-4">
+                <nuxt-link v-bind:to="'/steps/'+contents[1].slug">
                     <div class="get-visa-item">
                         <div class="get-visa-item-top">
                             <span>3</span>
@@ -181,9 +181,9 @@
                                 </defs>
                             </svg>
                         </div>
-                        <p>Receive Your Visa</p>
+                        <p>{{contents[2].name}}</p>
                     </div>
-                </a>
+                </nuxt-link>
 
             </div>
         </div>
@@ -191,3 +191,39 @@
 </section>
 <!-- Get  Visa Section End -->
 </template>
+<script>
+import axios from "axios";
+
+import {
+  cacheAdapterEnhancer,
+  throttleAdapterEnhancer,
+} from "axios-extensions";
+
+const http = axios.create({
+  baseURL: "https://b2bdemo.visathing.in/api",
+
+  adapter: throttleAdapterEnhancer(axios.defaults.adapter, {
+    threshold: 10 * 1000,
+  }),
+});
+
+export default {
+  mounted() {},
+
+  data() {
+    return {
+      contents: [],
+    };
+  },
+  created() {
+    this.$axios
+      .get("https://b2bdemo.visathing.in/api/threestep")
+      .then((response) => {
+        this.contents = response.data.contents;
+        // console.log(response.data.services);
+      });
+  },
+
+  methods: {},
+};
+</script>

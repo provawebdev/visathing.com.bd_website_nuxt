@@ -7,8 +7,6 @@
         <h1>{{ data.name }}</h1>
       </div>
     </section>
-    <!-- Page Name -->
-    <!-- Page Content -->
     <section class="page-content blog blog-details">
       <div class="container">
         <div class="row">
@@ -72,18 +70,18 @@
               <div class="latest-posts-block">
                 <h3 class="sidebar-block-name">Latest Posts</h3>
                 <div
-                  v-for="(con, key) in data.contents"
+                  v-for="(con, key) in contents"
                   :key="key"
                   class="post-item d-flex align-items-start"
                 >
                   <img
-                    :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image"
+                    :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image" class="img-responsive col-md-3"
                     :alt="con.name"
                   />
                   <div class="post-item-body">
-                    <h3 class="post-item-title">
-                      <a href="#">{{ con.name }}</a>
-                    </h3>
+                    <h6 class="post-item-title">
+                      <nuxt-link v-bind:to="'/blog/'+con.slug">{{ con.name }}</nuxt-link>
+                    </h6>
                     <p class="post-item-time">
                       <svg
                         width="12"
@@ -100,11 +98,6 @@
                     </p>
                   </div>
                 </div>
-              </div>
-              <div class="newsletter-block">
-                <h3 class="sidebar-block-name">Newsletter</h3>
-                <input type="text" placeholder="Enter your email" />
-                <button>Subscribe</button>
               </div>
               <div class="categories-block">
                 <h3 class="sidebar-block-name">Categories</h3>
@@ -132,12 +125,7 @@
         </div>
       </div>
     </section>
-    <!-- Page Content -->
-    <!--Visa Consultancy Layout Bottom Box Start -->
-    <section id="visa-consultancy-bottom-box">
-      <div class="container"></div>
-    </section>
-    <!--Visa Consultancy Layout Bottom Box End -->
+    
   </div>
 </template>
 <script>
@@ -158,12 +146,13 @@ export default {
   head() {
     return {
       title: "",
-      titleTemplate: `%s ${this.$route.name} - VISAThing`,
+      titleTemplate: `${this.data.name} - VISAThing`,
     };
   },
   data() {
     return {
       data: [],
+      contents: [],
       image: bgImg,
     };
   },
@@ -172,6 +161,7 @@ export default {
       .get("https://b2bdemo.visathing.in/api/content_show/" + this.$route.params.slug)
       .then((response) => {
         this.data = response.data.content;
+        this.contents = response.data.contents;
        // console.log(response.data.content);
       });
   },

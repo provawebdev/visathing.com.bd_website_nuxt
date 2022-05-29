@@ -332,7 +332,7 @@
                           <span>{{check.pivot.orderby}}</span>
                         </div>
                         <div class="item-content">
-                          {{ check.name }}: {{ check.short_details }}
+                         {{ check.name }}: {{ check.short_details }}
                         </div>
                       </li>
                     </ul>
