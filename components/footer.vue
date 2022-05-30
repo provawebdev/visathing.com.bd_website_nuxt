@@ -58,7 +58,6 @@
                     <div class="footer-item item-4">
                         <h3>Newsletter</h3>
                         <ul class="item-4-content">
-                            <li>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Fermentum vita.</li>
                             <li>
                                 <form class="footer-newsletter border-radius-5">
                                     <label><input class="footer-newsletter-input" placeholder="Enter your mail"
