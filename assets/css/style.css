@@ -1148,6 +1148,7 @@ section p {
     background: url("~/assets/img/eligiblity-checker-bg.png") no-repeat center center;
     background-size: cover;
     color: var(--color-white);
+    min-height: 984px;
 }
 
 .check-ques,

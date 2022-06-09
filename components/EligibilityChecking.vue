@@ -29,13 +29,13 @@
             </select>
             <div class="ques-box" name="question">
               <div id="tabs">
-                <ul class="d-none">
+                <!-- <ul class="d-none">
                   <li><nuxt-link to="#tabs-0">Tab 0</nuxt-link></li>
                   <li><nuxt-link to="#tabs-1">Tab 1</nuxt-link></li>
                   <li><nuxt-link to="#tabs-2">Tab 2</nuxt-link></li>
                   <li><nuxt-link to="#tabs-3">Tab 3</nuxt-link></li>
                   <li><nuxt-link to="#tabs-4">Tab 4</nuxt-link></li>
-                </ul>
+                </ul> -->
                 <div v-bind:id="'tabs-' + 0">
                   <div v-if="checker_question != null">
                     <h3>{{ key + 1 }}. {{ checker_question[key].question }}</h3>
@@ -61,7 +61,7 @@
                       </label>
                     </div>
 
-                    <div class="d-flex gap-4 mt-4">
+                    <div class="d-flex gap-4">
                       
                       <button v-if="(key != 0) && (key +1 < total)"
                         @click.prevent="backQst()"
@@ -100,7 +100,7 @@
         </div>
         <div class="col-md-6">
           <div class="check-progress">
-            <div class="position-relative" id="circle">
+            <div class="position-relative" id="circle" v-if="key + 1  === total">
               <span>{{ result}}%</span>
             </div>
             <button class="btn-gradient">
