@@ -18,9 +18,11 @@
               <option value="0">Select Country</option>
               <option
                 v-for="(cty, key) in country_list"
+                v-show="cty.country_questions[0]"
                 :value="cty"
                 :key="key"
                 :v-bind="cty.id"
+                
               >
                 {{ cty.name }}
               </option>
@@ -52,7 +54,7 @@
                         v-model="question[key]"
                         :value="ans.point"
                         type="radio"
-                        required
+                        :v-model="required"
                       />
                       <label class="form-check-label" for="sate_1_checkbox_one">
                         {{ ans.answer }}
@@ -60,16 +62,17 @@
                     </div>
 
                     <div class="d-flex gap-4 mt-4">
-                      <button v-if="key +1 === total"
-                        @click.prevent="nextQst()"
+                      
+                      <button v-if="(key != 0) && (key +1 < total)"
+                        @click.prevent="backQst()"
                         type="button"
                         id="btnNext"
-                        value="Check Score"
+                        value="Back"
                         class="list-form-btn"
-                        >
-                        Check Score
+                      >
+                        Back
                       </button>
-                       <button v-if="key + 1 < total"
+                       <button v-if="(key + 1 < total) && (question[key] != null)"
                         @click.prevent="nextQst()"
                         type="button"
                         id="btnNext"
@@ -78,6 +81,16 @@
                       >
                         Next
                       </button>
+                      <button v-else-if="key +1 === total"
+                        @click.prevent="nextQst()"
+                        type="button"
+                        id="btnNext"
+                        value="Check Score"
+                        class="list-form-btn"
+                        >
+                        Check Score
+                      </button>
+                      <button v-else type="button" class="list-form-btn">Please select your answer</button>
                     </div>
                   </div>
                 </div>
@@ -136,6 +149,7 @@ export default {
       country_questions: [],
       country_answers: [],
       question: {},
+      required: false,
     };
   },
 
@@ -177,6 +191,18 @@ export default {
         this.percent += Math.round(countPercent);
 
         this.result += question[0];
+       // console.log(this.result);
+      }
+    },
+    backQst() {
+      let newTotal = this.total - 1;
+      let result = 0;
+      // let question = "q" + this.key;
+
+      let question = [this.question[this.key]];
+
+      if (this.key < newTotal) {
+        this.key--;
        // console.log(this.percent);
       }
     },
