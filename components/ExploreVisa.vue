@@ -8,8 +8,8 @@
 
       <div class="row justify-content-md-between justify-content-center mb-4">
         <div class="col-md-2 col-4">
-          <a
-            href="/visa-free.html"
+          <nuxt-link
+            v-bind:to="'/explorevisa/' + datas1.slug"
             class="tablinks"
             onmouseover="openCity(event,'exploreVisa0')"
           >
@@ -23,11 +23,11 @@
                 ({{ data.countries_explore.length }} Countries)
               </p>
             </div>
-          </a>
+          </nuxt-link>
         </div>
         <div class="col-md-2 col-4">
-          <a
-            href="#"
+          <nuxt-link
+            v-bind:to="'/explorevisa/' + datas2.slug"
             class="tablinks"
             onmouseover="openCity(event, 'exploreVisa1')"
           >
@@ -41,11 +41,11 @@
                 ({{ data2.countries_explore.length }} Countries)
               </p>
             </div>
-          </a>
+          </nuxt-link>
         </div>
         <div class="col-md-2 col-4">
-          <a
-            href="/e-visa.html"
+          <nuxt-link
+            v-bind:to="'/explorevisa/' + datas3.slug"
             class="tablinks"
             onmouseover="openCity(event, 'exploreVisa2')"
           >
@@ -59,14 +59,14 @@
                 ({{ data3.countries_explore.length }} Countries)
               </p>
             </div>
-          </a>
+          </nuxt-link>
         </div>
         <div class="col-12 d-md-none">
           <div class="divider-lg"></div>
         </div>
         <div class="col-md-2 col-4">
-          <a
-            href="/flexible-submission.html"
+          <nuxt-link
+            v-bind:to="'/explorevisa/' + datas4.slug"
             class="tablinks"
             onmouseover="openCity(event, 'exploreVisa3')"
           >
@@ -80,11 +80,11 @@
                 ({{ data4.countries_explore.length }} Countries)
               </p>
             </div>
-          </a>
+          </nuxt-link>
         </div>
         <div class="col-md-2 col-4">
-          <a
-            href="/flexible-submission.html"
+          <nuxt-link
+            v-bind:to="'/explorevisa/' + datas5.slug"
             class="tablinks"
             onmouseover="openCity(event, 'exploreVisa4')"
           >
@@ -99,7 +99,7 @@
                </span>
               </p>
             </div>
-          </a>
+          </nuxt-link>
         </div>
       </div>
       <!-- Swiper -->
