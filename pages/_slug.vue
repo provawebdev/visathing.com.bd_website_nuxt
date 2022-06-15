@@ -69,10 +69,10 @@
                 v-for="(ser, key) in data.cty_services"
                 :key="key"
               >
-                <a
-                  href="#"
+                <nuxt-link
+                  v-bind:to="'services/' + ser.slug"
                   class="btn fs-14 fs-sm-10 btn-outline-light checked"
-                  >{{ ser.name }}</a
+                  >{{ ser.name }}</nuxt-link
                 >
               </div>
             </div>
@@ -385,13 +385,13 @@
                            <option v-for="(vt, vt_key) in visafees" :key="vt_key" :value="vt.visa_fee">{{vt.entry_name}}</option>
                         </select>
                       </div>
-                      <div class="form-item">
+                      <!-- <div class="form-item">
                         <input
                           type="submit"
                           class="btn btn-gradient fs-14"
                           value="Check Visa Fee" 
                         />
-                      </div>
+                      </div> -->
                     </div>
                   </form>
                  <br> <h3 class="fs-24"> Visa Fee: {{this.fields.visa_fee}}</h3>
@@ -422,6 +422,8 @@
                     </div>
                   </form> <br />
                   <h3 class="fs-24"> Total Charge: {{result2}}</h3>
+                  <h3 class="fs-24"> Processing Time: </h3>
+                  <p>{{ data.process_time}}</p>
                 </div>
               </div>
               <!-- ----------------------------------------------------------------------- -->
@@ -447,7 +449,7 @@
                     class="btn btn-gradient"
                     :href="
                       'https://b2bdemo.visathing.in/storage/app_form/' + app.app_form
-                    "
+                    " target="_blank"
                     download
                     >Download</a
                   >
@@ -463,15 +465,21 @@
                 aria-labelledby="useful-link-tab"
               >
                 <div class="useful-link-wrapper">
+                 <p v-if="data.useful_link" v-html="data.useful_link"> </p>
+                 <div v-if="data.useful_link === null">
                   <img
                     class="text-center"
                     src="~/assets/img/404.png"
                     alt="404-image"
                     width="100%"
                   />
+                  
+                   
+                  
                   <h5 class="fs-24 fs-md-20">
                     Unavailable Useful Links For {{data.name}}
                   </h5>
+                 </div>
                 </div>
               </div>
               <!-- ----------------------------------------------------------------------- -->

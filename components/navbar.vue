@@ -117,13 +117,13 @@
                 </ul>
               </li>
 
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <nuxt-link
                   to="/visa-eligibility-checker"
                   class="btn btn-gradient"
                   >Visa Eligibility Checker</nuxt-link
                 >
-              </li>
+              </li> -->
             </ul>
             <form
               class="nav-search-bar border-radius-5 d-none d-lg-flex"
@@ -179,14 +179,6 @@
                   </nuxt-link>
                 </li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <nuxt-link
-                to="/visa-eligibility-checker"
-                class="btn btn-gradient"
-              >
-                Visa Eligibility Checker
-              </nuxt-link>
             </li>
           </ul>
           <form

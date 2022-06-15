@@ -468,7 +468,7 @@ section p {
 */
 
 #basic-hero-banner {
-    padding: 60px 0 40px 0;
+    padding: 36px 0 0px 0;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -525,7 +525,7 @@ section p {
 }
 
 .online-apply-body {
-    padding: 15px 40px 40px;
+    padding: 10px 40px 10px 40px;
     z-index: 1;
     position: inherit;
 }
@@ -742,6 +742,8 @@ section p {
 #service-lists-wrapper .sidebar-lists ul li button:hover,
 #service-lists-wrapper .sidebar-lists ul li button.active {
     color: var(--color-black);
+    background: #5293f0;
+    padding: 10px;
 }
 
 #service-lists-wrapper .service-item-body {
