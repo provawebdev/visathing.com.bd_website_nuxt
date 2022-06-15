@@ -1,11 +1,8 @@
 <template>
-    <!-- Get Visa Section Start -->
 <section id="get-visa">
     <div class="container">
         <div class="section-header">
             <h2>3 Easy Steps To Get Your Visa</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt morbi sit sed netus diam justo,
-                elementum at. Mauris dui.</p>
         </div>
         <div class="row">
             <div v-if="contents[0]"
@@ -129,7 +126,7 @@
                 </nuxt-link>
             </div>
             <div v-if="contents[2]" class="col-md-4">
-                <nuxt-link v-bind:to="'/steps/'+contents[1].slug">
+                <nuxt-link v-bind:to="'/steps/'+contents[2].slug">
                     <div class="get-visa-item">
                         <div class="get-visa-item-top">
                             <span>3</span>
