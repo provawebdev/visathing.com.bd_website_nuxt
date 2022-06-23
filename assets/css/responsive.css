@@ -649,6 +649,8 @@
   }
   .navbar-nav .nav-link {
     text-align: center;
+    border-top: 1px solid#ddd;
+    padding: 0.5rem 8rem;
   }
   .navbar-nav .dropdown-menu.show {
     opacity: 1;
@@ -778,7 +780,7 @@
   }
 
   #hero {
-    padding: 80px 0;
+    padding: 40px 0;
     background-image: url("../img/hero-bg-sm.png");
   }
 

@@ -47,16 +47,17 @@
                       "
                       class="form-check ques-option"
                     >
+                    
                       <input
                         class="form-check-input"
-                        id="sate_1_checkbox_one"
+                        :id="'sate_'+ key +'_checkbox_one'+ans_key"
                         name="'question' + key"
                         v-model="question[key]"
                         :value="ans.point"
                         type="radio"
                         :v-model="required"
                       />
-                      <label class="form-check-label" for="sate_1_checkbox_one">
+                      <label class="form-check-label" :for="'sate_'+ key +'_checkbox_one'+ans_key">
                         {{ ans.answer }}
                       </label>
                     </div>

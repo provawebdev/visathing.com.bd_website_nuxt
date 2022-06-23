@@ -17,19 +17,9 @@
             >
           </li>
           <li>
-            <span class="fas fa-map-marker-alt"></span>1st Floor, Homestead Gulshan Link Tower, DCC TA-99, Gulshan-Badda link Road, Gulshan-1, Dhaka-1212
-          </li>
-        </ul>
-        <ul class="topbar-right d-flex">
-          <li class="topbar-signin">
-            <a href="https://visathing.org/">
-              <span class="fas fa-user-alt"></span>Sign in
-            </a>
-          </li>
-          <li class="topbar-signup">
-            <nuxt-link to="/signin"
-              ><span class="fas fa-sign-out-alt"></span>Sign Up</nuxt-link
-            >
+            <span class="fas fa-map-marker-alt"></span>1st Floor, Homestead
+            Gulshan Link Tower, DCC TA-99, Gulshan-Badda link Road, Gulshan-1,
+            Dhaka-1212
           </li>
         </ul>
       </div>
@@ -90,17 +80,29 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav ms-auto align-items-center">
               <li class="nav-item">
-                <nuxt-link to="/" aria-current="page" class="nav-link active">
+                <nuxt-link
+                  to="/"
+                  aria-current="page"
+                  class="nav-link"
+                  :class="{ active: route === '/' }"
+                >
                   Home
                 </nuxt-link>
               </li>
               <li class="nav-item">
-                <nuxt-link to="/about" class="nav-link"> About </nuxt-link>
+                <nuxt-link
+                  to="/about"
+                  class="nav-link"
+                  :class="{ active: route === '/about' }"
+                >
+                  About
+                </nuxt-link>
               </li>
               <li class="nav-item">
                 <nuxt-link
                   to="/services"
                   class="nav-link dropdown-toggle"
+                  :class="{ active: route === '/services' }"
                   data-bs-toggle="dropdown"
                 >
                   Our services
@@ -125,29 +127,15 @@
                 >
               </li> -->
             </ul>
-            <form
-              class="nav-search-bar border-radius-5 d-none d-lg-flex"
-              role="form"
-              @submit.prevent="submit"
-            >
-              <p v-if="errors.length">
-                <span class="fa fa-asterisk text-danger"></span>
-              </p>
-              <input
-                class="nav-search-input"
-                placeholder="Application tracking"
-                type="text"
-                name="status"
-                v-model="fields.status"
-                required
-              />
-              <button
-                class="nav-search-icon bgc-gradient border-radius-5"
-                type="submit"
-              >
-                <span class="fas fa-search"></span>
-              </button>
-            </form>
+
+            <ul class="navbar ms-auto align-items-center">
+              <li class="nav-item">
+                <a href="https://visathing.org/" class="btn btn-gradient">
+                  <span class="fas fa-user-alt"></span> Sign in |
+                  <span class="fas fa-sign-out-alt"></span> Sign Up
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <!-- Main Menu -->
@@ -202,6 +190,14 @@
               <span class="fas fa-search"></span>
             </button>
           </form>
+          <ul class="navbar">
+            <li class="nav-item">
+              <a href="https://visathing.org/" class="btn btn-gradient">
+                <span class="fas fa-user-alt"></span> Sign in |
+                <span class="fas fa-sign-out-alt"></span> Sign Up
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -248,50 +244,47 @@ export default {
       });
   },
   methods: {
-  //   submit: function (e) {
-  //     if (this.fields.status) {
-  //       return true;
-  //     }
-  //     this.errors = [];
-  //     if (!this.fields.status) {
-  //       this.errors.push("required.");
-  //     }
-  //     e.preventDefault();
+    //   submit: function (e) {
+    //     if (this.fields.status) {
+    //       return true;
+    //     }
+    //     this.errors = [];
+    //     if (!this.fields.status) {
+    //       this.errors.push("required.");
+    //     }
+    //     e.preventDefault();
 
-  //    this.$axios
-  //       .get("http://localhost:8082/api/get_tracking/" + this.fields.status ,   {
-  //   },)
-  //  .then(
-  //     ({ data }) => (
-  //       (this.fields = {})
-  //     )
-  //   )
-  //   .catch((error) => console.log(error));
-  //     if (this.fields) {
-  //       this.$router
-  //         .push({
-  //           path: "/visa-application-status/" + this.status,
-  //         })
-  //          console.log(this.fields);
-  //     }
-  //   },
+    //    this.$axios
+    //       .get("http://localhost:8082/api/get_tracking/" + this.fields.status ,   {
+    //   },)
+    //  .then(
+    //     ({ data }) => (
+    //       (this.fields = {})
+    //     )
+    //   )
+    //   .catch((error) => console.log(error));
+    //     if (this.fields) {
+    //       this.$router
+    //         .push({
+    //           path: "/visa-application-status/" + this.status,
+    //         })
+    //          console.log(this.fields);
+    //     }
+    //   },
 
- submit() {
+    submit() {
       this.$axios
-        .get("http://localhost:8082/api/track_website/" + this.fields.status,{
-    },)
-   .then(
-      ({ data }) => (
-        (this.fields = {})
-      )
-    )
-    .catch((error) => console.log(error));
+        .get(
+          "http://localhost:8082/api/track_website/" + this.fields.status,
+          {}
+        )
+        .then(({ data }) => (this.fields = {}))
+        .catch((error) => console.log(error));
       if (this.fields) {
-        this.$router
-          .push({
-            path: "/visa-application-status/" + this.fields.status,
-          })
-           console.log(this.fields.status)
+        this.$router.push({
+          path: "/visa-application-status/" + this.fields.status,
+        });
+        console.log(this.fields.status);
       }
     },
 

@@ -23,7 +23,7 @@
                   <div class="flag-info text-center">
                     <img class="img-fluid" :alt="cty.name"
                     :src="'https://b2bdemo.visathing.in/storage/flag/' + cty.flag"/>
-                    <h3>Albania</h3>
+                    <h3>{{cty.name}}</h3>
                   </div>
                 </div>
               </div>

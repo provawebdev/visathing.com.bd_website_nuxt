@@ -64,7 +64,7 @@
           <div
             v-for="(con, key) in data.contents"
             :key="key"
-            v-show="con.body == NULL"
+            v-show="con.image !== NULL"
             class="col-lg-3 col-md-4 col-10 mb-4"
           >
             <div class="online-application box-item">

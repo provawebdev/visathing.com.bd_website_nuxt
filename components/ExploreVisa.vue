@@ -10,7 +10,7 @@
         <div class="col-md-2 col-4">
           <nuxt-link
             v-bind:to="'/explorevisa/' + datas1.slug"
-            class="tablinks"
+            class="tablinks active" v-bind:class="{ 'active' : datas1 === active }"
             onmouseover="openCity(event,'exploreVisa0')"
           >
             <div class="step-box border-radius-5 text-center">
@@ -120,8 +120,7 @@
               >
                 <img
                   v-if="cty1.flag"
-                  class="h-64 w-64"
-                  style="height: 126px; width: 190px"
+                  style="height: 126px;"
                   :alt="cty1.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty1.flag"
                 />
@@ -150,7 +149,7 @@
                 <img
                 v-if="cty5.flag"
                   class="h-64 w-64"
-                  style="height: 126px; width: 190px"
+                  style="height: 126px; "
                   :alt="cty5.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty5.flag"
                 />
@@ -179,7 +178,7 @@
                 <img
                 v-if="cty5.flag"
                   class="h-64 w-64"
-                  style="height: 126px; width: 190px"
+                  style="height: 126px; "
                   :alt="cty5.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty5.flag"
                 />
@@ -208,7 +207,7 @@
                 <img
                 v-if="cty4.flag"
                   class="h-64 w-64"
-                  style="height: 126px; width: 190px"
+                  style="height: 126px; "
                   :alt="cty4.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty4.flag"
                 />
@@ -237,7 +236,7 @@
                 <img
                 v-if="cty5.flag"
                   class="h-64 w-64"
-                  style="height: 126px; width: 190px"
+                  style="height: 126px; "
                   :alt="cty5.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty5.flag"
                 />
@@ -292,6 +291,7 @@ export default {
       datas3: [],
       datas4: [],
       datas5: [],
+      active: "datas1",
       // services: [],
       //banners: ["/slider-1.png", "/slider-2.png", "/slider-3.png"],
       swiperOption: {
@@ -322,7 +322,7 @@ export default {
             spaceBetween: 10,
           },
           320: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 10,
           },
         },
@@ -355,7 +355,7 @@ export default {
             spaceBetween: 10,
           },
           320: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 10,
           },
         },
@@ -388,7 +388,7 @@ export default {
             spaceBetween: 10,
           },
           320: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 10,
           },
         },
@@ -421,7 +421,7 @@ export default {
             spaceBetween: 10,
           },
           320: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 10,
           },
         },
@@ -454,7 +454,7 @@ export default {
             spaceBetween: 10,
           },
           320: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 10,
           },
         },
