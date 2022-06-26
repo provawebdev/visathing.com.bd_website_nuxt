@@ -12,123 +12,105 @@
     <section id="visa-consultancy-wrapper">
       <div class="container">
         <div class="row justify-content-center">
-          <div :class="{ 'col-lg-12 col-md-12 mb-5': data.image === null }" class="col-lg-6 col-md-10 mb-5">
-            <h2 class="fs-34 fs-sm-24 mb-3">{{ data.name }}</h2>
+          <div
+            :class="{ 'col-lg-12 col-md-12 mb-5': data.image === null }"
+            class="col-lg-6 col-md-10 mb-5"
+          >
             <div v-html="data.body"></div>
           </div>
           <div v-if="data.image" class="col-lg-6 col-md-10">
             <img
-              :src="'https://b2bdemo.visathing.in/storage/Submenu/' + data.image"
+              :src="
+                'https://b2bdemo.visathing.in/storage/Submenu/' + data.image
+              "
               class="rounded img-fluid"
               :alt="data.name"
             />
           </div>
         </div>
-        <!-- <div class="content-box content-box-4 my-120">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 col-10 order-1 order-lg-0">
-                        <div class="content-image">
-                            <img src="" class="img-fluid" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-10 ">
-                        <div class="content-text">
-                            <h2>hhh</h2>
-                            <p> </p>
-                           <ul class="reason-list">
-                                <li><span>01</span>
-                                    <p>Studying Your Background & Travel History.</p>
-                                </li>
-                                <li><span>02</span>
-                                    <p>Creating Checklist based on Profile Merit.</p>
-                                </li>
-                                <li><span>03</span>
-                                    <p>Identifying Loop Holes and Eliminating those.</p>
-                                </li>
-                                <li><span>04</span>
-                                    <p>Preparing Best Visa Application Approach.</p>
-                                </li>
-                            </ul>
-                            <p><span>Please Note:</span>&nbsp;Our Consultancy Fee is excluding Logistics Fee,
-                                Visa Fee, VFS Fee, Translation & Notary, Asset Declaration, Travel Insurance
-                                and/or other related charges. Our service is to properly guide you to prepare
-                                your visa application documents both in verbal & written forms.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
+      </div>
+    </section>
+     <section id="visa-consultancy-wrapper" class="bg-gray">
+      <div class="container">
         <div class="row justify-content-center">
-          <!-- line 1 -->
           <div
             v-for="(con, key) in data.contents"
             :key="key"
             v-show="con.image !== NULL"
             class="col-lg-3 col-md-4 col-10 mb-4"
           >
-            <div class="online-application box-item">
-              <div class="icon-box">
-                <img style="height: 51px; width:51px;"
-                  :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image"
-                  :alt="con.name"
-                />
+            <div class="row">
+              <div class="col-lg-10 col-md-10 col-10">
+                <div class="online-application box-item">
+                  <div class="icon-box">
+                    <img
+                      style="height: 51px; width: 51px"
+                      :src="
+                        'https://b2bdemo.visathing.in/storage/Content/' +
+                        con.image
+                      "
+                      :alt="con.name"
+                    />
+                  </div>
+                  <div class="box-title">
+                    <p class="fs-16">{{ con.name }}</p>
+                  </div>
+                </div>
               </div>
-              <div class="box-title">
-                <p class="fs-16">{{ con.name }}</p>
+              <div
+                class="arrow-box col-lg-2 col-md-2 col-2" v-if="key +1 < data.contents.length"
+                style="
+                  justify-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  margin: auto;
+                "
+              >
+                <i
+                  class="far fa-arrow-alt-circle-right"
+                  style="font-size: 36px"
+                ></i>
               </div>
             </div>
           </div>
-          <!-- line 1 -->
-
-          <div class="col-11 col-lg-12 col-md-10">
-            <div class="visathing-best">
-              <div class="d-flex justify-content-center">
-                <div class="accordion faq-wrapper w-100" id="accordionExample">
-                  <div
-                    v-for="(con, key) in data.contents"
-                    :key="key"
-                    v-show="con.body != NULL"
-                    class="accordion-item"
-                  >
-                    <h2 class="accordion-header" v-bind:id="'headingOne' + key">
-                      <button
-                        class="accordion-button"
-                        :class="{ collapsed: key !== 0 }"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        v-bind:data-bs-target="'#collapseOne' + key"
-                        aria-expanded="true"
-                        v-bind:aria-controls="'collapseOne' + key"
-                      >
-                        {{ con.name }}
-                      </button>
-                    </h2>
-                    <div
-                      v-bind:id="'collapseOne' + key"
-                      class="accordion-collapse collapse"
-                      :class="{ show: key === 0 }"
-                      v-bind:aria-labelledby="'headingOne' + key"
-                      data-bs-parent="#accordionExample"
-                    >
-                      <div class="accordion-body">
-                        <div v-html="con.body"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        </div>
+      </div>
+     </section>
+    <section id="visa-consultancy-wrapper">
+       <div class="container" v-for="(con, key2) in data.contents" :key="key2">
+        <div v-if="((key2 +1) % 2 == 0)" class="content-box content-box-2">
+          <div class="row">
+            <div class="col-lg-6 col-12" >
+              <div class="content-text">
+                <h2 class="fs-34 fs-sm-24 mb-3">{{con.name}}</h2>
+                <div v-html="con.body"> </div>
+                 </div>
+            </div>
+            <div class="col-lg-6 col-12">
+              <div class="content-image">
+                <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image2" class="img-fluid" :alt="con.name"> 
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-else class="content-box content-box-3" >
+          <div class="row">
+            <div class="col-lg-6 col-12 order-1 order-lg-0">
+              <div class="content-image">
+                 <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image2" class="img-fluid" alt=""> 
+              </div>
+            </div>
+            <div class="col-lg-6 col-12">
+              <div class="content-text">
+                <h2 class="fs-34 fs-sm-24 mb-3">{{con.name}} </h2>
+               <div v-html="con.body"> </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!--Visa Consultancy Layout End -->
-    <!--Visa Consultancy Layout Bottom Box Start -->
-    <section id="visa-consultancy-bottom-box">
-      <div class="container"></div>
-    </section>
-    <!--Visa Consultancy Layout Bottom Box End -->
+   
   </div>
 </template>
 <script>
@@ -154,17 +136,19 @@ export default {
   },
   data() {
     return {
-      service: [],
       data: [],
+      service: [],
     };
   },
   created() {
     this.$axios
-      .get("https://b2bdemo.visathing.in/api/ser_list/" + this.$route.params.slug)
+      .get(
+        "https://b2bdemo.visathing.in/api/ser_list/" + this.$route.params.slug
+      )
       .then((response) => {
         this.data = response.data.data;
         this.service = response.data.service;
-       // console.log(response.data.service);
+        // console.log(response.data.data);
       });
   },
 };

@@ -8,8 +8,7 @@
     <MediaLibrary />
     <NewsFeed />
 
-    <!-- Partner Section Start  -->
-    <section id="partner-section">
+    <!-- <section id="partner-section">
       <div class="container">
         <div class="row justify-content-center align-items-center">
           <div class="col">
@@ -29,8 +28,7 @@
           </div>
         </div>
       </div>
-    </section>
-    <!-- Partner Section End  -->
+    </section> -->
   </div>
 </template>
 

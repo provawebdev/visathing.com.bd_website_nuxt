@@ -24,8 +24,8 @@ html {
 }
 
 body {
-    font-family: "lato 400";
-    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
 }
 
 
@@ -126,7 +126,7 @@ section .title {
 }
 
 section .description {
-    color: var(--color-gray);
+    color: #333;
     font-size: 16px;
     line-height: 24px;
     text-align: center;
@@ -196,7 +196,7 @@ h1 {
 }
 
 .bg-gray {
-    background-color: var(--color-gray) !important;
+    background-color: #f3f3f3 !important;
 }
 
 .bg-white-gray {
@@ -283,11 +283,11 @@ section h2 {
 }
 
 section p {
-    font-family: "lato 400";
-    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
     line-height: 24px;
     letter-spacing: 0.4px;
-    color: var(--color-gray);
+    color: #333;
 }
 
 /*
@@ -392,7 +392,7 @@ section p {
 
 .nav-search-input {
     font-size: 13px;
-    color: var(--color-gray);
+    color: #333;
     padding: 14px 0 14px 10px;
 }
 
@@ -450,7 +450,7 @@ section p {
 }
 
 #requirement-form-wrapper {
-    padding: 60px 0;
+    padding: 20px 0;
 }
 
 .requirement-checker {
@@ -472,7 +472,7 @@ section p {
 
 .select-option {
     border: 1px solid var(--color-white-gray);
-    color: var(--color-gray);
+    color: #333;
     margin-top: 9px;
     background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.99974 5.33006L11.9497 0.622711L13.3637 1.9674L6.99974 8.01944L0.635742 1.9674L2.04974 0.622711L6.99974 5.33006Z' fill='%2386868B'/%3E%3C/svg%3E%0A");
 }
@@ -503,7 +503,13 @@ section p {
     color: #fff;
     position: relative;
 }
-
+.service-avail {
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 10px;
+}
 .online-apply-wrapper::after {
     content: "";
     width: 100%;
@@ -547,7 +553,7 @@ section p {
 }
 
 .online-apply-body {
-    padding: 10px 40px 10px 40px;
+    padding: 0px;
     z-index: 1;
     position: inherit;
 }
@@ -599,7 +605,7 @@ section p {
 }
 
 .apply-prograssing {
-    padding-top: 40px;
+    padding: 15px 0px 5px 0px;
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(6, auto);
@@ -681,7 +687,7 @@ section p {
 }
 
 .list-items ul li .item-content {
-    font-weight: 700;
+    font-weight: normal;
     line-height: 24px;
     letter-spacing: 0.4px;
 }
@@ -723,24 +729,28 @@ section p {
 }
 
 #service-lists-wrapper .sidebar-lists .nav .nav-item {
-    margin-right: 0;
+    margin-right: -18px;
 }
 
 #service-lists-wrapper .sidebar-lists .nav .nav-item button {
     width: 100%;
     text-align: left;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-right-color: transparent;
+    border-radius: 4px 4px 0 0;
 }
 
 #service-lists-wrapper .sidebar-lists ul li {
     cursor: pointer;
     transition: all ease-in-out 0.3s;
-    margin-bottom: 15px;
+    margin: 15px -18px 0 0;
 }
 
 #service-lists-wrapper .sidebar-lists ul li button {
     display: block;
     text-decoration: none;
-    color: var(--color-gray);
+    color: #333;
     font-weight: normal;
     text-transform: capitalize;
     line-height: 24px;
@@ -764,8 +774,11 @@ section p {
 #service-lists-wrapper .sidebar-lists ul li button:hover,
 #service-lists-wrapper .sidebar-lists ul li button.active {
     color: var(--color-black);
-    background: #5293f0;
     padding: 10px;
+    background-color: #fff;
+    border: 1px solid #f3f3f3;
+    border-right-color: transparent;
+    border-radius: 4px 4px 0 0;
 }
 
 #service-lists-wrapper .service-item-body {
@@ -794,10 +807,10 @@ section p {
 #service-lists-wrapper .service-item-body td {
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     letter-spacing: 0.4px;
-    color: var(--color-gray);
+    color: #333;
     /* margin-bottom: 15px; */
 }
 
@@ -952,7 +965,7 @@ section p {
 
 .faq-wrapper .accordion-item .accordion-body {
     padding: 0 25px 25px 25px;
-    color: var(--color-gray);
+    color: #333;
     letter-spacing: 0.4px;
 }
 
@@ -1054,7 +1067,7 @@ section p {
 
 .section-header p {
     /* font-size: 24px; */
-    color: var(--color-gray);
+    color: #333;
 }
 
 .step-box {
@@ -1146,7 +1159,7 @@ section p {
     line-height: 40px;
     border-radius: 50%;
     text-align: center;
-    color: var(--color-gray);
+    color: #333;
     border: 1px solid var(--color-gray);
     position: absolute;
     top: 35%;
@@ -1477,7 +1490,7 @@ section p {
 
 .media-library-item .card-text {
     color: var(--color-black);
-    font-family: "lato 400";
+    font-family: "Lato", sans-serif;
     font-size: 20px;
     margin: 15px 0 25px 20px;
 }
@@ -1532,7 +1545,7 @@ section p {
 .news-item-header {
     display: flex;
     align-items: center;
-    color: var(--color-gray);
+    color: #333;
 }
 
 .news-item-header p:first-child {
@@ -1552,7 +1565,7 @@ section p {
 }
 
 .news-item-text {
-    color: var(--color-gray);
+    color: #333;
     line-height: 26px;
 }
 
@@ -1644,7 +1657,7 @@ section p {
 
 .footer-newsletter-input {
     font-size: 16px;
-    color: var(--color-gray);
+    color: #333;
     padding: 15px 0 15px 15px;
     width: calc(100% - 54px);
 }
@@ -1729,7 +1742,7 @@ section p {
 }
 
 .content-text p {
-    color: var(--color-gray);
+    color: #333;
     margin: 20px 0 35px;
     line-height: 24px;
 }
@@ -1933,7 +1946,7 @@ hr {
 }
 
 .no-account {
-    color: var(--color-gray);
+    color: #333;
     text-align: center;
 }
 
@@ -2010,7 +2023,7 @@ hr {
 }
 
 .applicant-details table td {
-    color: var(--color-gray);
+    color: #333;
 }
 
 .application-status table thead tr {
@@ -2059,7 +2072,7 @@ hr {
 
 .application-status table tr {
     background-color: var(--color-white);
-    color: var(--color-gray);
+    color: #333;
 }
 
 .case-officer {
@@ -2078,7 +2091,7 @@ hr {
 }
 
 .case-officer-info p {
-    color: var(--color-gray);
+    color: #333;
 }
 
 /*
@@ -2149,7 +2162,7 @@ hr {
 }
 
 .blog .blog-search-bar input {
-    color: var(--color-gray);
+    color: #333;
     padding-right: 20px;
     flex-grow: 1;
 }
@@ -2184,7 +2197,7 @@ hr {
 
 .sidebar .post-item-time span {
     /* font-family: 'lato 500'; */
-    color: var(--color-gray);
+    color: #333;
     font-size: 13px;
     margin-left: 5px;
 }
@@ -2226,7 +2239,7 @@ hr {
 
 .sidebar .categories-list li span:first-child {
     font-family: "lato 700";
-    color: var(--color-gray);
+    color: #333;
     letter-spacing: 0.4px;
 }
 
@@ -2316,13 +2329,13 @@ hr {
 }
 
 .blog-details .news-item > p {
-    color: var(--color-gray);
+    color: #333;
     margin-bottom: 20px;
 }
 
 .blog-details .news-item .mini-para {
     margin: 20px 0 40px;
-    color: var(--color-gray);
+    color: #333;
 }
 
 .blog-details .news-item .mini-para img {
@@ -2387,7 +2400,7 @@ hr {
 
 #eligibility-form .list-form-country .form-select,
 #eligibility-form .list-form-age .form-select {
-    color: var(--color-gray);
+    color: #333;
     font-weight: 700;
     font-size: 18px;
     background-size: 34px 12px;
@@ -2461,7 +2474,7 @@ hr {
 .online-application.box-item .icon-box {
     padding: 20px;
     border-radius: 100%;
-    margin: 20px 0 30px 0;
+    margin: 20px 0 20px 0;
     display: grid;
 }
 

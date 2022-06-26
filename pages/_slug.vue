@@ -29,7 +29,7 @@
                   >
                 </div>
               </div>
-              <div class="online-apply-body">
+              <!-- <div class="online-apply-body">
                 <table class="info-box-wrapper fs-20 fs-sm-14">
                   <tbody>
                     <tr>
@@ -58,11 +58,11 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
+              </div> -->
             </div>
           </div>
-          <!-- Banner bottom button section start ---->
           <div class="col-lg-12">
+            <div class="service-avail">Available services for {{data.name}}</div>
             <div class="apply-prograssing">
               <div
                 class="item"
@@ -110,7 +110,10 @@
                 class="form-select select-option"
                 v-model="fields.search" @change="findVC"
               >
-               <option value="" selected> Select Country </option>
+              <optgroup label="Selected Country">
+               <option :value="data.slug" selected> {{data.name}} </option>
+              </optgroup>
+              <optgroup label="Select Country">
                 <option
                   v-for="(cty, key) in country_list"
                   :key="key"
@@ -118,6 +121,7 @@
                 >
                   {{ cty }}
                 </option>
+              </optgroup>
               </select>
             </div>
             <div class="select-box">
@@ -169,13 +173,9 @@
         <div class="row">
           <div class="col-lg-3 col-md-5 col-sm-12 mb-5">
             <div class="left-sidebar-widget">
-              <div class="sidebar-header">
-                <h4 class="fs-20">Services For {{data.name}}</h4>
-              </div>
-
               <div class="sidebar-lists">
                 <ul class="nav" id="myTab" role="tablist">
-                  <li class="fs-16 nav-item" role="presentation">
+                  <li class="fs-16" role="presentation">
                     <button
                       class="active"
                       id="basic-info-tab"
@@ -289,6 +289,36 @@
                 aria-labelledby="basic-info-tab"
               >
                 <p v-html="data.basic_info"></p>
+                <div class="online-apply-body">
+                <table class="info-box-wrapper fs-20 fs-sm-14">
+                  <tbody>
+                    <tr>
+                      <td>Capital City</td>
+                      <td>{{ data.capital_city }}</td>
+                    </tr>
+                    <tr>
+                      <td>Currency</td>
+                      <td>{{ data.currency }}</td>
+                    </tr>
+                    <tr>
+                      <td>Local Time</td>
+                      <td>{{ data.local_time }}</td>
+                    </tr>
+                    <tr>
+                      <td>Telephone Code</td>
+                      <td>+{{ data.telephone_code }}</td>
+                    </tr>
+                    <tr>
+                      <td>Bank</td>
+                      <td>Closed on {{ data.bank_info }}</td>
+                    </tr>
+                    <tr>
+                      <td>Exchange Rate</td>
+                      <td>{{ data.exchange_rate }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               </div>
               <!-- ----------------------------------------------------------------------- -->
               <!--                         Checklist body content                          -->
@@ -301,7 +331,7 @@
               >
               <div v-if="v_category >0">
                  <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
-                  <h3 class="fs-20" v-if="v_category == vcat.id">{{ vcat.name }} Required</h3>
+                  <h3 class="fs-20" v-if="v_category == vcat.id">{{ vcat.name }} Requirement</h3>
                   <div class="list-items" v-if="v_category == vcat.id">
                     <ul
                       v-for="(check, index) in checklists"
