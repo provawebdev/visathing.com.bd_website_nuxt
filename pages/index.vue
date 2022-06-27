@@ -66,20 +66,59 @@ export default {
   head() {
     return {
       title: "VISAThing - Your visa partner",
+      titleTemplate: `${this.data.name} - Visa From Bangladesh`,
+      meta: [
+           {
+          hid: "keywords",
+          name: "keywords",
+          content: this.data.meta_keywords,
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: this.data.meta_description,
+        },
+        {
+          hid: "author",
+          name: "author",
+          content: "Afroza Akter Prova",
+        },
+        // Open Graph
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.data.meta_title,
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.data.meta_description,
+        },
+        // Twitter Card
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.data.meta_title,
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.data.meta_description,
+        },
+      ],
     };
   },
-  data() {
-    return {};
+
+   data() {
+    return {
+      data: [],
+    };
+  },
+ created() {
+    this.$axios.get("https://b2bdemo.visathing.in/api/manu_list/").then((response) => {
+      this.data = response.data.home;
+    });
   },
 
-//   methods: {
-//     getApi() {
-//       this.$axios
-//         .get("https://b2bdemo.visathing.in/api/country_name")
-//         .then((response) => {
-//           console.log(response.data);
-//         });
-//     },
-//   },
 };
 </script>

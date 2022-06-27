@@ -15,13 +15,15 @@
           >
             <div class="step-box border-radius-5 text-center">
               <h3>{{ datas1.name }}</h3>
-              <p
-                v-for="(data, key) in data_all"
+              <div v-for="(data, key) in data_all"
                 :key="key"
-                v-show="'D1' + key == 'D1' + 0"
+                >
+              <p
+                v-if="'D1' + key == 'D1' + 0"
               >
                 ({{ data.countries_explore.length }} Countries)
               </p>
+              </div>
             </div>
           </nuxt-link>
         </div>
@@ -33,13 +35,15 @@
           >
             <div class="step-box border-radius-5 text-center">
               <h3>{{ datas2.name }}</h3>
-              <p
-                v-for="(data2, key2) in data_all"
+              <div v-for="(data2, key2) in data_all"
                 :key="key2"
-                v-show="'D2' + key2 == 'D2' + 1"
+                >
+              <p
+                v-if="'D2' + key2 == 'D2' + 1"
               >
                 ({{ data2.countries_explore.length }} Countries)
               </p>
+              </div>
             </div>
           </nuxt-link>
         </div>
@@ -51,13 +55,15 @@
           >
             <div class="step-box border-radius-5 text-center">
               <h3>{{ datas3.name }}</h3>
-              <p
-                v-for="(data3, key3) in data_all"
+              <div v-for="(data3, key3) in data_all"
                 :key="key3"
-                v-show="'D3' + key3 == 'D3' + 2"
+                >
+              <p
+                v-if="'D3' + key3 == 'D3' + 2"
               >
                 ({{ data3.countries_explore.length }} Countries)
               </p>
+              </div>
             </div>
           </nuxt-link>
         </div>
@@ -72,13 +78,15 @@
           >
             <div class="step-box border-radius-5 text-center">
               <h3>{{ datas4.name }}</h3>
-              <p
-                v-for="(data4, key4) in data_all"
+              <div v-for="(data4, key4) in data_all"
                 :key="key4"
-                v-show="'D4' + key4 == 'D4' + 3"
+                >
+              <p
+                v-if="'D4' + key4 == 'D4' + 3"
               >
                 ({{ data4.countries_explore.length }} Countries)
               </p>
+              </div>
             </div>
           </nuxt-link>
         </div>
@@ -143,17 +151,17 @@
             <div class="swiper-wrapper">
               <div
                 class="swiper-slide"
-                v-for="(cty5, c5) in datas5.countries_explore"
-                :key="c5"
+                v-for="(cty2, c2) in datas2.countries_explore"
+                :key="c2"
               >
                 <img
-                v-if="cty5.flag"
+                v-if="cty2.flag"
                   class="h-64 w-64"
                   style="height: 126px; "
-                  :alt="cty5.name"
-                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty5.flag"
+                  :alt="cty2.name"
+                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty2.flag"
                 />
-                <p>{{ cty5.name }}</p>
+                <p>{{ cty2.name }}</p>
               </div>
             </div>
             <div class="swiper-button-prev" slot="button-prev"></div>
@@ -172,17 +180,17 @@
             <div class="swiper-wrapper">
               <div
                 class="swiper-slide"
-                v-for="(cty5, c5) in datas5.countries_explore"
-                :key="c5"
+                v-for="(cty3, c3) in datas3.countries_explore"
+                :key="c3"
               >
                 <img
-                v-if="cty5.flag"
+                v-if="cty3.flag"
                   class="h-64 w-64"
                   style="height: 126px; "
-                  :alt="cty5.name"
-                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty5.flag"
+                  :alt="cty3.name"
+                  :src="'https://b2bdemo.visathing.in/storage/flag/' + cty3.flag"
                 />
-                <p>{{ cty5.name }}</p>
+                <p>{{ cty3.name }}</p>
               </div>
             </div>
             <div class="swiper-button-prev" slot="button-prev"></div>

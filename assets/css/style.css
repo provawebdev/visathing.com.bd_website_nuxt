@@ -141,6 +141,12 @@ section .description {
 h1 {
     font-size: 96px;
 }
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
 
 .fs-48 {
     font-size: 48px;
@@ -277,7 +283,7 @@ section {
 section h2 {
     font-family: "lato 700";
     font-weight: 700;
-    font-size: 34px;
+    font-size: 24px;
     line-height: 51px;
     letter-spacing: 0.4px;
 }
@@ -776,9 +782,10 @@ section p {
     color: var(--color-black);
     padding: 10px;
     background-color: #fff;
-    border: 1px solid #f3f3f3;
+    border: 1px solid #e9ecef;
     border-right-color: transparent;
     border-radius: 4px 4px 0 0;
+    border-left: 3px solid #2448d1;
 }
 
 #service-lists-wrapper .service-item-body {
@@ -1087,7 +1094,17 @@ section p {
   color: var(--color-white);
   transition: all 300ms linear;
 } */
-
+.tablinks.active{
+    /* color: var(--color-white) !important;
+    background: linear-gradient(39.53deg, rgba(32, 66, 207, 0.9) 0%, rgba(87, 156, 244, 0.9) 100%), url("~/assets/img/service-item-bg.png") !important;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    opacity: 1;
+    visibility: visible; */
+    transform: translateY(0px);
+}
 .step-box:hover {
     color: var(--color-white);
     background: linear-gradient(39.53deg, rgba(32, 66, 207, 0.9) 0%, rgba(87, 156, 244, 0.9) 100%), url("~/assets/img/service-item-bg.png");

@@ -390,9 +390,7 @@
                     <div class="form-wrapper">
                       <div class="form-item">
                         <h4 class="fs-16">Country</h4>
-                        <select class="form-select" v-model="fields.country , selected2">
-                          <option :selected="selected" :value="data.id">{{ data.name }}</option>
-                        </select>
+                          <input trpe="text" :selected="selected" :value="data.name" class="form-control" readonly/>
                       </div>
                       <div class="form-item">
                         <h4 class="fs-16">Passport Type</h4>
@@ -578,20 +576,25 @@ const http = axios.create({
   }),
 });
 export default {
-  head() {
+head() {
     return {
-      title: `${this.data.name} - ${this.data.meta_title}`,
+      title: `${this.data.name}`,
       titleTemplate: `${this.data.name} - Visa From Bangladesh`,
       meta: [
            {
-          hid: "keyords",
-          name: "meta_kewords",
-          content: this.data.meta_kewords,
+          hid: "keywords",
+          name: "keywords",
+          content: this.data.meta_keywords,
         },
         {
           hid: "description",
           name: "description",
           content: this.data.meta_description,
+        },
+        {
+          hid: "author",
+          name: "author",
+          content: "Afroza Akter Prova",
         },
         // Open Graph
         {
