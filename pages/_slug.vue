@@ -13,7 +13,9 @@
               <div class="online-apply-header">
                 <div class="apply-cuntry-flug fs-20 fs-sm-12">
                   <img
-                    :src="'https://b2bdemo.visathing.in/storage/flag/' + data.flag"
+                    :src="
+                      'https://b2bdemo.visathing.in/storage/flag/' + data.flag
+                    "
                     height="50px"
                     :alt="data.name"
                   />
@@ -62,7 +64,9 @@
             </div>
           </div>
           <div class="col-lg-12">
-            <div class="service-avail">Available services for {{data.name}}</div>
+            <div class="service-avail">
+              Available services for {{ data.name }}
+            </div>
             <div class="apply-prograssing">
               <div
                 class="item"
@@ -86,81 +90,90 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-           <form role="form" @submit.prevent="submit">
-          <div class="requirement-checker
-                d-flex
-                bg-white-gray
-                justify-content-between">
-            <div class="select-box">
-              <label>I'm a Citizen Of</label>
-              <select
-                aria-label="select"
-                class="form-select select-option"
-                v-model="fields.cityzen_cty"
+            <form role="form" @submit.prevent="submit">
+              <div
+                class="
+                  requirement-checker
+                  d-flex
+                  bg-white-gray
+                  justify-content-between
+                "
               >
-                <option value="bangladesh">Bangladesh</option>
-                 <option value="visathing.in">India</option>
-                 <option value="np.visathing.com">Nepal</option>
-              </select>
-            </div>
-            <div class="select-box">
-              <label>Travelling to</label>
-              <select
-                aria-label="select"
-                class="form-select select-option"
-                v-model="fields.search" @change="findVC"
-              >
-              <optgroup label="Selected Country">
-               <option :value="data.slug" selected> {{data.name}} </option>
-              </optgroup>
-              <optgroup label="Select Country">
-                <option
-                  v-for="(cty, key) in country_list"
-                  :key="key"
-                  :value="key"
-                >
-                  {{ cty }}
-                </option>
-              </optgroup>
-              </select>
-            </div>
-            <div class="select-box">
-              <label>Visa Category</label>
-              <select
-                aria-label="select"
-                class="form-select select-option"
-                v-model="fields.v_category" v-if="this.fields.search" onClick={this.onShow.bind(this)}
-              >
-                <option value="" selected>Choose if you want</option>
-                <option
-                  v-for="(v_category, vc_key) in country.visacat"
-                  :key="vc_key"
-                  :value="v_category.id"
-                > 
-                  {{ v_category.name }}
-                </option>
-              </select>
-               <select
-                aria-label="select"
-                class="form-select select-option"
-                v-model="fields.v_category" v-else
-              >
-                <option selected>Choose if you want</option>
-                <option
-                  v-for="(v_category, vc_key) in v_categories"
-                  :key="vc_key"
-                  :value="v_category.id"
-                >
-                  {{ v_category.name }}
-                </option>
-              </select>
-            </div>
-            <button class="btn-gradient" type="submit">
-              Check Requirements
-            </button>
-          </div>
-        </form>
-           
+                <div class="select-box">
+                  <label>I'm a Citizen Of</label>
+                  <select
+                    aria-label="select"
+                    class="form-select select-option"
+                    v-model="fields.cityzen_cty"
+                  >
+                    <option value="bangladesh">Bangladesh</option>
+                    <option value="visathing.in">India</option>
+                    <option value="np.visathing.com">Nepal</option>
+                  </select>
+                </div>
+                <div class="select-box">
+                  <label>Travelling to</label>
+                  <select
+                    aria-label="select"
+                    class="form-select select-option"
+                    v-model="fields.search"
+                    @change="findVC"
+                  >
+                    <optgroup label="Selected Country">
+                      <option v-bind:value="data.slug" :selected="selected">
+                        {{ data.name }}
+                      </option>
+                    </optgroup>
+                    <optgroup label="Select Country">
+                      <option
+                        v-for="(cty, key) in country_list"
+                        :key="key"
+                        :value="key"
+                      >
+                        {{ cty }}
+                      </option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="select-box">
+                  <label>Visa Category</label>
+                  <select
+                    aria-label="select"
+                    class="form-select select-option"
+                    v-model="fields.v_category"
+                    v-if="this.fields.search"
+                    onClick="{this.onShow.bind(this)}"
+                  >
+                    <option value="" selected>Choose if you want</option>
+                    <option
+                      v-for="(v_category, vc_key) in country.visacat"
+                      :key="vc_key"
+                      :value="v_category.id"
+                    >
+                      {{ v_category.name }}
+                    </option>
+                  </select>
+                  <select
+                    aria-label="select"
+                    class="form-select select-option"
+                    v-model="fields.v_category"
+                    v-else
+                  >
+                    <option selected>Choose if you want</option>
+                    <option
+                      v-for="(v_category, vc_key) in v_categories"
+                      :key="vc_key"
+                      :value="v_category.id"
+                    >
+                      {{ v_category.name }}
+                    </option>
+                  </select>
+                </div>
+                <button class="btn-gradient" type="submit">
+                  Check Requirements
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -245,7 +258,7 @@
                       Forms & Downloads
                     </button>
                   </li>
-                  <li class="fs-16" role="presentation">
+                  <li class="fs-16" role="presentation" v-if="data.useful_link">
                     <button
                       class=""
                       id="useful-link-tab"
@@ -290,35 +303,35 @@
               >
                 <p v-html="data.basic_info"></p>
                 <div class="online-apply-body">
-                <table class="info-box-wrapper fs-20 fs-sm-14">
-                  <tbody>
-                    <tr>
-                      <td>Capital City</td>
-                      <td>{{ data.capital_city }}</td>
-                    </tr>
-                    <tr>
-                      <td>Currency</td>
-                      <td>{{ data.currency }}</td>
-                    </tr>
-                    <tr>
-                      <td>Local Time</td>
-                      <td>{{ data.local_time }}</td>
-                    </tr>
-                    <tr>
-                      <td>Telephone Code</td>
-                      <td>+{{ data.telephone_code }}</td>
-                    </tr>
-                    <tr>
-                      <td>Bank</td>
-                      <td>Closed on {{ data.bank_info }}</td>
-                    </tr>
-                    <tr>
-                      <td>Exchange Rate</td>
-                      <td>{{ data.exchange_rate }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                  <table class="info-box-wrapper fs-20 fs-sm-14">
+                    <tbody>
+                      <tr>
+                        <td>Capital City</td>
+                        <td>{{ data.capital_city }}</td>
+                      </tr>
+                      <tr>
+                        <td>Currency</td>
+                        <td>{{ data.currency }}</td>
+                      </tr>
+                      <tr>
+                        <td>Local Time</td>
+                        <td>{{ data.local_time }}</td>
+                      </tr>
+                      <tr>
+                        <td>Telephone Code</td>
+                        <td>+{{ data.telephone_code }}</td>
+                      </tr>
+                      <tr>
+                        <td>Bank</td>
+                        <td>Closed on {{ data.bank_info }}</td>
+                      </tr>
+                      <tr>
+                        <td>Exchange Rate</td>
+                        <td>{{ data.exchange_rate }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <!-- ----------------------------------------------------------------------- -->
               <!--                         Checklist body content                          -->
@@ -329,51 +342,50 @@
                 role="tabpanel"
                 aria-labelledby="checklist-tab"
               >
-              <div v-if="v_category >0">
-                 <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
-                  <h3 class="fs-20" v-if="v_category == vcat.id">{{ vcat.name }} Requirement</h3>
-                  <div class="list-items" v-if="v_category == vcat.id">
-                    <ul
-                      v-for="(check, index) in checklists"
-                      :key="index"
-                    >
-                      <li v-if="vcat.id == check.pivot.vcat_id">
-                        <div class="item-icon">
-                          <span>{{check.pivot.orderby}}</span>
-                        </div>
-                        <div class="item-content">
-                           {{ check.name }}: {{ check.short_details }}
-                        </div>
-                      </li>
-                    </ul>
+                <div v-if="v_category > 0">
+                  <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
+                    <h3 class="fs-20" v-if="v_category == vcat.id">
+                      {{ vcat.name }} Requirement
+                    </h3>
+                    <div class="list-items" v-if="v_category == vcat.id">
+                      <ul v-for="(check, index) in checklists" :key="index">
+                        <li v-if="vcat.id == check.pivot.vcat_id">
+                          <div class="item-icon">
+                            <span>{{ check.pivot.orderby }}</span>
+                          </div>
+                          <div class="item-content">
+                            {{ check.name }}: {{ check.short_details }}
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div v-else>
-                 <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
-                  <h3 class="fs-20">{{ vcat.name }} Required</h3>
-                  <div class="list-items">
-                    <ul
-                      v-for="(check, check_key) in checklists"
-                      :key="check_key"
-                    >
-                      <li v-if="vcat.id == check.pivot.vcat_id">
-                        <div class="item-icon">
-                          <span>{{check.pivot.orderby}}</span>
-                        </div>
-                        <div class="item-content">
-                         {{ check.name }}: {{ check.short_details }}
-                        </div>
-                      </li>
-                    </ul>
+                <div v-else>
+                  <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
+                    <h3 class="fs-20">{{ vcat.name }} Required</h3>
+                    <div class="list-items">
+                      <ul
+                        v-for="(check, check_key) in checklists"
+                        :key="check_key"
+                      >
+                        <li v-if="vcat.id == check.pivot.vcat_id">
+                          <div class="item-icon">
+                            <span>{{ check.pivot.orderby }}</span>
+                          </div>
+                          <div class="item-content">
+                            {{ check.name }}: {{ check.short_details }}
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
               </div>
               <!-- ----------------------------------------------------------------------- -->
               <!--                   Customize my checklist body content                   -->
               <!-- ----------------------------------------------------------------------- -->
-            
+
               <!-- ----------------------------------------------------------------------- -->
               <!--                Visa Fees & Processing Time body content                 -->
               <!-- ----------------------------------------------------------------------- -->
@@ -385,73 +397,306 @@
               >
                 <!-- Form 1 -->
                 <div class="visa-fee-form-wrapper">
-                  <h3 class="fs-24">Visa Fee Checker</h3>
-                  <form role="form">
+                  <h2 class="fs-20">Visa Fee for {{ data.name }}</h2>
+
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <td>Passport Type</td>
+                        <td>
+                          <table
+                            v-for="(p_type, p_key) in passport_types"
+                            :key="p_key"
+                            class="table table-bordered"
+                          >
+                            <thead>
+                              <tr>
+                                <td>
+                                  {{ p_type.name }}
+                                </td>
+                                <td>
+                                  <table
+                                    v-for="(v_type, v_key) in visa_types"
+                                    :key="v_key"
+                                    class="table table-bordered"
+                                  >
+                                    <thead>
+                                      <tr>
+                                        <td>
+                                          {{ v_type.name }}
+                                        </td>
+                                        <td>
+                                          <div
+                                            v-for="(vf, vf_key) in data.country_visafees"
+                                            :key="vf_key"
+                                            >
+                                            <p v-if="(vf.vcat_id == v_type.id) && (vf.passport_types_id == p_type.id)">{{ vf.entry_name }} -
+                                            {{ vf.visa_fee }} </p>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    </thead>
+                                  </table>
+                                </td>
+                              </tr>
+                            </thead>
+                          </table>
+                        </td>
+                      </tr>
+                    </thead>
+                  </table>
+                  
+                  <!-- <form role="form">
                     <div class="form-wrapper">
                       <div class="form-item">
-                        <h4 class="fs-16">Country</h4>
-                          <input trpe="text" :selected="selected" :value="data.name" class="form-control" readonly/>
+                        <label class="form-label">Country</label>
+                        <input
+                          trpe="text"
+                          :selected="selected"
+                          :value="data.name"
+                          class="form-control"
+                          readonly
+                        />
                       </div>
                       <div class="form-item">
-                        <h4 class="fs-16">Passport Type</h4>
-                        <select class="form-select" v-model="fields.passport_type">
-                          <option value="" selected> Select Passport Type </option>
-                          <option v-for="(p_type, p_key) in passport_types" :key="p_key" :value="p_type.id">{{p_type.name}}</option>
-                          </select>
-                      </div>
-                      <div class="form-item">
-                        <h4 class="fs-16">Visa Type</h4>
-                        <select class="form-select"  v-model="fields.visa_type" @change="findFee()">
-                        <option value="" selected> Select Visa Type </option>
-                           <option v-for="(v_type, v_key) in visa_types" :key="v_key" :value="v_type.id">{{v_type.name}} </option>
+                        <label class="form-label">Passport Type</label>
+                        <select
+                          class="form-select"
+                          v-model="fields.passport_type"
+                        >
+                          <option value="" selected>
+                            Select Passport Type
+                          </option>
+                          <option
+                            v-for="(p_type, p_key) in passport_types"
+                            :key="p_key"
+                            :value="p_type.id"
+                          >
+                            {{ p_type.name }}
+                          </option>
                         </select>
                       </div>
                       <div class="form-item">
-                        <h4 class="fs-16">Number of Entry</h4>
+                        <label class="form-label">Visa Type</label>
+                        <select
+                          class="form-select"
+                          v-model="fields.visa_type"
+                          @change="findFee()"
+                        >
+                          <option value="" selected>Select Visa Type</option>
+                          <option
+                            v-for="(v_type, v_key) in visa_types"
+                            :key="v_key"
+                            :value="v_type.id"
+                          >
+                            {{ v_type.name }}
+                          </option>
+                        </select>
+                      </div>
+                      <div class="form-item">
+                        <label class="form-label">Number of Entry</label>
                         <select class="form-select" v-model="fields.visa_fee">
-                          <option value="" selected>  Select Number of Entry </option>
-                           <option v-for="(vt, vt_key) in visafees" :key="vt_key" :value="vt.visa_fee">{{vt.entry_name}}</option>
+                          <option value="" selected>
+                            Select Number of Entry
+                          </option>
+                          <option
+                            v-for="(vt, vt_key) in visafees"
+                            :key="vt_key"
+                            :value="vt.visa_fee"
+                          >
+                            {{ vt.entry_name }}
+                          </option>
                         </select>
                       </div>
-                      <!-- <div class="form-item">
+                       <div class="form-item">
                         <input
                           type="submit"
                           class="btn btn-gradient fs-14"
                           value="Check Visa Fee" 
                         />
-                      </div> -->
+                      </div> 
                     </div>
-                  </form>
-                 <br> <h3 class="fs-24"> Visa Fee: {{this.fields.visa_fee}}</h3>
+                  </form> 
+                  <br />
+                  <h6>Visa Fee: {{ this.fields.visa_fee }}</h6>-->
+                  
                 </div>
                 <!-- Form 2 -->
                 <div class="service-change-form-wrapper">
-                  <h3 class="fs-24">Calculate VISAThing Service Charge</h3>
+                  <h3 class="fs-20">VISAThing Processing Charge</h3>
                   <form @submit.prevent="calculate2">
                     <div class="form-wrapper">
                       <div class="form-item">
-                        <h4 class="fs-16">Services</h4>
-                        <select class="form-select" v-model="fields.service" required>
-                        <option value="null" selected> Select Service Type </option>
-                          <option selected v-for="(ser, ser_key) in data.cty_services" :key="ser_key" :value="ser.charge">{{ser.name}}</option>
+                        <label class="form-label">Country</label>
+                        <input
+                          trpe="text"
+                          :selected="selected"
+                          :value="data.name"
+                          class="form-control"
+                          readonly
+                        />
+                      </div>
+                      <div class="form-item">
+                        <label class="form-label">Passport Type</label>
+                        <select
+                          class="form-select"
+                          v-model="fields.passport_type"
+                        >
+                          <option value="" selected>
+                            Select Passport Type
+                          </option>
+                          <option
+                            v-for="(p_type, p_key) in passport_types"
+                            :key="p_key"
+                            :value="p_type.id"
+                          >
+                            {{ p_type.name }}
+                          </option>
                         </select>
                       </div>
                       <div class="form-item">
-                        <h4 class="fs-16">No of Traveler</h4>
-                        <input type="number" class="form-control" v-model="fields.no_of_traveler" placeholder="5" required>
-                        </div>
+                        <label class="form-label">Visa Type</label>
+                        <select
+                          class="form-select"
+                          v-model="fields.visa_type"
+                          @change="findFee()"
+                        >
+                          <option value="" selected>Select Visa Type</option>
+                          <option
+                            v-for="(v_type, v_key) in visa_types"
+                            :key="v_key"
+                            :value="v_type.id"
+                          >
+                            {{ v_type.name }}
+                          </option>
+                        </select>
+                      </div>
+                      <div class="form-item">
+                        <label class="form-label">Number of Entry</label>
+                        <select class="form-select" v-model="fields.visa_fee">
+                          <option value="" selected>
+                            Select Number of Entry
+                          </option>
+                          <option
+                            v-for="(vt, vt_key) in visafees"
+                            :key="vt_key"
+                            :value="vt.visa_fee"
+                          >
+                            {{ vt.entry_name }}
+                          </option>
+                        </select>
+                      </div>
+                      <div class="form-item">
+                        <label class="form-label">Services</label>
+                        <select
+                          class="form-select"
+                          v-model="fields.service"
+                          required
+                        >
+                          <option value="null" selected>
+                            Select Service Type
+                          </option>
+                          <option
+                            selected
+                            v-for="(ser, ser_key) in data.cty_services"
+                            :key="ser_key"
+                            :value="ser.charge"
+                          >
+                            {{ ser.name }}
+                          </option>
+                        </select>
+                      </div>
+                      <div class="form-item">
+                        <label class="form-label">No of Traveler</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          v-model="fields.no_of_traveler"
+                          placeholder="5"
+                          required
+                        />
+                      </div>
                       <div class="form-item">
                         <input
                           type="submit"
                           class="btn btn-gradient fs-14"
-                          value="Calculate Charge"
+                          value="View Charge"
                         />
                       </div>
                     </div>
-                  </form> <br />
-                  <h3 class="fs-24"> Total Charge: {{result2}}</h3>
-                  <h3 class="fs-24"> Processing Time: </h3>
-                  <p>{{ data.process_time}}</p>
+                  </form>
+                  <br />
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <td><strong> Description </strong></td>
+                        <td class="text-center"><strong>Amount</strong></td>
+                        <td class="text-center"><strong>Quantity</strong></td>
+                        <td class="text-center"><strong> Discount </strong></td>
+                        <td class="text-right"><strong> Amount </strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><small> Service </small></td>
+                        <td class="text-center">
+                          <small> {{ parseInt(this.fields.service) }} </small>
+                        </td>
+                        <td class="text-center">
+                          <small>{{
+                            parseInt(this.fields.no_of_traveler)
+                          }}</small>
+                        </td>
+                        <td class="text-center"><small> </small></td>
+                        <td class="text-right">
+                          <small> {{ result2 }} </small>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><small> Visa fee </small></td>
+                        <td class="text-center">
+                          <small> {{ this.fields.visa_fee }} </small>
+                        </td>
+                        <td class="text-center">
+                          <small
+                            >{{ parseInt(this.fields.no_of_traveler) }}
+                          </small>
+                        </td>
+                        <td class="text-center" colspan="1">
+                          <small> </small>
+                        </td>
+                        <td class="text-right">
+                          <small>
+                            {{
+                              this.fields.visa_fee *
+                              parseInt(this.fields.no_of_traveler)
+                            }}
+                          </small>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="no-line text-right" colspan="4">
+                          <small> 15% VAT On Services </small>
+                        </td>
+                        <td class="no-line text-right">
+                          <small> {{ (result2 * 15) / 100 }} </small>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td class="no-line text-right" colspan="4">
+                          <strong> <small> Grand Total </small></strong>
+                        </td>
+                        <td class="no-line text-right">
+                          <small
+                            >BDT {{ result2 + (result2 * 15) / 100 }}
+                          </small>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h6>Processing Time:</h6>
+                  <p>{{ data.process_time }}</p>
                 </div>
               </div>
               <!-- ----------------------------------------------------------------------- -->
@@ -476,8 +721,10 @@
                   <a
                     class="btn btn-gradient"
                     :href="
-                      'https://b2bdemo.visathing.in/storage/app_form/' + app.app_form
-                    " target="_blank"
+                      'https://b2bdemo.visathing.in/storage/app_form/' +
+                      app.app_form
+                    "
+                    target="_blank"
                     download
                     >Download</a
                   >
@@ -493,21 +740,19 @@
                 aria-labelledby="useful-link-tab"
               >
                 <div class="useful-link-wrapper">
-                 <p v-if="data.useful_link" v-html="data.useful_link"> </p>
-                 <div v-if="data.useful_link === null">
-                  <img
-                    class="text-center"
-                    src="~/assets/img/404.png"
-                    alt="404-image"
-                    width="100%"
-                  />
-                  
-                   
-                  
-                  <h5 class="fs-24 fs-md-20">
-                    Unavailable Useful Links For {{data.name}}
-                  </h5>
-                 </div>
+                  <p v-if="data.useful_link" v-html="data.useful_link"></p>
+                  <div v-if="data.useful_link === null">
+                    <img
+                      class="text-center"
+                      src="~/assets/img/404.png"
+                      alt="404-image"
+                      width="100%"
+                    />
+
+                    <h5 class="fs-24 fs-md-20">
+                      Unavailable Useful Links For {{ data.name }}
+                    </h5>
+                  </div>
                 </div>
               </div>
               <!-- ----------------------------------------------------------------------- -->
@@ -576,12 +821,12 @@ const http = axios.create({
   }),
 });
 export default {
-head() {
+  head() {
     return {
       title: `${this.data.name}`,
       titleTemplate: `${this.data.name} - Visa From Bangladesh`,
       meta: [
-           {
+        {
           hid: "keywords",
           name: "keywords",
           content: this.data.meta_keywords,
@@ -632,6 +877,7 @@ head() {
       passport_types: [],
       visa_types: [],
       visafees: [],
+      visa_fees: [],
       image: bgImg,
       fields: {
         country: "",
@@ -644,18 +890,21 @@ head() {
         visa_type: "",
       },
       result2: 0,
-      selected: 'null',
+      selected: "null",
       selected2: 1,
       country_list: [],
-      country: "",
+      country: 1,
     };
   },
 
   created() {
     this.$axios
-      .get("https://b2bdemo.visathing.in/api/country/" + this.$route.params.slug , {
-       // v_category: this.$route.params.v_category,
-      })
+      .get(
+        "https://b2bdemo.visathing.in/api/country/" + this.$route.params.slug,
+        {
+          // v_category: this.$route.params.v_category,
+        }
+      )
       .then((response) => {
         this.data = response.data.data;
         this.checklists = response.data.checklists;
@@ -665,47 +914,56 @@ head() {
         this.v_categories = response.data.v_categories;
         this.visa_types = response.data.visa_types;
         this.country = data.id;
+        this.visa_fees = response.data.visa_fees;
       });
   },
   methods: {
-     calculate2() {
-      this.result2 = parseInt(this.fields.service) * parseInt(this.fields.no_of_traveler);
+    calculate2() {
+      this.result2 =
+        parseInt(this.fields.service) * parseInt(this.fields.no_of_traveler);
     },
-   
+
     async findFee() {
-    try {
-      const res = await http.get("https://b2bdemo.visathing.in/api/visafee_search/"+ this.data.id + "/" + this.fields.passport_type + "/" + this.fields.visa_type);
-      this.visafees = res.data.visafees;
-    } catch (error) {
-      console.log(error);
-    }
+      try {
+        const res = await http.get(
+          "https://b2bdemo.visathing.in/api/visafee_search/" +
+            this.data.id +
+            "/" +
+            this.fields.passport_type +
+            "/" +
+            this.fields.visa_type
+        );
+        this.visafees = res.data.visafees;
+      } catch (error) {
+        console.log(error);
+      }
     },
 
     async findVC() {
-    try {
-      const res = await http.get("https://b2bdemo.visathing.in/api/vcategory_search/"+ this.fields.search);
-      this.country = res.data.country;
-    } catch (error) {
-      console.log(error);
-    }
+      try {
+        const res = await http.get(
+          "https://b2bdemo.visathing.in/api/vcategory_search/" +
+            this.fields.search
+        );
+        this.country = res.data.country;
+      } catch (error) {
+        console.log(error);
+      }
     },
 
-   submit() {
+    submit() {
       this.$axios
-        .get("https://b2bdemo.visathing.in/api/country/" + this.fields.search ,   {
-    },)
-   .then(
-      ({ data }) => (
-        (this.fields = {})
-      )
-    )
-    .catch((error) => console.log(error));
+        .get(
+          "https://b2bdemo.visathing.in/api/country/" + this.fields.search,
+          {}
+        )
+        .then(({ data }) => (this.fields = {}))
+        .catch((error) => console.log(error));
       if (this.fields) {
-        this.$router
-          .push({
-            path: "/" + this.fields.search,
-          })
-          this.v_category = this.fields.v_category;
+        this.$router.push({
+          path: "/" + this.fields.search,
+        });
+        this.v_category = this.fields.v_category;
       }
     },
   },

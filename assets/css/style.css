@@ -2020,6 +2020,12 @@ hr {
 *         Visa Application Status Page
 *   ==================================
 */
+.table{
+    margin: -9px 0px -1px 9px;
+}
+.table>thead {
+     vertical-align: middle !important;
+}
 .applicant-details.card {
     border-radius: 10px;
     border: none;

@@ -36,7 +36,7 @@
           <div
             v-for="(con, key) in data.contents"
             :key="key"
-            v-show="con.image !== NULL"
+            v-show="con.image2 != NULL"
             class="col-lg-3 col-md-4 col-10 mb-4"
           >
             <div class="row">
@@ -58,7 +58,21 @@
                 </div>
               </div>
               <div
-                class="arrow-box col-lg-2 col-md-2 col-2" v-if="key +1 < data.contents.length"
+                class="arrow-box col-lg-2 col-md-2 col-2" v-if="(con.image != NULL) && (key +1 < data.contents.length)"
+                style="
+                  justify-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  margin: auto;
+                "
+              >
+                <i
+                  class="far fa-arrow-alt-circle-right"
+                  style="font-size: 36px"
+                ></i>
+              </div>
+               <div
+                class="arrow-box col-lg-2 col-md-2 col-2" v-else-if="key +2 < data.contents.length"
                 style="
                   justify-items: center;
                   justify-content: center;
@@ -80,13 +94,14 @@
        <div class="container" v-for="(con, key2) in data.contents" :key="key2">
         <div v-if="((key2 +1) % 2 == 0)" class="content-box content-box-2">
           <div class="row">
-            <div class="col-lg-6 col-12" >
+            <div :class="{ 'col-lg-12 col-12': con.image2 === null }"
+            class="col-lg-6 col-12">
               <div class="content-text">
                 <h2 class="fs-34 fs-sm-24 mb-3">{{con.name}}</h2>
                 <div v-html="con.body"> </div>
                  </div>
             </div>
-            <div class="col-lg-6 col-12">
+            <div v-if="con.image2" class="col-lg-6 col-12">
               <div class="content-image">
                 <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image2" class="img-fluid" :alt="con.name"> 
               </div>
@@ -95,12 +110,13 @@
         </div>
         <div v-else class="content-box content-box-3" >
           <div class="row">
-            <div class="col-lg-6 col-12 order-1 order-lg-0">
+            <div v-if="con.image2" class="col-lg-6 col-12 order-1 order-lg-0">
               <div class="content-image">
                  <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image2" class="img-fluid" alt=""> 
               </div>
             </div>
-            <div class="col-lg-6 col-12">
+            <div :class="{ 'col-lg-12 col-12': con.image2 === null }"
+            class="col-lg-6 col-12">
               <div class="content-text">
                 <h2 class="fs-34 fs-sm-24 mb-3">{{con.name}} </h2>
                <div v-html="con.body"> </div>
