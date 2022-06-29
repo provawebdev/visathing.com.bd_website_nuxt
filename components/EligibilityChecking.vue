@@ -91,7 +91,10 @@
                         >
                         Check Score
                       </button>
-                      <button v-else type="button" class="list-form-btn">Please select your answer</button>
+                      <button v-else type="disable"
+                        id="btnNext"
+                        value="Check Score"
+                        class="list-form-btn">Check Score</button>
                     </div>
                   </div>
                 </div>

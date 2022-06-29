@@ -411,7 +411,7 @@
                           >
                             <thead>
                               <tr>
-                                <td>
+                                <td class="td_with_33">
                                   {{ p_type.name }}
                                 </td>
                                 <td>
@@ -422,7 +422,7 @@
                                   >
                                     <thead>
                                       <tr>
-                                        <td>
+                                        <td class="td_with_50">
                                           {{ v_type.name }}
                                         </td>
                                         <td>
@@ -694,7 +694,7 @@
                         </td>
                       </tr>
                     </tbody>
-                  </table>
+                  </table><br />
                   <h6>Processing Time:</h6>
                   <p>{{ data.process_time }}</p>
                 </div>

@@ -111,7 +111,6 @@
         </div>
       </div>
       <!-- Swiper -->
-
       <div id="exploreVisa0" class="tabcontent">
         <!-- Swiper -->
         <div class="flag-slider-wrapper">
@@ -299,7 +298,7 @@ export default {
       datas3: [],
       datas4: [],
       datas5: [],
-      active: "datas1",
+      active: 1,
       // services: [],
       //banners: ["/slider-1.png", "/slider-2.png", "/slider-3.png"],
       swiperOption: {
@@ -307,7 +306,7 @@ export default {
         spaceBetween: -10,
         slidesPerGroup: 5,
         loop: true,
-        loopFillGroupWithBlank: true,
+        loopFillGroupWithBlank: false,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -340,7 +339,7 @@ export default {
         spaceBetween: -10,
         slidesPerGroup: 5,
         loop: true,
-        loopFillGroupWithBlank: true,
+        loopFillGroupWithBlank: false,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -373,7 +372,7 @@ export default {
         spaceBetween: -10,
         slidesPerGroup: 5,
         loop: true,
-        loopFillGroupWithBlank: true,
+        loopFillGroupWithBlank: false,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -406,7 +405,7 @@ export default {
         spaceBetween: -10,
         slidesPerGroup: 5,
         loop: true,
-        loopFillGroupWithBlank: true,
+        loopFillGroupWithBlank: false,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -439,7 +438,7 @@ export default {
         spaceBetween: -10,
         slidesPerGroup: 5,
         loop: true,
-        loopFillGroupWithBlank: true,
+        loopFillGroupWithBlank: false,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,

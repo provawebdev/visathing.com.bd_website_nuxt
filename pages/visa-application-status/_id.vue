@@ -33,6 +33,14 @@
                           <td>Country</td>
                           <td v-for="(cty, cty_key) in data.countries" :key="cty_key">: &nbsp; {{data.countries[0].name}}</td>
                         </tr>
+                        <tr>
+                          <td>Service</td>
+                          <td v-for="(ser, ser_key) in data.services" :key="ser_key">: &nbsp; {{data.services[0].name}}</td>
+                        </tr>
+                        <tr>
+                          <td>Visa Category</td>
+                          <td>: &nbsp; {{data.visa_category}}</td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -41,7 +49,7 @@
               <div class="col-md-6 col-lg-12">
                 <div class="case-officer card applicant-details">
                   <h2 class="card-header">Dedicated Case Officer</h2>
-                  <div class="card-body d-flex align-items-center">
+                  <div class="card-body d-flex align-items-center" v-if="case_officer != NULL">
                     <img src="" alt="" />
                     <div class="case-officer-info">
                       <h3>{{case_officer.name}}</h3>
@@ -55,7 +63,7 @@
                   <div class="card-body">
                     <table class="table table-borderless mb-0">
                       <tbody>
-                        <tr>
+                        <tr v-if="case_officer != NULL">
                           <td>Mobile Number</td>
                           <td>: &nbsp; +{{case_officer.phone}}</td>
                         </tr>
@@ -115,18 +123,23 @@ const http = axios.create({
 export default {
   head() {
     return {
-      title: "",
-      titleTemplate: `Visa Application - VISAThing`,
+      title: `Application Status - VISAThing`,
+      titleTemplate: `Application Status - VISAThing`,
       meta: [
-           {
-          hid: "keyords",
-          name: "meta_kewords",
-          content: this.data.meta_kewords,
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.data.meta_keywords,
         },
         {
           hid: "description",
           name: "description",
           content: this.data.meta_description,
+        },
+        {
+          hid: "author",
+          name: "author",
+          content: "Afroza Akter Prova",
         },
         // Open Graph
         {
