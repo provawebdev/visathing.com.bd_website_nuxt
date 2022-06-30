@@ -20,7 +20,7 @@ export default {
        {  src: '/js/bootstrap.bundle.min.js', body: true},
        { src: '/js/jquery.min.js' ,body: true},
       //{ type: 'text/javascript', src: '/js/swiper-bundle.min.js', body: true },
-       { src: '/js/circle-progress.min.js', body: true},
+      // { src: '/js/circle-progress.min.js', body: true},
       //{ src: '/js/script.js', body: true},
       { type: 'text/javascript', src: '/js/custom.min.js', body: true },
       // { type: 'text/javascript', src: 'http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js' ,body: true},
@@ -76,6 +76,20 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/google-gtag',
     '@privyid/nuxt-csrf',
+
+    ['nuxt-mail', {
+      message: {
+        to: 'afroza@visathing.com',
+      },
+      smtp: {
+        host: 'mail.visathing.org',
+        port: 465,
+        auth: {
+          user: 'online@visathing.org',
+          pass: 'Afroza@ytm2.2'
+        },
+      },
+    }],
 
     // Inline definition
     function () { }

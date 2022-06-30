@@ -16,13 +16,13 @@
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="your-name" class="form-label">Your Name (required)</label>
-                            <input type="text" class="form-control" id="your-name">
+                            <input type="text" class="form-control" id="your-name" v-model="name">
                         </div>
                     </div>
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="your-email" class="form-label">Your Email (required)</label>
-                            <input type="text" class="form-control" id="your-email">
+                            <input type="text" class="form-control" id="your-email" v-model="email">
                         </div>
                     </div>
                 </div>
@@ -30,13 +30,13 @@
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="your-occupation" class="form-label">Your Occupation(required)</label>
-                            <input type="text" class="form-control" id="your-occupation">
+                            <input type="text" class="form-control" id="your-occupation" v-model="occupation">
                         </div>
                     </div>
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="your-number" class="form-label">Your Cell Number (required) </label>
-                            <input type="text" class="form-control" id="your-number">
+                            <input type="text" class="form-control" id="your-number" v-model="phone">
                         </div>
                     </div>
                 </div>
@@ -44,37 +44,36 @@
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="your-country" class="form-label">Country you wish to visit (required)</label>
-                            <input type="text" class="form-control" id="your-country">
+                            <input type="text" class="form-control" id="your-country" v-model="country">
                         </div>
                     </div>
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="prospective" class="form-label">Prospective Travel Date</label>
-                            <input type="date" class="form-control" id="prospective">
+                            <input type="date" class="form-control" id="prospective" v-model="tvl_date">
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <h6 class="form-label fw-bold fs-16"><strong>Purpose of the visit</strong></h6>
                             <div class="d-flex align-items-center">
                                 <div class="form-check me-3">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Business"
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Business" v-model="tvl_purpose"
                                         checked>
                                     <label class="form-check-label" for="Business">
                                         Business
                                     </label>
                                 </div>
                                 <div class="form-check me-3">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Tourist">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Tourist" v-model="tvl_purpose">
                                     <label class="form-check-label" for="Tourist">
                                         Tourist
                                     </label>
                                 </div>
                                 <div class="form-check me-3">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Others">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Others" v-model="tvl_purpose">
                                     <label class="form-check-label" for="Others">
                                         Others
                                     </label>
@@ -88,21 +87,19 @@
                         <div class="form-field">
                             <label for="travel_history" class="form-label">Travel History (Countries previously
                                 visited)</label>
-                            <textarea class="form-control" style="height: 150px" id="travel_history"></textarea>
+                            <textarea class="form-control" style="height: 150px" id="travel_history" v-model="travel_history"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="list-documents" class="form-label">List of Documents you already have to apply
                                 for the visa
-                            <textarea class="form-control" style="height: 150px" id="list-documents"></textarea>
+                            <textarea class="form-control" style="height: 150px" id="list-documents" v-model="list_documents"></textarea>
                             </label>
                         </div>
                     </div>
                 </div>
-
-
-                <button type="submit" class="btn signin-submit-btn">Confirm Appointment</button>
+                <button type="button" class="btn signin-submit-btn" @click.prevent="send">Confirm Appointment</button>
             </form>
         </div>
     </section>
@@ -171,6 +168,15 @@ export default {
   data() {
     return {
       data: [],
+      name: '',
+      email: '',
+      phone: '',
+      country: '',
+      tvl_date: '',
+      tvl_purpose: '',
+      list_documents: '',
+      occupation: '',
+      travel_history: '',
     };
   },
   created() {
@@ -178,6 +184,15 @@ export default {
       this.data = response.data.contact;
     //  console.log( response.data.about);
     });
+  },
+    methods: {
+    send() {
+      this.$mail.send({
+        from: this.email,
+        subject: 'Contact form message',
+        text: this.message,
+      })
+    }
   },
 };
 </script>

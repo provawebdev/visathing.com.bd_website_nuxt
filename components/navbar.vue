@@ -84,7 +84,6 @@
                   to="/"
                   aria-current="page"
                   class="nav-link"
-                  :class="{ active: route === '/' }"
                 >
                   Home
                 </nuxt-link>
@@ -130,7 +129,7 @@
 
             <ul class="navbar ms-auto align-items-center">
               <li class="nav-item">
-                <a href="https://visathing.org/" class="btn btn-gradient">
+                <a href="http://visathing.org/" target="_blank" class="btn btn-gradient">
                   <span class="fas fa-user-alt"></span> Sign in |
                   <span class="fas fa-sign-out-alt"></span> Sign Up
                 </a>
@@ -142,7 +141,7 @@
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ms-auto align-items-center">
             <li class="nav-item">
-              <nuxt-link class="nav-link active" to="/"> Home </nuxt-link>
+              <nuxt-link class="nav-link" to="/"> Home </nuxt-link>
             </li>
             <li class="nav-item">
               <nuxt-link to="/about" aria-current="page" class="nav-link">

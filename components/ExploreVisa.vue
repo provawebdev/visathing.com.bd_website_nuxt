@@ -10,7 +10,7 @@
         <div class="col-md-2 col-4">
           <nuxt-link
             v-bind:to="'/explorevisa/' + datas1.slug"
-            class="tablinks active" v-bind:class="{ 'active' : datas1 === active }"
+            class="tablinks active"
             onmouseover="openCity(event,'exploreVisa0')"
           >
             <div class="step-box border-radius-5 text-center">
@@ -127,7 +127,7 @@
               >
                 <img
                   v-if="cty1.flag"
-                  style="height: 126px;"
+                  class="img-126"
                   :alt="cty1.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty1.flag"
                 />
@@ -155,8 +155,7 @@
               >
                 <img
                 v-if="cty2.flag"
-                  class="h-64 w-64"
-                  style="height: 126px; "
+                  class="h-64 w-64 img-126"
                   :alt="cty2.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty2.flag"
                 />
@@ -184,8 +183,7 @@
               >
                 <img
                 v-if="cty3.flag"
-                  class="h-64 w-64"
-                  style="height: 126px; "
+                  class="h-64 w-64 img-126"
                   :alt="cty3.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty3.flag"
                 />
@@ -213,8 +211,7 @@
               >
                 <img
                 v-if="cty4.flag"
-                  class="h-64 w-64"
-                  style="height: 126px; "
+                  class="h-64 w-64 img-126"
                   :alt="cty4.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty4.flag"
                 />
@@ -242,8 +239,7 @@
               >
                 <img
                 v-if="cty5.flag"
-                  class="h-64 w-64"
-                  style="height: 126px; "
+                  class="h-64 w-64 img-126"
                   :alt="cty5.name"
                   :src="'https://b2bdemo.visathing.in/storage/flag/' + cty5.flag"
                 />

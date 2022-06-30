@@ -22,7 +22,6 @@
                 :value="cty"
                 :key="key"
                 :v-bind="cty.id"
-                
               >
                 {{ cty.name }}
               </option>
@@ -47,24 +46,26 @@
                       "
                       class="form-check ques-option"
                     >
-                    
                       <input
                         class="form-check-input"
-                        :id="'sate_'+ key +'_checkbox_one'+ans_key"
+                        :id="'sate_' + key + '_checkbox_one' + ans_key"
                         name="'question' + key"
                         v-model="question[key]"
                         :value="ans.point"
                         type="radio"
                         :v-model="required"
                       />
-                      <label class="form-check-label" :for="'sate_'+ key +'_checkbox_one'+ans_key">
+                      <label
+                        class="form-check-label"
+                        :for="'sate_' + key + '_checkbox_one' + ans_key"
+                      >
                         {{ ans.answer }}
                       </label>
                     </div>
 
                     <div class="d-flex gap-4">
-                      
-                      <button v-if="(key != 0) && (key +1 < total)"
+                      <button
+                        v-if="key != 0"
                         @click.prevent="backQst()"
                         type="button"
                         id="btnNext"
@@ -73,7 +74,8 @@
                       >
                         Back
                       </button>
-                       <button v-if="(key + 1 < total) && (question[key] != null)"
+                      <button
+                        v-if="key + 1 < total && question[key] != null"
                         @click.prevent="nextQst()"
                         type="button"
                         id="btnNext"
@@ -82,19 +84,25 @@
                       >
                         Next
                       </button>
-                      <button v-else-if="key +1 === total"
+                      <button
+                        v-else-if="key + 1 === total"
                         @click.prevent="nextQst()"
                         type="button"
                         id="btnNext"
                         value="Check Score"
                         class="list-form-btn"
-                        >
+                      >
                         Check Score
                       </button>
-                      <button v-else type="disable"
+                      <button
+                        v-else
+                        type="disable"
                         id="btnNext"
                         value="Check Score"
-                        class="list-form-btn">Check Score</button>
+                        class="list-form-btn"
+                      >
+                        Next
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -104,12 +112,48 @@
         </div>
         <div class="col-md-6">
           <div class="check-progress">
-            <div class="position-relative" id="circle" v-if="key + 1  === total">
-              <span>{{ result}}%</span>
+            <div class="progress-radial" :class="'progress-' + result">
+              <div class="overlay">{{ result }}%</div>
             </div>
-            <button class="btn-gradient">
-               Score Percent : {{ percent}}
-            </button>
+
+            <!-- <div class="position-relative" id="circle">
+              <div class="progress mx-auto" data-value="70">
+                <div
+                  class="progress-bar border-primary"
+                  role="progressbar"
+                  aria-valuenow="70"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  :style="{ width: `${result}%` }"
+                >
+                  {{ result }}%
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="progress mx-auto" :data-value=result>
+              <span class="progress-left">
+                <span class="progress-bar border-primary"></span>
+              </span>
+              <span class="progress-right">
+                <span class="progress-bar border-primary"></span>
+              </span>
+              <div
+                class="
+                  progress-value
+                  w-100
+                  h-100
+                  rounded-circle
+                  d-flex
+                  align-items-center
+                  justify-content-center
+                "
+              >
+                <div class="h2 font-weight-bold">
+                  {{ result }}<sup class="small">%</sup>
+                </div>
+              </div>
+            </div> -->
+            <button class="btn-gradient">Score Percent : {{ percent }}</button>
           </div>
         </div>
       </div>
@@ -172,10 +216,9 @@ export default {
           this.country_list = response.data.country_list;
           this.checker_question = this.country.country_questions;
           this.country_answers = this.country.country_answers;
-          if(this.country.country_questions){
-             this.total = this.country.country_questions.length;
-          }
-          else{
+          if (this.country.country_questions) {
+            this.total = this.country.country_questions.length;
+          } else {
             this.total = 0;
           }
         }.bind(this)
@@ -191,11 +234,11 @@ export default {
 
       if (this.key < newTotal) {
         this.key++;
-        let countPercent = 100/newTotal;
+        let countPercent = 100 / newTotal;
         this.percent += Math.round(countPercent);
 
         this.result += question[0];
-       // console.log(this.result);
+        // console.log(this.result);
       }
     },
     backQst() {
@@ -207,7 +250,7 @@ export default {
 
       if (this.key < newTotal) {
         this.key--;
-       // console.log(this.percent);
+        // console.log(this.percent);
       }
     },
   },

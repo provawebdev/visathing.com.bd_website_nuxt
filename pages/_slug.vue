@@ -22,11 +22,8 @@
                   {{ data.name }} Visa From Bangladesh
                 </div>
                 <div class="apply-button">
-                  <a
-                    href="javascript:"
+                  <a href="http://visathing.org/" target="_blank"
                     class="btn fs-14 fs-sm-12 btn-light"
-                    data-bs-toggle="modal"
-                    data-bs-target="#vsSignUpModal"
                     >Apply Online</a
                   >
                 </div>
@@ -120,7 +117,7 @@
                     @change="findVC"
                   >
                     <optgroup label="Selected Country">
-                      <option v-bind:value="data.slug" :selected="selected">
+                      <option v-bind:value="data.slug" :selected="selected2">
                         {{ data.name }}
                       </option>
                     </optgroup>
@@ -397,7 +394,7 @@
               >
                 <!-- Form 1 -->
                 <div class="visa-fee-form-wrapper">
-                  <h2 class="fs-20">Visa Fee for {{ data.name }}</h2>
+                  <h2 class="fs-20">Visa Fee & Service Charge for {{ data.name }}</h2>
 
                   <table class="table table-bordered">
                     <thead>
@@ -414,7 +411,7 @@
                                 <td class="td_with_33">
                                   {{ p_type.name }}
                                 </td>
-                                <td>
+                                <td> 
                                   <table
                                     v-for="(v_type, v_key) in visa_types"
                                     :key="v_key"
@@ -435,15 +432,30 @@
                                           </div>
                                         </td>
                                       </tr>
-                                    </thead>
+                                    </thead><br />
                                   </table>
                                 </td>
                               </tr>
-                            </thead>
-                          </table>
+                            </thead><br />
+                          </table> 
                         </td>
                       </tr>
                     </thead>
+                  </table>
+                  <br /><br />
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <td><strong>Service</strong></td>
+                         <td><strong>Charge</strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(ser, s_key) in data.cty_services" :key="s_key">
+                        <td>{{ser.name}}</td>
+                         <td>{{ser.charge}}</td>
+                      </tr>
+                    </tbody>
                   </table>
                   
                   <!-- <form role="form">

@@ -20,13 +20,13 @@
             />
             <div class="item-content">
               <div class="news-item-body py-0">
-                <h3 class="news-item-title">{{ con.name }}</h3>
+                <p class="news-item-title">{{ con.name }}</p>
                 <p class="news-item-text" v-html="con.summary"></p>
               </div>
               <div class="news-item-footer d-flex justify-content-between">
                 <nuxt-link class="news-item-link" v-bind:to="'/blog/' + con.slug"
                   >Read More</nuxt-link>
-                <a class="news-item-link" href="#">
+                <!-- <a class="news-item-link" href="#">
                   <svg
                     fill="none"
                     height="15"
@@ -39,8 +39,8 @@
                       fill="#2B2B2B"
                     />
                   </svg>
-                  <!--<span>5</span>--></a
-                >
+                  <span>5</span></a
+                > -->
               </div>
             </div>
           </div>

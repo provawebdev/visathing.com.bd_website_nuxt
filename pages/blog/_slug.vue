@@ -73,9 +73,9 @@
                     :alt="con.name"
                   />
                   <div class="post-item-body">
-                    <h6 class="post-item-title">
+                    <p class="post-item-title">
                       <nuxt-link v-bind:to="'/blog/'+con.slug">{{ con.name }}</nuxt-link>
-                    </h6>
+                    </p>
                     <p class="post-item-time">
                       <svg
                         width="12"

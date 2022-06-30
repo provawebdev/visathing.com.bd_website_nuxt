@@ -6,6 +6,9 @@
   .col-lg {
     flex: 1 0 0;
   }
+  .img-126{
+    height: 126px;
+  }
 }
 
 /* Large devices (desktops, less than 1200px) */
@@ -365,7 +368,7 @@
   }
 
   section {
-    padding: 60px 0;
+    padding: 25px 0;
   }
 
   .navbar-light .navbar-toggler-icon {
@@ -474,12 +477,6 @@
   .ques-box {
     padding: 25px 0 25px 25px;
   }
-
-  .check-ques,
-  .check-progress {
-    height: 390px;
-  }
-
   .step-box-wrapper {
     margin-bottom: 15px;
   }
