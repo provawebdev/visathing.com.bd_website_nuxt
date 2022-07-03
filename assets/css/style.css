@@ -1085,7 +1085,7 @@ section p {
     color: #333;
 }
 
-.step-box {
+.tablinks {
     padding: 22px 0;
     background-color: var(--color-white-gray);
     height: 100%;
@@ -1103,15 +1103,15 @@ section p {
   transition: all 300ms linear;
 } */
 .tablinks.active{
-    /* color: var(--color-white) !important;
-    background: linear-gradient(39.53deg, rgba(32, 66, 207, 0.9) 0%, rgba(87, 156, 244, 0.9) 100%), url("~/assets/img/service-item-bg.png") !important;
+    color: var(--color-white);
+    background: linear-gradient(39.53deg, rgba(32, 66, 207, 0.9) 0%, rgba(87, 156, 244, 0.9) 100%), url("~/assets/img/service-item-bg.png")!important;
     background-size: cover;
+    background-color: #0d6efd;
     background-position: center center;
     background-repeat: no-repeat;
-    position: relative;
-    opacity: 1;
-    visibility: visible; */
-    transform: translateY(0px);
+}
+.tablinks:hover p {
+    color: var(--color-white);
 }
 .step-box:hover {
     color: var(--color-white);
@@ -1125,7 +1125,7 @@ section p {
     color: var(--color-white);
 }
 
-.step-box::after {
+.tablinks::after {
     content: "";
     display: block;
     position: absolute;
@@ -1140,19 +1140,19 @@ section p {
     transition: all ease-in-out 0.3s;
 }
 
-.step-box:hover::after {
+.tablinks:hover::after {
     opacity: 1;
     visibility: visible;
     transform: translateY(0px);
 }
 
-.step-box h3 {
+.tablinks h3 {
     font-family: "lato 700";
     font-size: 20px;
     margin-bottom: 8px;
 }
 
-.step-box p {
+.tablinks p {
     font-size: 14px;
 }
 

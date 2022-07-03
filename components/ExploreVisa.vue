@@ -10,10 +10,10 @@
         <div class="col-md-2 col-4">
           <nuxt-link
             v-bind:to="'/explorevisa/' + datas1.slug"
-            class="tablinks active"
+            class="tablinks active step-box border-radius-5 text-center"
             onmouseover="openCity(event,'exploreVisa0')"
           >
-            <div class="step-box border-radius-5 text-center">
+            <div class="">
               <h3>{{ datas1.name }}</h3>
               <div v-for="(data, key) in data_all"
                 :key="key"
@@ -30,10 +30,10 @@
         <div class="col-md-2 col-4">
           <nuxt-link
             v-bind:to="'/explorevisa/' + datas2.slug"
-            class="tablinks"
+            class="tablinks  step-box border-radius-5 text-center"
             onmouseover="openCity(event, 'exploreVisa1')"
           >
-            <div class="step-box border-radius-5 text-center">
+            <div class="">
               <h3>{{ datas2.name }}</h3>
               <div v-for="(data2, key2) in data_all"
                 :key="key2"
@@ -50,10 +50,10 @@
         <div class="col-md-2 col-4">
           <nuxt-link
             v-bind:to="'/explorevisa/' + datas3.slug"
-            class="tablinks"
+            class="tablinks  step-box border-radius-5 text-center"
             onmouseover="openCity(event, 'exploreVisa2')"
           >
-            <div class="step-box border-radius-5 text-center">
+            <div class="">
               <h3>{{ datas3.name }}</h3>
               <div v-for="(data3, key3) in data_all"
                 :key="key3"
@@ -73,10 +73,10 @@
         <div class="col-md-2 col-4">
           <nuxt-link
             v-bind:to="'/explorevisa/' + datas4.slug"
-            class="tablinks"
+            class="tablinks  step-box border-radius-5 text-center"
             onmouseover="openCity(event, 'exploreVisa3')"
           >
-            <div class="step-box border-radius-5 text-center">
+            <div class="">
               <h3>{{ datas4.name }}</h3>
               <div v-for="(data4, key4) in data_all"
                 :key="key4"
@@ -93,10 +93,10 @@
         <div class="col-md-2 col-4">
           <nuxt-link
             v-bind:to="'/explorevisa/' + datas5.slug"
-            class="tablinks"
+            class="tablinks step-box border-radius-5 text-center"
             onmouseover="openCity(event, 'exploreVisa4')"
           >
-            <div class="step-box border-radius-5 text-center">
+            <div class="">
               <h3>{{ datas5.name }}</h3>
               <p
                 v-for="(data5, key5) in data_all"

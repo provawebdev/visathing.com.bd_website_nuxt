@@ -443,7 +443,7 @@
                     </thead>
                   </table>
                   <br /><br />
-                  <table class="table table-bordered">
+                  <table class="table table-bordered" v-if="data.cty_services">
                     <thead>
                       <tr>
                         <td><strong>Service</strong></td>
