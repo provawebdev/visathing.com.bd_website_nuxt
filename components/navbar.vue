@@ -129,10 +129,7 @@
 
             <ul class="navbar ms-auto align-items-center">
               <li class="nav-item">
-                <a href="http://visathing.org/" target="_blank" class="btn btn-gradient">
-                  <span class="fas fa-user-alt"></span> Sign in |
-                  <span class="fas fa-sign-out-alt"></span> Sign Up
-                </a>
+                <a href="http://visathing.org/" target="_blank" class="btn btn-gradient"> Sign in | Sign Up </a>
               </li>
             </ul>
           </div>
@@ -191,10 +188,7 @@
           </form>
           <ul class="navbar">
             <li class="nav-item">
-              <a href="https://visathing.org/" class="btn btn-gradient">
-                <span class="fas fa-user-alt"></span> Sign in |
-                <span class="fas fa-sign-out-alt"></span> Sign Up
-              </a>
+              <a href="https://visathing.org/" class="btn btn-gradient"> Sign in | Sign Up </a>
             </li>
           </ul>
         </div>

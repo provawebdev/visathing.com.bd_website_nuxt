@@ -22,12 +22,23 @@
                   {{ data.name }} Visa From Bangladesh
                 </div>
                 <div class="apply-button">
-                  <a href="http://visathing.org/" target="_blank"
+                  <button
+                    data-toggle="modal"
+                    data-target="#applyOnline"
                     class="btn fs-14 fs-sm-12 btn-light"
-                    >Apply Online</a
                   >
+                    Apply Online
+                  </button>
+                  <Login v-show="showModal" @close-modal="showModal = false" />
+                  <button
+                    @click="showModal = true"
+                    class="btn fs-14 fs-sm-12 btn-light"
+                  >
+                    Apply Online
+                  </button>
                 </div>
               </div>
+
               <!-- <div class="online-apply-body">
                 <table class="info-box-wrapper fs-20 fs-sm-14">
                   <tbody>
@@ -394,7 +405,9 @@
               >
                 <!-- Form 1 -->
                 <div class="visa-fee-form-wrapper">
-                  <h2 class="fs-20">Visa Fee & Service Charge for {{ data.name }}</h2>
+                  <h2 class="fs-20">
+                    Visa Fee & Service Charge for {{ data.name }}
+                  </h2>
 
                   <table class="table table-bordered">
                     <thead>
@@ -411,7 +424,7 @@
                                 <td class="td_with_33">
                                   {{ p_type.name }}
                                 </td>
-                                <td> 
+                                <td>
                                   <table
                                     v-for="(v_type, v_key) in visa_types"
                                     :key="v_key"
@@ -424,20 +437,32 @@
                                         </td>
                                         <td>
                                           <div
-                                            v-for="(vf, vf_key) in data.country_visafees"
+                                            v-for="(
+                                              vf, vf_key
+                                            ) in data.country_visafees"
                                             :key="vf_key"
+                                          >
+                                            <p
+                                              v-if="
+                                                vf.vcat_id == v_type.id &&
+                                                vf.passport_types_id ==
+                                                  p_type.id
+                                              "
                                             >
-                                            <p v-if="(vf.vcat_id == v_type.id) && (vf.passport_types_id == p_type.id)">{{ vf.entry_name }} -
-                                            {{ vf.visa_fee }} </p>
+                                              {{ vf.entry_name }} -
+                                              {{ vf.visa_fee }}
+                                            </p>
                                           </div>
                                         </td>
                                       </tr>
-                                    </thead><br />
+                                    </thead>
+                                    <br />
                                   </table>
                                 </td>
                               </tr>
-                            </thead><br />
-                          </table> 
+                            </thead>
+                            <br />
+                          </table>
                         </td>
                       </tr>
                     </thead>
@@ -447,17 +472,20 @@
                     <thead>
                       <tr>
                         <td><strong>Service</strong></td>
-                         <td><strong>Charge</strong></td>
+                        <td><strong>Charge</strong></td>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(ser, s_key) in data.cty_services" :key="s_key">
-                        <td>{{ser.name}}</td>
-                         <td>{{ser.charge}}</td>
+                      <tr
+                        v-for="(ser, s_key) in data.cty_services"
+                        :key="s_key"
+                      >
+                        <td>{{ ser.name }}</td>
+                        <td>{{ ser.charge }}</td>
                       </tr>
                     </tbody>
                   </table>
-                  
+
                   <!-- <form role="form">
                     <div class="form-wrapper">
                       <div class="form-item">
@@ -531,7 +559,6 @@
                   </form> 
                   <br />
                   <h6>Visa Fee: {{ this.fields.visa_fee }}</h6>-->
-                  
                 </div>
                 <!-- Form 2 -->
                 <div class="service-change-form-wrapper">
@@ -706,7 +733,8 @@
                         </td>
                       </tr>
                     </tbody>
-                  </table><br />
+                  </table>
+                  <br />
                   <h6>Processing Time:</h6>
                   <p>{{ data.process_time }}</p>
                 </div>
@@ -821,6 +849,8 @@
 <script>
 import axios from "axios";
 import bgImg from "assets/img/basic-checklist-banner.png";
+import Login from "~/components/Login.vue";
+
 import {
   cacheAdapterEnhancer,
   throttleAdapterEnhancer,
@@ -833,6 +863,7 @@ const http = axios.create({
   }),
 });
 export default {
+  components: { Login },
   head() {
     return {
       title: `${this.data.name}`,
@@ -906,6 +937,7 @@ export default {
       selected2: 1,
       country_list: [],
       country: 1,
+      showModal: false,
     };
   },
 

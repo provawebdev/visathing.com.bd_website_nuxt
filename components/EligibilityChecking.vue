@@ -96,10 +96,10 @@
                       </button>
                       <button
                         v-else
-                        type="disable"
+                        type="button"
                         id="btnNext"
                         value="Check Score"
-                        class="list-form-btn"
+                        class="list-form-btn" disabled
                       >
                         Next
                       </button>
@@ -115,45 +115,7 @@
             <div class="progress-radial" :class="'progress-' + result">
               <div class="overlay">{{ result }}%</div>
             </div>
-
-            <!-- <div class="position-relative" id="circle">
-              <div class="progress mx-auto" data-value="70">
-                <div
-                  class="progress-bar border-primary"
-                  role="progressbar"
-                  aria-valuenow="70"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  :style="{ width: `${result}%` }"
-                >
-                  {{ result }}%
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="progress mx-auto" :data-value=result>
-              <span class="progress-left">
-                <span class="progress-bar border-primary"></span>
-              </span>
-              <span class="progress-right">
-                <span class="progress-bar border-primary"></span>
-              </span>
-              <div
-                class="
-                  progress-value
-                  w-100
-                  h-100
-                  rounded-circle
-                  d-flex
-                  align-items-center
-                  justify-content-center
-                "
-              >
-                <div class="h2 font-weight-bold">
-                  {{ result }}<sup class="small">%</sup>
-                </div>
-              </div>
-            </div> -->
-            <button class="btn-gradient">Score Percent : {{ percent }}</button>
+            <!-- <button class="btn-gradient">Score Percent : {{ percent }}</button> -->
           </div>
         </div>
       </div>

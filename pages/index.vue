@@ -2,9 +2,9 @@
   <div>
     <CheckRequirement />
     <ExploreVisa />
-    <EligibilityChecking />
-    <EasySteps />
     <Services />
+    <!-- <EasySteps /> -->
+    <EligibilityChecking />
     <MediaLibrary />
     <NewsFeed />
 

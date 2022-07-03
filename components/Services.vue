@@ -1,6 +1,6 @@
 <template>
     <!-- Services Section Start  -->
-<section class="pb-0" id="services">
+<section class="bg-gray" id="services">
     <div class="container">
         <div class="section-header">
             <h2>Services</h2>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[0].name}}</h3>
-                            <p v-html="services[0].summary"></p>
+                            <p v-html="services[0].summary"></p><a> Read More</a>
                         </div>
                     </div>
                 </nuxt-link>
@@ -87,7 +87,7 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[1].name}}</h3>
-                            <p v-html="services[1].summary"></p>
+                            <p v-html="services[1].summary"></p><span> Read More</span>
                         </div>
                     </div>
                 </nuxt-link>
@@ -124,7 +124,7 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[2].name}}</h3>
-                            <p v-html="services[2].summary"></p>
+                            <p v-html="services[2].summary"></p><span> Read More</span>
                         </div>
                     </div>
                 </nuxt-link>
@@ -156,7 +156,7 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[3].name}}</h3>
-                            <p v-html="services[3].summary"></p>
+                            <p v-html="services[3].summary"> </p><span> Read More</span>
                         </div>
                     </div>
                 </nuxt-link>
@@ -195,7 +195,7 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[4].name}}</h3>
-                            <p v-html="services[4].summary"></p>
+                            <p v-html="services[4].summary"></p><span> Read More</span>
                         </div>
                     </div>
                 </nuxt-link>
@@ -237,7 +237,7 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[5].name}}</h3>
-                            <p v-html="services[5].summary"></p>
+                            <p v-html="services[5].summary"></p><span> Read More</span>
                         </div>
                     </div>
                 </nuxt-link>

@@ -1,6 +1,6 @@
 <template>
   <!-- Media Library Section Start  -->
-  <section id="media-library">
+  <section id="media-library" class="bg-gray">
     <div class="container">
       <div class="section-header">
         <h2>Media Library</h2>
