@@ -6,7 +6,7 @@
         <!-- Hero Content -->
 
         <div class="hero-content">
-          <h1 class="hero-title">Your Visa Partner.</h1>
+          <h1 class="hero-title">Your Visa Partner</h1>
           <h2 class="hero-subtitle">Need a Visa?</h2>
         </div>
         <form role="form" @submit.prevent="submit">

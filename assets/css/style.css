@@ -79,8 +79,9 @@ select:focus-visible {
     box-shadow: none !important;
     cursor: pointer;
 }
-
-button,
+button{
+    cursor: pointer;
+}
 .btn {
     cursor: pointer;
     border-radius: 5px;
@@ -280,7 +281,7 @@ h3 {
 }
 
 section {
-    padding: 60px 0;
+    padding: 30px 0;
 }
 
 section h2 {
@@ -479,10 +480,25 @@ section p {
     justify-content: space-between;
     align-items: center;
 }
+.search_box{
+    width: 100% !important;
+    background: rgba(30, 38, 49, 0.92);
+    padding: 20px;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: auto;
+    overflow: hidden;
+    border: 1px solid rgba(221, 221, 221, 0.26);
+    border-radius: none;
+}
 
 .select-box {
     width: 199px;
     color: var(--color-black);
+}
+.select-box-color {
+    color: #fff;
 }
 
 .select-option {
@@ -498,7 +514,13 @@ section p {
     align-self: flex-end;
     margin-left: 40px;
 }
-
+.btn-border{
+    border: 1px solid #fff;
+    padding: 11px 35px;
+    margin-top: 20px;
+    color: #fff;
+    
+}
 /*
 *   ==================================
 *         Basic Hero Banner Start
@@ -544,8 +566,8 @@ section p {
     justify-content: space-between;
     padding: 17px 40px;
     align-items: center;
-    background: var(--color-primary);
-    border-radius: 10px 10px 0 0;
+    background: rgba(30, 38, 49, 0.92);
+    border-radius: 10px;
     z-index: 1;
     position: inherit;
 }
@@ -673,13 +695,12 @@ button[disabled]{
     background-size: cover;
     vertical-align: middle;
 }
-
 .service-item-body .list-items ul {
     padding: 0;
 }
 
 .list-items {
-    margin: 20px 0;
+    margin: 20px 8px;
 }
 
 .list-items ul {
@@ -690,7 +711,6 @@ button[disabled]{
     list-style: none;
     display: inline-grid !important;
     gap: 15px;
-    margin-bottom: 20px;
     grid-template-columns: auto auto;
 }
 
@@ -709,8 +729,8 @@ button[disabled]{
 
 .list-items ul li .item-content {
     font-weight: normal;
-    line-height: 24px;
-    letter-spacing: 0.4px;
+    line-height: 22px;
+    letter-spacing: 0px;
 }
 
 /*
@@ -723,14 +743,15 @@ button[disabled]{
 *        Services Lists CSS Start
 *   ==================================
 */
+.country_title{ background-color: #ddd; padding: 10px;}
+.countrycontent{ padding: 20px;}
 #service-lists-wrapper {
-    padding: 0px 0 120px 0;
+    padding: 10px 0 120px 0;
 }
 
 #service-lists-wrapper .left-sidebar-widget {
     background: var(--color-white);
-    box-shadow: 0px 1px 5px rgba(89, 105, 166, 0.1);
-    border-radius: 10px;
+    border: 1px solid #cdcdcd;
 }
 
 #service-lists-wrapper .left-sidebar-widget .sidebar-header {
@@ -742,7 +763,7 @@ button[disabled]{
 }
 
 #service-lists-wrapper .left-sidebar-widget .sidebar-lists {
-    padding: 20px 15px;
+    padding: 0px;
 }
 
 #service-lists-wrapper .sidebar-lists .nav {
@@ -765,7 +786,7 @@ button[disabled]{
 #service-lists-wrapper .sidebar-lists ul li {
     cursor: pointer;
     transition: all ease-in-out 0.3s;
-    margin: 15px -18px 0 0;
+    margin: 5px 0px 5px 5px;
 }
 
 #service-lists-wrapper .sidebar-lists ul li button {
@@ -775,9 +796,12 @@ button[disabled]{
     font-weight: normal;
     text-transform: capitalize;
     line-height: 24px;
-    letter-spacing: 0.4px;
     width: 100%;
     text-align: left;
+    padding: 10px;
+    /* border-color: #e9ecef transparent #e9ecef #b6b6b9;
+    border-style: solid;
+    border-width: 1px 1px 1px 3px; */
 }
 
 #service-lists-wrapper .sidebar-lists ul li button::before {
@@ -795,19 +819,12 @@ button[disabled]{
 #service-lists-wrapper .sidebar-lists ul li button:hover,
 #service-lists-wrapper .sidebar-lists ul li button.active {
     color: var(--color-black);
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #e9ecef;
-    border-right-color: transparent;
-    border-radius: 4px 4px 0 0;
-    border-left: 3px solid #2448d1;
+    background-color: #ddd;
 }
 
 #service-lists-wrapper .service-item-body {
     background: var(--color-white);
-    box-shadow: 0px 1px 5px rgba(89, 105, 166, 0.1);
-    border-radius: 10px;
-    padding: 30px;
+    border: 1px solid #cdcdcd;
 }
 
 #service-lists-wrapper .service-item-body h1,
@@ -818,10 +835,15 @@ button[disabled]{
 #service-lists-wrapper .service-item-body h6 {
     font-weight: 700;
     line-height: 30px;
-    letter-spacing: 0.4px;
+    letter-spacing: .4px;
+    color: #2b2b2b;
+    color: var(--color-black);
+}
+.content-title{
     color: var(--color-black);
     margin-bottom: 10px;
-    /* display: inline-block;  */
+    background: #ddd;
+    padding: 11px 0px 13px 8px;
 }
 
 #service-lists-wrapper .service-item-body p,
@@ -1042,7 +1064,7 @@ button[disabled]{
 #service-lists-wrapper .service-item-body .service-change-form-wrapper .form-wrapper {
     display: grid;
     gap: 15px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     align-items: end;
 }
 
@@ -1936,7 +1958,7 @@ button[disabled]{
 .page-name h1,
 .content-text h2 {
     font-family: "Lato", sans-serif;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .content-text p {
@@ -2202,7 +2224,7 @@ hr {
 *   ==================================
 */
 .table{
-    margin: -9px 0px -29px 9px;
+    margin: -9px 0px -29px 0px;
 }
 .table>thead {
      vertical-align: middle !important;
@@ -2219,16 +2241,13 @@ hr {
     width: 33%;
 }
 .applicant-details .card-header {
-    background: var(--color-gradient) no-repeat;
-    color: var(--color-white);
+    color: #333;
     font-size: 24px;
     font-family: "Lato", sans-serif;
-    text-align: center;
-    border-radius: 10px 10px 0 0;
 }
 
 .applicant-details .card-body {
-    padding: 33px 25px 33px 20px;
+    padding: 10px 0px 0px 5px;
 }
 
 .applicant-details table td {
@@ -2236,20 +2255,18 @@ hr {
 }
 
 .application-status table thead tr {
-    background: var(--color-gradient) no-repeat;
-    /* background-size: contain; */
-    color: var(--color-white);
+    color: #333;
 }
 
 .application-status table thead tr th {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
     vertical-align: middle;
 }
 
 .application-status table tr td {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 13px;
+    padding-bottom: 13px;
     vertical-align: middle;
 }
 

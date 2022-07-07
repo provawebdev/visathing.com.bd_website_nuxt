@@ -3,7 +3,7 @@
     <nuxt-child :data="data" />
     <section class="page-name text-center">
       <div class="container">
-        <h1>{{ data.name }}</h1>
+        <h1>Visa Application Status</h1>
       </div>
     </section>
     <section class="page-content">
@@ -12,82 +12,115 @@
           <div class="col-lg-4">
             <div class="row">
               <div class="col-md-6 col-lg-12">
-                <div class="card applicant-details">
+                <div class=" applicant-details">
                   <h2 class="card-header">Applicant Details</h2>
-                  <div class="card-body">
-                    <table class="table table-borderless mb-0">
-                      <tbody>
-                        <tr>
-                          <td>Applicant Name</td>
-                          <td>: &nbsp; {{data.name}}</td>
-                        </tr>
-                        <tr>
-                          <td>Tracking Number</td>
-                          <td>: &nbsp; {{data.tracking_no}}</td>
-                        </tr>
-                        <tr>
-                          <td>Passport Number</td>
-                          <td>: &nbsp; {{data.current_passport}}</td>
-                        </tr>
-                        <tr>
-                          <td>Country</td>
-                          <td v-for="(cty, cty_key) in data.countries" :key="cty_key">: &nbsp; {{data.countries[0].name}}</td>
-                        </tr>
-                        <tr>
-                          <td>Service</td>
-                          <td v-for="(ser, ser_key) in data.services" :key="ser_key">: &nbsp; {{data.services[0].name}}</td>
-                        </tr>
-                        <tr>
-                          <td>Visa Category</td>
-                          <td>: &nbsp; {{data.visa_category}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  <div id="trackdetails">
+									<div class="track_title">
+										<h2>Applicant Details</h2>
+									</div>
+									<div class="track_detail_wrapper row">
+										<div class="col-lg-6">
+											<span>Applicant Name</span>
+										</div>
+										<div class="col-lg-1">
+											<span class="colon">:</span>
+										</div>
+										<div class="col-lg-5">
+											<span> {{data.name}} </span>
+										</div>
+									</div>
+									<div class="track_detail_wrapper row">
+										<div class="col-lg-6">
+											<span>Tracking Number</span>
+										</div>
+										<div class="col-lg-1">
+											<span class="colon">:</span>
+										</div>
+										<div class="col-lg-5">
+											<span> {{data.tracking_no}} </span>
+										</div>
+									</div>
+									<div class="track_detail_wrapper row ">
+										<div class="col-lg-6">
+											<span>Passport Number</span>
+										</div>
+										<div class="col-lg-1">
+											<span class="colon">:</span>
+										</div>
+										<div class="col-lg-5">
+											<span> {{data.current_passport}} </span>
+										</div>
+									</div>
+									<div class="track_detail_wrapper row">
+										<div class="col-lg-6">
+											<span>Country</span>
+										</div>
+                    <div class="col-lg-1">
+											<span class="colon">:</span>
+										</div>
+										<div class="col-lg-5">
+											<span v-for="(cty, cty_key) in data.countries" :key="cty_key">{{data.countries[0].name}} </span>
+										</div>
+									</div>
+                  <div class="track_detail_wrapper row">
+										<div class="col-lg-6">
+											<span>Service</span>
+										</div>
+                    <div class="col-lg-1">
+											<span class="colon">:</span>
+										</div>
+										<div class="col-lg-5">
+											<span v-for="(ser, ser_key) in data.services" :key="ser_key"> {{data.services[0].name}} </span>
+										</div>
+									</div>
+                  <div class="track_detail_wrapper row">
+										<div class="col-lg-6">
+											<span>Visa Category</span>
+										</div>
+                    <div class="col-lg-1">
+											<span class="colon">:</span>
+										</div>
+										<div class="col-lg-5">
+											<span> {{data.visa_category}} </span>
+										</div>
+									</div>
+								</div>
+                <div id="trackdetails">
+									<div class="track_title">
+										<h2>Info</h2>
+									</div>
+									<div class="track_detail_wrapper row ">
+
+										<div class="track_info_content col-lg-12">
+											<span> In case of any urgent issue regarding your <b>Visa Application Status</b>,<hr>Please Call/Mail 
+												<br>
+												<p>Case Officer: <b v-if="case_officer">{{case_officer.name}} </b></p>
+												<p>Case Officer Phone: <b v-if="case_officer">+{{case_officer.phone}}</b></p>
+												
+												<br>
+																								
+												<i class="fa fa-phone" aria-hidden="true"></i>
+												<b>0196 777 7788</b> || <i class="fa fa-envelope" aria-hidden="true"></i>
+												<b>support@visathing.com</b>
+											</span>
+										</div>
+									</div>
+								</div>
                 </div>
               </div>
-              <div class="col-md-6 col-lg-12">
-                <div class="case-officer card applicant-details">
-                  <h2 class="card-header">Dedicated Case Officer</h2>
-                  <div class="card-body d-flex align-items-center" v-if="case_officer != NULL">
-                    <img src="" alt="" />
-                    <div class="case-officer-info">
-                      <h3>{{case_officer.name}}</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-12">
-                <div class="card applicant-details">
-                  <h2 class="card-header">Emergency Contact</h2>
-                  <div class="card-body">
-                    <table class="table table-borderless mb-0">
-                      <tbody>
-                        <tr v-if="case_officer != NULL">
-                          <td>Mobile Number</td>
-                          <td>: &nbsp; +{{case_officer.phone}}</td>
-                        </tr>
-                        <tr>
-                          <td>Email</td>
-                          <td>: &nbsp; support@visathing.com</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+           
             </div>
           </div>
           <div class="col-lg-8">
             <div class="application-status">
-              <table class="table table-borderless mb-0">
-                <thead>
-                  <tr>
-                    <th class="col-2">Date</th>
-                    <th class="col-10">Applications Status</th>
-                    <th>Remarks</th>
-                  </tr>
-                </thead>
+              <table class="table table-striped">
+               <thead>
+										<tr>
+											<th>Date</th>
+											<th>Application Status</th>
+											<th>Remarks</th>
+										</tr>
+									</thead>
                 <tbody v-if="cc_update">
                   <tr v-for="(cc, cc_key) in cc_update" :key="cc_key">
                     <td v-if="cc.created_at"> {{ formatDate(cc.created_at) }}</td>
@@ -189,7 +222,7 @@ export default {
   },
   methods: {
     formatDate(date) {
-      const options = { year: "numeric", month: "long", day: "numeric" };
+      const options = { day: "numeric", month: "numeric", year: "numeric"};
       return new Date(date).toLocaleDateString("en-us", options);
     },
   },

@@ -29,7 +29,8 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[0].name}}</h3>
-                            <p v-html="services[0].summary"></p><a> Read More</a>
+                            <p v-html="services[0].summary"></p>
+                            <div><a class="news-item-link">Read More</a></div>
                         </div>
                     </div>
                 </nuxt-link>
@@ -87,7 +88,8 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[1].name}}</h3>
-                            <p v-html="services[1].summary"></p><span> Read More</span>
+                            <p v-html="services[1].summary"></p>
+                            <div><a class="news-item-link">Read More</a></div>
                         </div>
                     </div>
                 </nuxt-link>
@@ -124,7 +126,8 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[2].name}}</h3>
-                            <p v-html="services[2].summary"></p><span> Read More</span>
+                            <p v-html="services[2].summary"></p>
+                            <div><a class="news-item-link">Read More</a></div>
                         </div>
                     </div>
                 </nuxt-link>
@@ -156,7 +159,8 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[3].name}}</h3>
-                            <p v-html="services[3].summary"> </p><span> Read More</span>
+                            <p v-html="services[3].summary"> </p>
+                            <div><a class="news-item-link">Read More</a></div>
                         </div>
                     </div>
                 </nuxt-link>
@@ -195,7 +199,8 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[4].name}}</h3>
-                            <p v-html="services[4].summary"></p><span> Read More</span>
+                            <p v-html="services[4].summary"></p>
+                            <div><a class="news-item-link">Read More</a></div>
                         </div>
                     </div>
                 </nuxt-link>
@@ -237,7 +242,8 @@
                         </div>
                         <div class="service-content">
                             <h3>{{services[5].name}}</h3>
-                            <p v-html="services[5].summary"></p><span> Read More</span>
+                            <p v-html="services[5].summary"></p>
+                            <div><a class="news-item-link">Read More</a></div>
                         </div>
                     </div>
                 </nuxt-link>

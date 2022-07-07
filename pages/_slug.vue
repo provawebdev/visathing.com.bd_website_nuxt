@@ -8,7 +8,93 @@
     >
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-10 px-4">
+          <div class="col-lg-12">
+            <form role="form" @submit.prevent="submit">
+              <div
+                class="
+                  requirement-checker
+                  d-flex
+                  justify-content-between
+                  search_box
+                "
+              >
+                <div class="select-box select-box-color">
+                  <label>I'm a Citizen Of</label>
+                  <select
+                    aria-label="select"
+                    class="form-select select-option"
+                    v-model="fields.cityzen_cty"
+                  >
+                    <option value="bangladesh">Bangladesh</option>
+                    <option value="visathing.in">India</option>
+                    <option value="np.visathing.com">Nepal</option>
+                  </select>
+                </div>
+                <div class="select-box select-box-color">
+                  <label>Travelling to</label>
+                  <select
+                    aria-label="select"
+                    class="form-select select-option"
+                    v-model="fields.search"
+                    @change="findVC"
+                  >
+                    <optgroup label="Selected Country">
+                      <option v-bind:value="data.slug" :selected="selected2">
+                        {{ data.name }}
+                      </option>
+                    </optgroup>
+                    <optgroup label="Select Country">
+                      <option
+                        v-for="(cty, key) in country_list"
+                        :key="key"
+                        :value="key"
+                      >
+                        {{ cty }}
+                      </option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="select-box select-box-color">
+                  <label>Visa Category</label>
+                  <select
+                    aria-label="select"
+                    class="form-select select-option"
+                    v-model="fields.v_category"
+                    v-if="this.fields.search"
+                    onClick="{this.onShow.bind(this)}"
+                  >
+                    <option value="" selected>Choose if you want</option>
+                    <option
+                      v-for="(v_category, vc_key) in country.visacat"
+                      :key="vc_key"
+                      :value="v_category.id"
+                    >
+                      {{ v_category.name }}
+                    </option>
+                  </select>
+                  <select
+                    aria-label="select"
+                    class="form-select select-option"
+                    v-model="fields.v_category"
+                    v-else
+                  >
+                    <option selected>Choose if you want</option>
+                    <option
+                      v-for="(v_category, vc_key) in v_categories"
+                      :key="vc_key"
+                      :value="v_category.id"
+                    >
+                      {{ v_category.name }}
+                    </option>
+                  </select>
+                </div>
+                <button class="btn-border" type="submit">
+                  Check Requirements
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-12">
             <div class="online-apply-wrapper">
               <div class="online-apply-header">
                 <div class="apply-cuntry-flug fs-20 fs-sm-12">
@@ -92,102 +178,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Requirements Form Box Start -->
-    <section id="requirement-form-wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <form role="form" @submit.prevent="submit">
-              <div
-                class="
-                  requirement-checker
-                  d-flex
-                  bg-white-gray
-                  justify-content-between
-                "
-              >
-                <div class="select-box">
-                  <label>I'm a Citizen Of</label>
-                  <select
-                    aria-label="select"
-                    class="form-select select-option"
-                    v-model="fields.cityzen_cty"
-                  >
-                    <option value="bangladesh">Bangladesh</option>
-                    <option value="visathing.in">India</option>
-                    <option value="np.visathing.com">Nepal</option>
-                  </select>
-                </div>
-                <div class="select-box">
-                  <label>Travelling to</label>
-                  <select
-                    aria-label="select"
-                    class="form-select select-option"
-                    v-model="fields.search"
-                    @change="findVC"
-                  >
-                    <optgroup label="Selected Country">
-                      <option v-bind:value="data.slug" :selected="selected2">
-                        {{ data.name }}
-                      </option>
-                    </optgroup>
-                    <optgroup label="Select Country">
-                      <option
-                        v-for="(cty, key) in country_list"
-                        :key="key"
-                        :value="key"
-                      >
-                        {{ cty }}
-                      </option>
-                    </optgroup>
-                  </select>
-                </div>
-                <div class="select-box">
-                  <label>Visa Category</label>
-                  <select
-                    aria-label="select"
-                    class="form-select select-option"
-                    v-model="fields.v_category"
-                    v-if="this.fields.search"
-                    onClick="{this.onShow.bind(this)}"
-                  >
-                    <option value="" selected>Choose if you want</option>
-                    <option
-                      v-for="(v_category, vc_key) in country.visacat"
-                      :key="vc_key"
-                      :value="v_category.id"
-                    >
-                      {{ v_category.name }}
-                    </option>
-                  </select>
-                  <select
-                    aria-label="select"
-                    class="form-select select-option"
-                    v-model="fields.v_category"
-                    v-else
-                  >
-                    <option selected>Choose if you want</option>
-                    <option
-                      v-for="(v_category, vc_key) in v_categories"
-                      :key="vc_key"
-                      :value="v_category.id"
-                    >
-                      {{ v_category.name }}
-                    </option>
-                  </select>
-                </div>
-                <button class="btn-gradient" type="submit">
-                  Check Requirements
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Requirements Form Box End -->
-
     <!-- Services Lists Lyoaut Start -->
     <section id="service-lists-wrapper">
       <div class="container">
@@ -309,37 +299,10 @@
                 role="tabpanel"
                 aria-labelledby="basic-info-tab"
               >
+              <h2 class="country_title">Basic information</h2>
+              <div class="countrycontent">
                 <p v-html="data.basic_info"></p>
-                <div class="online-apply-body">
-                  <table class="info-box-wrapper fs-20 fs-sm-14">
-                    <tbody>
-                      <tr>
-                        <td>Capital City</td>
-                        <td>{{ data.capital_city }}</td>
-                      </tr>
-                      <tr>
-                        <td>Currency</td>
-                        <td>{{ data.currency }}</td>
-                      </tr>
-                      <tr>
-                        <td>Local Time</td>
-                        <td>{{ data.local_time }}</td>
-                      </tr>
-                      <tr>
-                        <td>Telephone Code</td>
-                        <td>+{{ data.telephone_code }}</td>
-                      </tr>
-                      <tr>
-                        <td>Bank</td>
-                        <td>Closed on {{ data.bank_info }}</td>
-                      </tr>
-                      <tr>
-                        <td>Exchange Rate</td>
-                        <td>{{ data.exchange_rate }}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+              </div>
               </div>
               <!-- ----------------------------------------------------------------------- -->
               <!--                         Checklist body content                          -->
@@ -352,15 +315,14 @@
               >
                 <div v-if="v_category > 0">
                   <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
-                    <h3 class="fs-20" v-if="v_category == vcat.id">
-                      {{ vcat.name }} Requirement
+                    <h3 class="fs-20 country_title" v-if="v_category == vcat.id">
+                      {{ vcat.name }}:
                     </h3>
-                    <div class="list-items" v-if="v_category == vcat.id">
+                    <div class="list-items countrycontent" v-if="v_category == vcat.id">
+                    <p v-html="vcat.short_details"></p>
                       <ul v-for="(check, index) in checklists" :key="index">
                         <li v-if="vcat.id == check.pivot.vcat_id">
-                          <div class="item-icon">
                             <span>{{ check.pivot.orderby }}</span>
-                          </div>
                           <div class="item-content">
                             {{ check.name }}: {{ check.short_details }}
                           </div>
@@ -371,18 +333,18 @@
                 </div>
                 <div v-else>
                   <div v-for="(vcat, vcat_key) in data.visacat" :key="vcat_key">
-                    <h3 class="fs-20">{{ vcat.name }} Required</h3>
-                    <div class="list-items">
+                    <h3 class="fs-20 country_title">{{ vcat.name }}:</h3>
+                    
+                    <div class="list-items countrycontent">
+                    <p v-html="vcat.short_details"></p>
                       <ul
                         v-for="(check, check_key) in checklists"
                         :key="check_key"
                       >
                         <li v-if="vcat.id == check.pivot.vcat_id">
-                          <div class="item-icon">
-                            <span>{{ check.pivot.orderby }}</span>
-                          </div>
+                            <span>{{ check.pivot.orderby }} )</span>
                           <div class="item-content">
-                            {{ check.name }}: {{ check.short_details }}
+                            <strong>{{ check.name }}:</strong> {{ check.short_details }}
                           </div>
                         </li>
                       </ul>
@@ -404,8 +366,8 @@
                 aria-labelledby="vfpt-tab"
               >
                 <!-- Form 1 -->
-                <div class="visa-fee-form-wrapper">
-                  <h2 class="fs-20">
+                <!-- <div class="visa-fee-form-wrapper">
+                  <h2 class="fs-20 country_title">
                     Visa Fee & Service Charge for {{ data.name }}
                   </h2>
 
@@ -485,84 +447,11 @@
                       </tr>
                     </tbody>
                   </table>
-
-                  <!-- <form role="form">
-                    <div class="form-wrapper">
-                      <div class="form-item">
-                        <label class="form-label">Country</label>
-                        <input
-                          trpe="text"
-                          :selected="selected"
-                          :value="data.name"
-                          class="form-control"
-                          readonly
-                        />
-                      </div>
-                      <div class="form-item">
-                        <label class="form-label">Passport Type</label>
-                        <select
-                          class="form-select"
-                          v-model="fields.passport_type"
-                        >
-                          <option value="" selected>
-                            Select Passport Type
-                          </option>
-                          <option
-                            v-for="(p_type, p_key) in passport_types"
-                            :key="p_key"
-                            :value="p_type.id"
-                          >
-                            {{ p_type.name }}
-                          </option>
-                        </select>
-                      </div>
-                      <div class="form-item">
-                        <label class="form-label">Visa Type</label>
-                        <select
-                          class="form-select"
-                          v-model="fields.visa_type"
-                          @change="findFee()"
-                        >
-                          <option value="" selected>Select Visa Type</option>
-                          <option
-                            v-for="(v_type, v_key) in visa_types"
-                            :key="v_key"
-                            :value="v_type.id"
-                          >
-                            {{ v_type.name }}
-                          </option>
-                        </select>
-                      </div>
-                      <div class="form-item">
-                        <label class="form-label">Number of Entry</label>
-                        <select class="form-select" v-model="fields.visa_fee">
-                          <option value="" selected>
-                            Select Number of Entry
-                          </option>
-                          <option
-                            v-for="(vt, vt_key) in visafees"
-                            :key="vt_key"
-                            :value="vt.visa_fee"
-                          >
-                            {{ vt.entry_name }}
-                          </option>
-                        </select>
-                      </div>
-                       <div class="form-item">
-                        <input
-                          type="submit"
-                          class="btn btn-gradient fs-14"
-                          value="Check Visa Fee" 
-                        />
-                      </div> 
-                    </div>
-                  </form> 
-                  <br />
-                  <h6>Visa Fee: {{ this.fields.visa_fee }}</h6>-->
-                </div>
+                </div> -->
                 <!-- Form 2 -->
-                <div class="service-change-form-wrapper">
-                  <h3 class="fs-20">VISAThing Processing Charge</h3>
+                 <h3 class="fs-20 country_title">Visa Fee and Service Charge</h3>
+                <div class="service-change-form-wrapper countrycontent">
+                 
                   <form @submit.prevent="calculate2">
                     <div class="form-wrapper">
                       <div class="form-item">
@@ -594,7 +483,7 @@
                         </select>
                       </div>
                       <div class="form-item">
-                        <label class="form-label">Visa Type</label>
+                        <label class="form-label">Visa Category</label>
                         <select
                           class="form-select"
                           v-model="fields.visa_type"
@@ -645,7 +534,7 @@
                           </option>
                         </select>
                       </div>
-                      <div class="form-item">
+                      <!-- <div class="form-item">
                         <label class="form-label">No of Traveler</label>
                         <input
                           type="number"
@@ -654,7 +543,7 @@
                           placeholder="5"
                           required
                         />
-                      </div>
+                      </div> -->
                       <div class="form-item">
                         <input
                           type="submit"
@@ -733,9 +622,10 @@
                         </td>
                       </tr>
                     </tbody>
-                  </table>
-                  <br />
-                  <h6>Processing Time:</h6>
+                  </table> <br />
+                </div>
+                <h6 class="country_title">Processing Time:</h6>
+                <div class="service-change-form-wrapper countrycontent">
                   <p>{{ data.process_time }}</p>
                 </div>
               </div>
@@ -743,7 +633,7 @@
               <!--                     Forms & Downloads body content                      -->
               <!-- ----------------------------------------------------------------------- -->
               <div
-                class="tab-pane fade"
+                class="tab-pane fade countrycontent"
                 id="forms-downloads"
                 role="tabpanel"
                 aria-labelledby="forms-downloads-tab"
@@ -774,7 +664,7 @@
               <!--                        Useful Link body content                         -->
               <!-- ----------------------------------------------------------------------- -->
               <div
-                class="tab-pane fade"
+                class="tab-pane fade countrycontent"
                 id="useful-link"
                 role="tabpanel"
                 aria-labelledby="useful-link-tab"
@@ -799,7 +689,7 @@
               <!--                            FAQ body content                             -->
               <!-- ----------------------------------------------------------------------- -->
               <div
-                class="tab-pane fade"
+                class="tab-pane fade countrycontent"
                 id="faq"
                 role="tabpanel"
                 aria-labelledby="faq-tab"
@@ -928,7 +818,7 @@ export default {
         v_category: "",
         cityzen_cty: "bangladesh",
         service: "",
-        no_of_traveler: "",
+        no_of_traveler: "1",
         passport_type: "",
         visa_type: "",
       },
@@ -964,7 +854,7 @@ export default {
   methods: {
     calculate2() {
       this.result2 =
-        parseInt(this.fields.service) * parseInt(this.fields.no_of_traveler);
+        parseInt(this.fields.service) * parseInt(1);
     },
 
     async findFee() {
