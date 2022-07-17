@@ -13,7 +13,6 @@
             <div class="row">
               <div class="col-md-6 col-lg-12">
                 <div class=" applicant-details">
-                  <h2 class="card-header">Applicant Details</h2>
                   <div id="trackdetails">
 									<div class="track_title">
 										<h2>Applicant Details</h2>

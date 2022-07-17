@@ -22,28 +22,28 @@
                   <li>
                     <ul class="d-flex">
                       <li>
-                        <nuxt-link
-                          to="https://www.facebook.com/"
+                        <a
+                          href="https://www.facebook.com/VisaThing/"
                           target="_blank"
                           ><span class="fab fa-facebook-f"></span
-                        ></nuxt-link>
+                        ></a>
                       </li>
                       <li>
-                        <nuxt-link
-                          to="https://www.instagram.com/"
+                        <a
+                          href="https://www.instagram.com/"
                           target="_blank"
                           ><span class="fab fa-instagram"></span
-                        ></nuxt-link>
+                        ></a>
                       </li>
                       <li>
-                        <nuxt-link to="https://twitter.com/" target="_blank"
+                        <a href="https://twitter.com/visathing?lang=en" target="_blank"
                           ><span class="fab fa-twitter"></span
-                        ></nuxt-link>
+                        ></a>
                       </li>
                       <li>
-                        <nuxt-link to="https://www.youtube.com/" target="_blank"
+                        <a href="https://www.youtube.com/c/visathingbd" target="_blank"
                           ><span class="fab fa-youtube"></span
-                        ></nuxt-link>
+                        ></a>
                       </li>
                     </ul>
                   </li>
@@ -56,22 +56,22 @@
                 <ul class="item-2-content">
                   <li>
                     <nuxt-link to="/about"
-                      ><span class="fas fa-circle"></span>About Us</nuxt-link
+                      ><span class="fas fa-long-arrow-alt-right"></span>About Us</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link to="/services"
-                      ><span class="fas fa-circle"></span>Services</nuxt-link
+                      ><span class="fas fa-long-arrow-alt-right"></span>Services</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link to="/appointment"
-                      ><span class="fas fa-circle"></span>Appointment</nuxt-link
+                      ><span class="fas fa-long-arrow-alt-right"></span>Appointment</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link to="/contacts"
-                      ><span class="fas fa-circle"></span>Contact Us</nuxt-link
+                      ><span class="fas fa-long-arrow-alt-right"></span>Contact Us</nuxt-link
                     >
                   </li>
                 </ul>
@@ -83,25 +83,25 @@
                 <ul class="item-3-content">
                   <li>
                     <nuxt-link to="/signin"
-                      ><span class="fas fa-circle"></span>Sign In/Sign
+                      ><span class="fas fa-long-arrow-alt-right"></span>Sign In/Sign
                       Up</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link to="/terms-and-conditions"
-                      ><span class="fas fa-circle"></span>Terms &
+                      ><span class="fas fa-long-arrow-alt-right"></span>Terms &
                       Conditions</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link to="/privacy-policy"
-                      ><span class="fas fa-circle"></span>Privacy &
+                      ><span class="fas fa-long-arrow-alt-right"></span>Privacy &
                       Policy</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link to="/refund-policy"
-                      ><span class="fas fa-circle"></span>Refund
+                      ><span class="fas fa-long-arrow-alt-right"></span>Refund
                       Policy</nuxt-link
                     >
                   </li>
@@ -158,8 +158,7 @@
             <div class="col-lg-7 col-md-6 order-1 order-md-0">
               <div class="copyright">
                 <p class="fs-14">
-                  Copyright @ 2022. All Rights Reserved | VISAThing is a
-                  registered Trademark of Your Trip Mate Ltd.
+                  <a href="#">VISAThing</a> © 2022 . All Rights Reserved.   |  VISAThing is a registered Trademark of Your Trip Mate Ltd.
                 </p>
               </div>
             </div>

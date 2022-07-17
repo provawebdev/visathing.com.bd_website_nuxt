@@ -20,15 +20,16 @@
               >
                 <div class="select-box select-box-color">
                   <label>I'm a Citizen Of</label>
-                  <select
-                    aria-label="select"
-                    class="form-select select-option"
-                    v-model="fields.cityzen_cty"
-                  >
-                    <option value="bangladesh">Bangladesh</option>
-                    <option value="visathing.in">India</option>
-                    <option value="np.visathing.com">Nepal</option>
-                  </select>
+                <select
+                aria-label="select"
+                class="form-select select-option"
+                @change="onChange()"
+                v-model="fields.cityzen_cty"
+              >
+                 <option value="bangladesh">Bangladesh</option>
+                 <option value="https://visathing.in"> India </option> 
+                 <option value="https://np.visathing.com">Nepal</option>
+              </select>
                 </div>
                 <div class="select-box select-box-color">
                   <label>Travelling to</label>
@@ -39,7 +40,7 @@
                     @change="findVC"
                   >
                     <optgroup label="Selected Country">
-                      <option v-bind:value="data.slug" :selected="selected2">
+                      <option v-bind:value="data.slug">
                         {{ data.name }}
                       </option>
                     </optgroup>
@@ -80,7 +81,7 @@
                   >
                     <option selected>Choose if you want</option>
                     <option
-                      v-for="(v_category, vc_key) in v_categories"
+                      v-for="(v_category, vc_key) in data.visacat"
                       :key="vc_key"
                       :value="v_category.id"
                     >
@@ -115,13 +116,13 @@
                   >
                     Apply Online
                   </button>
-                  <Login v-show="showModal" @close-modal="showModal = false" />
+                  <!-- <Login v-show="showModal" @close-modal="showModal = false" />
                   <button
                     @click="showModal = true"
                     class="btn fs-14 fs-sm-12 btn-light"
                   >
                     Apply Online
-                  </button>
+                  </button> -->
                 </div>
               </div>
 
@@ -320,7 +321,7 @@
                     </h3>
                     <div class="list-items countrycontent" v-if="v_category == vcat.id">
                     <p v-html="vcat.short_details"></p>
-                      <ul v-for="(check, index) in checklists" :key="index">
+                      <ul v-for="(check, index) in data.checklists3" :key="index">
                         <li v-if="vcat.id == check.pivot.vcat_id">
                             <span>{{ check.pivot.orderby }}</span>
                           <div class="item-content">
@@ -338,7 +339,7 @@
                     <div class="list-items countrycontent">
                     <p v-html="vcat.short_details"></p>
                       <ul
-                        v-for="(check, check_key) in checklists"
+                        v-for="(check, check_key) in data.checklists3"
                         :key="check_key"
                       >
                         <li v-if="vcat.id == check.pivot.vcat_id">
@@ -803,14 +804,14 @@ export default {
     return {
       query: "",
       data: [],
-      checklists: [],
+     // checklists: [],
       appform: [],
-      v_categories: [],
+     // v_categories: [],
       v_category: {},
       passport_types: [],
       visa_types: [],
       visafees: [],
-      visa_fees: [],
+     // visa_fees: [],
       image: bgImg,
       fields: {
         country: "",
@@ -823,7 +824,7 @@ export default {
         visa_type: "",
       },
       result2: 0,
-      selected: "null",
+      selected: 1,
       selected2: 1,
       country_list: [],
       country: 1,
@@ -841,14 +842,14 @@ export default {
       )
       .then((response) => {
         this.data = response.data.data;
-        this.checklists = response.data.checklists;
+        //this.checklists = response.data.checklists;
         this.appform = response.data.appform;
         this.passport_types = response.data.passport_types;
         this.country_list = response.data.country_list;
-        this.v_categories = response.data.v_categories;
+       // this.v_categories = response.data.v_categories;
         this.visa_types = response.data.visa_types;
         this.country = data.id;
-        this.visa_fees = response.data.visa_fees;
+      //  this.visa_fees = response.data.visa_fees;
       });
   },
   methods: {
@@ -900,6 +901,15 @@ export default {
         this.v_category = this.fields.v_category;
       }
     },
+      onChange() {
+       if (this.fields.cityzen_cty) {
+        var url = this.fields.cityzen_cty; // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+          }
+          return false;
+        }
+  },
   },
 };
 </script>
