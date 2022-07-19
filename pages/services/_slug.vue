@@ -13,7 +13,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div
-            :class="{ 'col-lg-12 col-md-12 mb-5': data.image === null }"
+            :class="{ 'col-lg-12 col-md-12 mb-5': data.image > 0 }"
             class="col-lg-6 col-md-10 mb-5"
           >
             <div v-html="data.body"></div>
@@ -36,7 +36,7 @@
           <div
             v-for="(con, key) in data.contents"
             :key="key"
-            v-show="con.image2 != NULL"
+            v-show="con.image2"
             class="col-lg-3 col-md-4 col-10 mb-4"
           >
             <div class="row">
@@ -47,7 +47,7 @@
                       style="height: 51px; width: 51px"
                       :src="
                         'https://b2bdemo.visathing.in/storage/Content/' +
-                        con.image
+                        con.image2
                       "
                       :alt="con.name"
                     />
@@ -59,7 +59,7 @@
               </div>
               <div
                 class="arrow-box col-lg-2 col-md-2 col-2"
-                v-if="con.image != NULL && key + 1 < data.contents.length"
+                v-if="con.image && key + 1 < data.contents.length"
                 style="
                   justify-items: center;
                   justify-content: center;
@@ -97,7 +97,7 @@
         <div v-if="(key2 + 1) % 2 == 0" class="content-box content-box-2">
           <div class="row">
             <div
-              :class="{ 'col-lg-12 col-12': con.image2 === null }"
+              :class="{ 'col-lg-12 col-12': con.image2 > 0 }"
               class="col-lg-6 col-12"
             >
               <div class="content-text">
@@ -132,7 +132,7 @@
               </div>
             </div>
             <div
-              :class="{ 'col-lg-12 col-12': con.image2 === null }"
+              :class="{ 'col-lg-12 col-12': con.image2 > 0 }"
               class="col-lg-6 col-12"
             >
               <div class="content-text">
@@ -143,7 +143,7 @@
           </div>
         </div>
       </div>
-       <div class="container" v-if="service.cty_services !== null">
+       <div class="container" v-if="service.cty_services">
         <div class="flag-slider-wrapper">
           <div
             v-swiper="swiperOption"
@@ -201,7 +201,7 @@ export default {
   head() {
     return {
       title: `${this.data.name}`,
-      titleTemplate: `${this.data.name} - Visa From Bangladesh`,
+      titleTemplate: `${this.data.meta_title}`,
       meta: [
         {
           hid: "keywords",
@@ -290,7 +290,7 @@ export default {
       .then((response) => {
         this.data = response.data.data;
         this.service = response.data.service;
-         console.log(response.data.service);
+        // console.log(response.data.service);
       });
   },
 };

@@ -13,7 +13,7 @@
           class="col-lg-4 col-md-4"
         >
           <div class="media-library-item card news-items">
-            <img
+            <img v-if="con.image"
               alt="..."
               class="card-img-top"
               :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image"

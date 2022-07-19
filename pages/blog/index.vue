@@ -212,8 +212,47 @@ const http = axios.create({
 export default {
   head() {
     return {
-      title: "",
-      titleTemplate: `%s ${this.$route.name} - VISAThing`,
+      title: `${this.data.name}`,
+      titleTemplate: `${this.data.meta_title}`,
+      meta: [
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.data.meta_keywords,
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: this.data.meta_description,
+        },
+        {
+          hid: "author",
+          name: "author",
+          content: "Afroza Akter Prova",
+        },
+        // Open Graph
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.data.meta_title,
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.data.meta_description,
+        },
+        // Twitter Card
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.data.meta_title,
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.data.meta_description,
+        },
+      ],
     };
   },
   data() {

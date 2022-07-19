@@ -99,7 +99,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn signin-submit-btn" @click.prevent="send">Confirm Appointment</button>
+                <button type="button" class="btn signin-submit-btn" @click.prevent="products">Confirm Appointment</button>
             </form>
         </div>
     </section>
@@ -123,7 +123,7 @@ export default {
  head() {
     return {
       title: `${this.data.name}`,
-      titleTemplate: `${this.data.name} - Visa From Bangladesh`,
+      titleTemplate: `${this.data.meta_title}`,
       meta: [
            {
           hid: "keywords",
@@ -168,6 +168,7 @@ export default {
   data() {
     return {
       data: [],
+      datas: [],
       name: '',
       email: '',
       phone: '',
@@ -180,7 +181,7 @@ export default {
     };
   },
   created() {
-    this.$axios.get("https://b2bdemo.visathing.in/api/manu_list/").then((response) => {
+    this.$axios.get("https://b2bdemo.visathing.in/api/appoint/").then((response) => {
       this.data = response.data.contact;
     //  console.log( response.data.about);
     });
@@ -192,6 +193,25 @@ export default {
         subject: 'Contact form message',
         text: this.message,
       })
+    },
+    products() {
+      this.$axios({
+        method: 'post',
+        url: 'https://b2bdemo.visathing.in/api/appointment',
+        datas: {
+          name: this.name,
+          email: this.email,
+          phone: this.phone,
+          country: this.country,
+          tvl_date: this.tvl_date,
+          tvl_purpose: this.tvl_purpose,
+          list_documents: this.list_documents,
+          occupation: this.occupation,
+          travel_history: this.travel_history,
+        }
+      })
+      console.log(products);
+      //add a .then() and a .catch() here to deal with response.
     }
   },
 };

@@ -35,7 +35,7 @@
                 <div v-html="con.body"> </div>
                  </div>
             </div>
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-6 col-12" v-if="con.image">
               <div class="content-image">
                 <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image" class="img-fluid" :alt="con.name"> 
               </div>
@@ -44,7 +44,7 @@
         </div>
         <div v-show="key2 == 1" class="content-box content-box-3" >
           <div class="row">
-            <div class="col-lg-6 col-12 order-1 order-lg-0">
+            <div class="col-lg-6 col-12 order-1 order-lg-0" v-if="con.image">
               <div class="content-image">
                  <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image" class="img-fluid" alt=""> 
               </div>
@@ -80,7 +80,7 @@
                
               </div>
             </div>
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-6 col-12" v-if="con.image">
               <div class="content-image">
                  <img :src="'https://b2bdemo.visathing.in/storage/Content/' + con.image" class="img-fluid" alt=""> 
               </div>
@@ -109,7 +109,7 @@ export default {
 head() {
     return {
       title: `${this.data.name}`,
-      titleTemplate: `${this.data.name} - Visa From Bangladesh`,
+      titleTemplate: `${this.data.meta_title}`,
       meta: [
            {
           hid: "keywords",
@@ -159,7 +159,7 @@ head() {
     };
   },
   created() {
-    this.$axios.get("https://b2bdemo.visathing.in/api/manu_list/").then((response) => {
+    this.$axios.get("https://b2bdemo.visathing.in/api/about_menu/").then((response) => {
       this.data = response.data.about;
     //  console.log( response.data.about);
     });

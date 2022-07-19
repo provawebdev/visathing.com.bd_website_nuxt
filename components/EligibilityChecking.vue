@@ -46,6 +46,10 @@
                       "
                       class="form-check ques-option"
                     >
+                     <label
+                        class="form-check-label"
+                        :for="'sate_' + key + '_checkbox_one' + ans_key"
+                      >
                       <input
                         class="form-check-input"
                         :id="'sate_' + key + '_checkbox_one' + ans_key"
@@ -55,10 +59,7 @@
                         type="radio"
                         :v-model="required"
                       />
-                      <label
-                        class="form-check-label"
-                        :for="'sate_' + key + '_checkbox_one' + ans_key"
-                      >
+                     
                         {{ ans.answer }}
                       </label>
                     </div>

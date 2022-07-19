@@ -226,6 +226,7 @@ export default {
         status: "",
       },
       errors: [],
+      route: '',
     };
   },
   created() {
@@ -273,11 +274,11 @@ export default {
         )
         .then(({ data }) => (this.fields = {}))
         .catch((error) => console.log(error));
-      if (this.fields) {
+        if (this.fields) {
         this.$router.push({
           path: "/visa-application-status/" + this.fields.status,
         });
-        console.log(this.fields.status);
+       // console.log(this.fields.status);
       }
     },
 

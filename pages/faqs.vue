@@ -21,7 +21,7 @@ export default {
   head() {
     return {
       title: `${this.data.name}`,
-      titleTemplate: `${this.data.name} - Visa From Bangladesh`,
+      titleTemplate: `${this.data.meta_title}`,
       meta: [
            {
           hid: "keywords",

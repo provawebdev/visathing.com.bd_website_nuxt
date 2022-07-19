@@ -65,6 +65,7 @@
                       "
                       class="form-check ques-option"
                     >
+                    <label class="form-check-label" for="sate_1_checkbox_one">
                       <input
                         class="form-check-input"
                         id="sate_1_checkbox_one"
@@ -74,7 +75,7 @@
                         type="radio"
                         required
                       />
-                      <label class="form-check-label" for="sate_1_checkbox_one">
+                      
                         {{ ans.answer }}
                       </label>
                     </div>

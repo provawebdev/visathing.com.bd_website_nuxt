@@ -118,7 +118,7 @@ export default {
   head() {
     return {
       title: `${this.data.name}`,
-      titleTemplate: `${this.data.name} - Visa From Bangladesh`,
+      titleTemplate: `${this.data.meta_title}`,
       meta: [
         {
           hid: "keywords",
@@ -167,7 +167,7 @@ export default {
   },
   created() {
     this.$axios
-      .get("https://b2bdemo.visathing.in/api/manu_list/")
+      .get("https://b2bdemo.visathing.in/api/contact_menu/")
       .then((response) => {
         this.data = response.data.contact;
       });

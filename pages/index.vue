@@ -7,28 +7,6 @@
     <EligibilityChecking />
     <MediaLibrary />
     <NewsFeed />
-
-    <!-- <section id="partner-section">
-      <div class="container">
-        <div class="row justify-content-center align-items-center">
-          <div class="col">
-            <img alt="" class="img-fluid" src="~/assets/img/partner-1.png" />
-          </div>
-          <div class="col-2">
-            <img alt="" class="img-fluid" src="~/assets/img/partner-2.png" />
-          </div>
-          <div class="col-3">
-            <img alt="" class="img-fluid" src="~/assets/img/partner-3.png" />
-          </div>
-          <div class="col-3">
-            <img alt="" class="img-fluid" src="~/assets/img/partner-4.png" />
-          </div>
-          <div class="col-3">
-            <img alt="" class="img-fluid" src="~/assets/img/partner-5.png" />
-          </div>
-        </div>
-      </div>
-    </section> -->
   </div>
 </template>
 
@@ -66,7 +44,7 @@ export default {
   head() {
     return {
       title: "VISAThing - Your visa partner",
-      titleTemplate: `${this.data.name} - Visa From Bangladesh`,
+      titleTemplate: `${this.data.meta_title}`,
       meta: [
            {
           hid: "keywords",
@@ -115,7 +93,7 @@ export default {
     };
   },
  created() {
-    this.$axios.get("https://b2bdemo.visathing.in/api/manu_list/").then((response) => {
+    this.$axios.get("https://b2bdemo.visathing.in/api/home_menu/").then((response) => {
       this.data = response.data.home;
     });
   },
