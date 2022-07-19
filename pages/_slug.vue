@@ -109,20 +109,13 @@
                   {{ data.name }} Visa From Bangladesh
                 </div>
                 <div class="apply-button">
-                  <button
-                    data-toggle="modal"
-                    data-target="#applyOnline"
-                    class="btn fs-14 fs-sm-12 btn-light"
-                  >
-                    Apply Online
-                  </button>
-                  <!-- <Login v-show="showModal" @close-modal="showModal = false" />
+                  <Login v-show="showModal" @close-modal="showModal = false" />
                   <button
                     @click="showModal = true"
                     class="btn fs-14 fs-sm-12 btn-light"
                   >
                     Apply Online
-                  </button> -->
+                  </button>
                 </div>
               </div>
 

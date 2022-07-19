@@ -12,7 +12,8 @@
       tabindex="-1"
       role="dialog"
       aria-labelledby="myModalLabel"
-      style="padding-right: 15px; display: block" @click.stop
+      style="padding-right: 15px; display: block"
+      @click.stop
     >
       <div class="modal-dialog cascading-modal" role="document">
         <!--Content-->
@@ -22,31 +23,39 @@
             <div class="card mb-0 shadow-none">
               <div class="card-body">
                 <div class="px-3">
-                  <p class="text-muted text-center">
+                  <h3 class="text-muted text-center pb-3 pb-3">
                     Sign in to continue to VISAThing.
-                  </p>
+                  </h3>
                   <div class="custom-tab tab-profile">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
                       <li class="nav-item">
-                        <a
-                          class="nav-link active pb-3 pt-3"
-                          data-toggle="tab"
-                          href="#projects"
+                        <button
+                          class="nav-link active"
+                          id="basic-info-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#projects"
+                          type="button"
                           role="tab"
+                          aria-controls="projects"
+                          aria-selected="true"
                         >
                           Login with phone number
-                        </a>
+                        </button>
                       </li>
                       <li class="nav-item">
-                        <a
-                          class="nav-link pb-3 pt-3"
-                          data-toggle="tab"
-                          href="#activity"
+                        <button
+                          class="nav-link"
+                          id="basic-info-tab"
+                          data-bs-toggle="tab"
+                          data-bs-target="#activity"
+                          type="button"
                           role="tab"
+                          aria-controls="activity"
+                          aria-selected="true"
                         >
-                          <i class="fas fa-email mr-2"></i>Login with email
-                        </a>
+                          Login with email
+                        </button>
                       </li>
                     </ul>
                     <!-- Tab panes -->
@@ -66,44 +75,51 @@
                             name="_token"
                             value="1d5ynl0GaeAvl3MbuClfQO4bwYeeOXwXEyspXeRW"
                           />
-                          <div class="form-group">
-                            <label for="cty_code">Country Code</label>
-                            <div class="input-group mb-3">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"
-                                  ><i class="far fa-user"></i
-                                ></span>
-                              </div>
-                              <select name="cty_code" class="form-control">
-                                <option
-                                  data-countrycode="BD"
-                                  value="+88"
-                                  selected=""
-                                >
-                                  Bangladesh (+88)
-                                </option>
-                              </select>
-                            </div>
+                          <div class="form-field">
+                            <label for="inputUsername" class="form-label"
+                              >Country Code</label
+                            >
+                            <select
+                              name="cty_code"
+                              aria-label="Default select example"
+                              class="form-select"
+                            >
+                              <option
+                                data-countrycode="BD"
+                                value="+88"
+                                selected="selected"
+                              >
+                                Bangladesh (+88)
+                              </option>
+                            </select>
                           </div>
-                          <div class="form-group">
-                            <label for="username">Phone Number</label>
-                            <div class="input-group mb-3">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"
-                                  ><i class="far fa-user"></i
-                                ></span>
-                              </div>
+                          <div class="form-field">
+                            <label for="inputUsername" class="form-label"
+                              >Phone Number</label
+                            >
+                            <div class="input-field d-flex align-items-center">
+                              <svg
+                                width="10"
+                                height="12"
+                                viewBox="0 0 10 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M2.08366 1.33332V10.6667H7.91699V1.33332H2.08366ZM1.50033 0.166656H8.50033C8.65504 0.166656 8.80341 0.228115 8.91281 0.337511C9.0222 0.446907 9.08366 0.59528 9.08366 0.74999V11.25C9.08366 11.4047 9.0222 11.5531 8.91281 11.6625C8.80341 11.7719 8.65504 11.8333 8.50033 11.8333H1.50033C1.34562 11.8333 1.19724 11.7719 1.08785 11.6625C0.97845 11.5531 0.916992 11.4047 0.916992 11.25V0.74999C0.916992 0.59528 0.97845 0.446907 1.08785 0.337511C1.19724 0.228115 1.34562 0.166656 1.50033 0.166656ZM5.00033 8.91666C5.15504 8.91666 5.30341 8.97812 5.41281 9.08751C5.5222 9.19691 5.58366 9.34528 5.58366 9.49999C5.58366 9.6547 5.5222 9.80307 5.41281 9.91247C5.30341 10.0219 5.15504 10.0833 5.00033 10.0833C4.84562 10.0833 4.69724 10.0219 4.58785 9.91247C4.47845 9.80307 4.41699 9.6547 4.41699 9.49999C4.41699 9.34528 4.47845 9.19691 4.58785 9.08751C4.69724 8.97812 4.84562 8.91666 5.00033 8.91666Z"
+                                  fill="#86868B"
+                                ></path>
+                              </svg>
                               <input
-                                id="phone"
                                 type="number"
-                                class="form-control"
                                 name="phone"
-                                value=""
-                                autocomplete="phone"
-                                placeholder="Enter Phone Number"
+                                id="inputUsername"
+                                placeholder="Type your phone number"
+                                class="form-control"
                               />
                             </div>
                           </div>
+
                           <div class="form-group sorted-data">
                             <div class="input-group mb-3">
                               <input
@@ -149,10 +165,7 @@
                           <div class="form-group mb-0 row">
                             <div class="col-12 mt-2">
                               <button
-                                class="
-                                  btn btn-primary btn-block
-                                  waves-effect waves-light
-                                "
+                                class="btn signin-submit-btn"
                                 type="submit"
                               >
                                 Log In <i class="fas fa-sign-in-alt ml-1"></i>
@@ -236,10 +249,7 @@
                           <div class="form-group mb-0 row">
                             <div class="col-12 mt-2">
                               <button
-                                class="
-                                  btn btn-primary btn-block
-                                  waves-effect waves-light
-                                "
+                                class="btn signin-submit-btn"
                                 type="submit"
                               >
                                 Log In <i class="fas fa-sign-in-alt ml-1"></i>
