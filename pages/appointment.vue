@@ -210,7 +210,7 @@ export default {
           travel_history: this.travel_history,
         }
       })
-      console.log(products);
+    //  console.log(datas);
       //add a .then() and a .catch() here to deal with response.
     }
   },

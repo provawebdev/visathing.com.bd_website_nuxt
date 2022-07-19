@@ -1334,14 +1334,14 @@ button[disabled]{
 }
 
 .ques-option label {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     margin-left: 15px;
 }
 
 .ques-box .form-check-input {
     background: transparent;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border: 2px solid var(--color-white);
     cursor: pointer;
 }
