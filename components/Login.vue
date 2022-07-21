@@ -134,14 +134,14 @@
                                 name="countries"
                                 type="hidden"
                                 class="form-control"
-                                value="afghanistan"
+                                :value="data.slug"
                               />
                               <input
                                 id="visacategories"
                                 name="visacategories"
                                 type="hidden"
                                 class="form-control"
-                                value="all"
+                                :value="this.v_category"
                               />
                             </div>
                           </div>
@@ -273,5 +273,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+   data() {
+    return {
+      query: "",
+      data: [],
+       v_category: {},
+    };
+  },
+    created() {
+    this.$axios
+      .get(
+        "https://b2bdemo.visathing.in/api/country/" + this.$route.params.slug,
+        {
+          // v_category: this.$route.params.v_category,
+        }
+      )
+      .then((response) => {
+        this.data = response.data.data;
+      });
+  },
+};
 </script>

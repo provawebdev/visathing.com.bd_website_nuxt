@@ -36,24 +36,24 @@
                   <li><nuxt-link to="#tabs-4">Tab 4</nuxt-link></li>
                 </ul> -->
                 <div v-bind:id="'tabs-' + 0">
-                  <div v-if="checker_question != null">
-                    <h3>{{ key + 1 }}. {{ checker_question[key].question }}</h3>
+                  <div v-if="country.country_questions">
+                    <h3>{{ key + 1 }}. {{ country.country_questions[key].question }}</h3>
                     <div
-                      v-for="(ans, ans_key) in country_answers"
+                      v-for="(ans, ans_key) in country.country_answers"
                       :key="ans_key"
                       v-show="
-                        ans.checker_question_id == checker_question[key].id
+                        ans.checker_question_id == country.country_questions[key].id
                       "
                       class="form-check ques-option"
                     >
                      
                       <input
+                        type="radio"
                         class="form-check-input"
-                        :id="'checkbox_' + ans_key"
                         :name="'question_' + key"
+                        :id="'checkbox_' + ans_key"
                         v-model="question[key]"
                         :value="ans.point"
-                        type="radio"
                         :v-model="required"
                       />
                      <label
@@ -157,8 +157,8 @@ export default {
       // question: [],
       checker_question: null,
       question_answers: "",
-      country_questions: [],
-      country_answers: [],
+     // country_questions: [],
+     // country_answers: [],
       question: {},
       required: false,
     };
@@ -177,8 +177,8 @@ export default {
         function (response) {
           this.country = this.country;
           this.country_list = response.data.country_list;
-          this.checker_question = this.country.country_questions;
-          this.country_answers = this.country.country_answers;
+          //this.checker_question = this.country.country_questions;
+          //this.country_answers = this.country.country_answers;
           if (this.country.country_questions) {
             this.total = this.country.country_questions.length;
           } else {

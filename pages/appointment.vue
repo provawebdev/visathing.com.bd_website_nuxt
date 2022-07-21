@@ -11,7 +11,7 @@
     <!-- Page Content Start-->
     <section class="page-content contact-information appointment">
         <div class="container">
-            <form>
+            <form action="https://b2bdemo.visathing.in/api/appointment" method="post">
                 <div class="row">
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
@@ -99,13 +99,39 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn signin-submit-btn" @click.prevent="products">Confirm Appointment</button>
+                 <input name="submit" class="btn signin-submit-btn" type="submit" value="Confirm Appointment">
+                <!-- <button type="button" class="btn signin-submit-btn" @click.prevent="products">Confirm Appointment</button> -->
             </form>
         </div>
     </section>
   </div>
 </template>
 <script>
+export default {
+  asyncData({ req, res }) {
+     if (process.server) {
+        const qs = require('querystring');
+        var body = '';
+        var temp = '';
+        while(temp = req.read()) {
+            body += temp;
+        }  
+        var post = qs.parse(body);
+        return {data: post};
+    }
+  },
+  data() {
+     return {
+          data: '',
+     }
+  },
+  mounted() {
+      console.log(this.data['email']);
+  },
+}
+</script>
+<!-- https://stackoverflow.com/questions/59478989/vue-nuxt-js-how-to-read-post-request-parameters-received-from-an-external-re
+  <script>
 import axios from "axios";
 import bgImg from "assets/img/basic-checklist-banner.png";
 import {
@@ -186,6 +212,21 @@ export default {
     //  console.log( response.data.about);
     });
   },
+  asyncData({ req, res }) {
+     if (process.server) {
+        const qs = require('querystring');
+        var body = '';
+        var temp = '';
+        while(temp = req.read()) {
+            body += temp;
+        }  
+        var post = qs.parse(body);
+        return {datas: post};
+    }
+  },
+   mounted() {
+      console.log(this.datas['email']);
+  },
     methods: {
     send() {
       this.$mail.send({
@@ -208,11 +249,11 @@ export default {
           list_documents: this.list_documents,
           occupation: this.occupation,
           travel_history: this.travel_history,
+          _token    :'{{csrf_token()}}',
         }
       })
-    //  console.log(datas);
-      //add a .then() and a .catch() here to deal with response.
+      console.log(this.name);
     }
   },
 };
-</script>
+</script>-->
