@@ -36,7 +36,7 @@
           <div
             v-for="(con, key) in data.contents"
             :key="key"
-            v-show="con.image2"
+            v-show="con.image"
             class="col-lg-3 col-md-4 col-10 mb-4"
           >
             <div class="row">
@@ -47,7 +47,7 @@
                       style="height: 51px; width: 51px"
                       :src="
                         'https://b2bdemo.visathing.in/storage/Content/' +
-                        con.image2
+                        con.image
                       "
                       :alt="con.name"
                     />
@@ -59,30 +59,18 @@
               </div>
               <div
                 class="arrow-box col-lg-2 col-md-2 col-2"
-                v-if="con.image && key + 1 < data.contents.length"
-                style="
-                  justify-items: center;
-                  justify-content: center;
-                  text-align: center;
-                  margin: auto;
-                "
+                v-if="(con.image) && (key + 2 < data.contents.length)"
               >
-                <i
+                <i v-if="con.image"
                   class="far fa-arrow-alt-circle-right"
                   style="font-size: 36px"
                 ></i>
               </div>
               <div
                 class="arrow-box col-lg-2 col-md-2 col-2"
-                v-else-if="key + 2 < data.contents.length"
-                style="
-                  justify-items: center;
-                  justify-content: center;
-                  text-align: center;
-                  margin: auto;
-                "
+                v-else-if="key + 1 < data.contents.length"
               >
-                <i
+                <i v-if="con.image"
                   class="far fa-arrow-alt-circle-right"
                   style="font-size: 36px"
                 ></i>
@@ -95,7 +83,7 @@
     <section id="visa-consultancy-wrapper">
       <div class="container" v-for="(con, key2) in data.contents" :key="key2">
         <div v-if="(key2 + 1) % 2 == 0" class="content-box content-box-2">
-          <div class="row">
+          <div class="row" v-if="con.image2">
             <div
               :class="{ 'col-lg-12 col-12': con.image2 > 0 }"
               class="col-lg-6 col-12"
@@ -117,6 +105,16 @@
               </div>
             </div>
           </div>
+           <div class="row" v-else>
+            <div
+              class="col-lg-12 col-12"
+            >
+              <div class="content-text">
+                <h2 class="fs-34 fs-sm-24 mb-3">{{ con.name }}</h2>
+                <div v-html="con.body"></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div v-else class="content-box content-box-3">
           <div class="row">
@@ -132,7 +130,7 @@
               </div>
             </div>
             <div
-              :class="{ 'col-lg-12 col-12': con.image2 > 0 }"
+              :class="{ 'col-lg-12 col-12': con.image2 > 0}"
               class="col-lg-6 col-12"
             >
               <div class="content-text">

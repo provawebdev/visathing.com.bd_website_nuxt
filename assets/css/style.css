@@ -1291,7 +1291,12 @@ button[disabled]{
 .swiper-button-next {
     right: 10px;
 }
-
+.arrow-box{
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+}
 /*
 *   ==================================
 *                Visa Eligibility Checking Section
