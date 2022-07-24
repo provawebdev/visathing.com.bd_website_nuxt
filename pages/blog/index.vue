@@ -267,14 +267,18 @@ export default {
       .get("https://b2bdemo.visathing.in/api/manu_show/" + this.$route.name)
       .then((response) => {
         this.data = response.data.menu;
+        
        // console.log(response.data);
       });
+      
   },
    methods: {
     formatDate(date) {
       const options = { year: "numeric", month: "long", day: "numeric" };
       return new Date(date).toLocaleDateString("en-us", options);
+      //console.log(formatDate.data.created_at)
     },
+    
   },
 };
 </script>

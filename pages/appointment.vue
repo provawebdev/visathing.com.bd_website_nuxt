@@ -16,13 +16,13 @@
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="your-name" class="form-label">Your Name (required)</label>
-                            <input type="text" class="form-control" id="your-name" v-model="name">
+                            <input type="text" class="form-control" id="your-name" name="name" v-model="name">
                         </div>
                     </div>
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="your-email" class="form-label">Your Email (required)</label>
-                            <input type="text" class="form-control" id="your-email" v-model="email">
+                            <input type="text" class="form-control" id="your-email" name="email" v-model="email">
                         </div>
                     </div>
                 </div>
@@ -30,13 +30,13 @@
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="your-occupation" class="form-label">Your Occupation(required)</label>
-                            <input type="text" class="form-control" id="your-occupation" v-model="occupation">
+                            <input type="text" class="form-control" id="your-occupation" name="occupation" v-model="occupation">
                         </div>
                     </div>
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="your-number" class="form-label">Your Cell Number (required) </label>
-                            <input type="text" class="form-control" id="your-number" v-model="phone">
+                            <input type="text" class="form-control" id="your-number" name="phone" v-model="phone">
                         </div>
                     </div>
                 </div>
@@ -44,13 +44,13 @@
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="your-country" class="form-label">Country you wish to visit (required)</label>
-                            <input type="text" class="form-control" id="your-country" v-model="country">
+                            <input type="text" class="form-control" id="your-country" name="country" v-model="country">
                         </div>
                     </div>
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="prospective" class="form-label">Prospective Travel Date</label>
-                            <input type="date" class="form-control" id="prospective" v-model="tvl_date">
+                            <input type="date" class="form-control" id="prospective" name="tvl_date" v-model="tvl_date">
                         </div>
                     </div>
                 </div>
@@ -60,20 +60,20 @@
                             <h6 class="form-label fw-bold fs-16"><strong>Purpose of the visit</strong></h6>
                             <div class="d-flex align-items-center">
                                 <div class="form-check me-3">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Business" v-model="tvl_purpose"
+                                    <input class="form-check-input" type="radio" name="tvl_purpose" id="Business" v-model="tvl_purpose"
                                         checked>
                                     <label class="form-check-label" for="Business">
                                         Business
                                     </label>
                                 </div>
                                 <div class="form-check me-3">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Tourist" v-model="tvl_purpose">
+                                    <input class="form-check-input" type="radio" name="tvl_purpose" id="Tourist" v-model="tvl_purpose">
                                     <label class="form-check-label" for="Tourist">
                                         Tourist
                                     </label>
                                 </div>
                                 <div class="form-check me-3">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="Others" v-model="tvl_purpose">
+                                    <input class="form-check-input" type="radio" name="tvl_purpose" id="Others" v-model="tvl_purpose">
                                     <label class="form-check-label" for="Others">
                                         Others
                                     </label>
@@ -87,14 +87,14 @@
                         <div class="form-field">
                             <label for="travel_history" class="form-label">Travel History (Countries previously
                                 visited)</label>
-                            <textarea class="form-control" style="height: 150px" id="travel_history" v-model="travel_history"></textarea>
+                            <textarea class="form-control" style="height: 150px" id="travel_history" name="travel_history" v-model="travel_history"></textarea>
                         </div>
                     </div>
                     <div class="col-sm-6 col-12">
                         <div class="form-field">
                             <label for="list-documents" class="form-label">List of Documents you already have to apply
                                 for the visa
-                            <textarea class="form-control" style="height: 150px" id="list-documents" v-model="list_documents"></textarea>
+                            <textarea class="form-control" style="height: 150px" id="list-documents" name="list_documents" v-model="list_documents"></textarea>
                             </label>
                         </div>
                     </div>
@@ -107,7 +107,53 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
+   head() {
+    return {
+      title: `${this.data.name}`,
+      titleTemplate: `${this.data.meta_title}`,
+      meta: [
+           {
+          hid: "keywords",
+          name: "keywords",
+          content: this.data.meta_keywords,
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: this.data.meta_description,
+        },
+        {
+          hid: "author",
+          name: "author",
+          content: "Afroza Akter Prova",
+        },
+        // Open Graph
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.data.meta_title,
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.data.meta_description,
+        },
+        // Twitter Card
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.data.meta_title,
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.data.meta_description,
+        },
+      ],
+    };
+  },
   asyncData({ req, res }) {
      if (process.server) {
         const qs = require('querystring');
@@ -125,9 +171,9 @@ export default {
           data: '',
      }
   },
-  mounted() {
-      console.log(this.data['email']);
-  },
+  // mounted() {
+  //     console.log(this.data['email']);
+  // },
 }
 </script>
 <!-- https://stackoverflow.com/questions/59478989/vue-nuxt-js-how-to-read-post-request-parameters-received-from-an-external-re

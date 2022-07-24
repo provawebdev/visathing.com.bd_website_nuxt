@@ -82,10 +82,10 @@ export default {
         to: 'afroza@visathing.com',
       },
       smtp: {
-        host: 'mail.visathing.org',
+        host: 'cookants.com',
         port: 465,
         auth: {
-          user: 'online@visathing.org',
+          user: 'afroza@cookants.com',
           pass: 'Afroza@ytm2.2'
         },
       },
@@ -114,10 +114,10 @@ export default {
     // }]
    },
 
-  axios: {
-    baseURL: 'http://localhost:8084/api',
-    credentials: true
-  },
+  // axios: {
+  //   baseURL: 'https://b2bdemo.visathing.in/api',
+  //   credentials: true
+  // },
   pwa: {
     manifest: {
       lang: 'en'

@@ -29,19 +29,21 @@
                         ></a>
                       </li>
                       <li>
-                        <a
-                          href="https://www.instagram.com/"
-                          target="_blank"
+                        <a href="https://www.instagram.com/" target="_blank"
                           ><span class="fab fa-instagram"></span
                         ></a>
                       </li>
                       <li>
-                        <a href="https://twitter.com/visathing?lang=en" target="_blank"
+                        <a
+                          href="https://twitter.com/visathing?lang=en"
+                          target="_blank"
                           ><span class="fab fa-twitter"></span
                         ></a>
                       </li>
                       <li>
-                        <a href="https://www.youtube.com/c/visathingbd" target="_blank"
+                        <a
+                          href="https://www.youtube.com/c/visathingbd"
+                          target="_blank"
                           ><span class="fab fa-youtube"></span
                         ></a>
                       </li>
@@ -56,22 +58,26 @@
                 <ul class="item-2-content">
                   <li>
                     <nuxt-link to="/about"
-                      ><span class="fas fa-long-arrow-alt-right"></span>About Us</nuxt-link
+                      ><span class="fas fa-long-arrow-alt-right"></span>About
+                      Us</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link to="/services"
-                      ><span class="fas fa-long-arrow-alt-right"></span>Services</nuxt-link
+                      ><span class="fas fa-long-arrow-alt-right"></span
+                      >Services</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link to="/appointment"
-                      ><span class="fas fa-long-arrow-alt-right"></span>Appointment</nuxt-link
+                      ><span class="fas fa-long-arrow-alt-right"></span
+                      >Appointment</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link to="/contacts"
-                      ><span class="fas fa-long-arrow-alt-right"></span>Contact Us</nuxt-link
+                      ><span class="fas fa-long-arrow-alt-right"></span>Contact
+                      Us</nuxt-link
                     >
                   </li>
                 </ul>
@@ -83,8 +89,8 @@
                 <ul class="item-3-content">
                   <li>
                     <nuxt-link to="/signin"
-                      ><span class="fas fa-long-arrow-alt-right"></span>Sign In/Sign
-                      Up</nuxt-link
+                      ><span class="fas fa-long-arrow-alt-right"></span>Sign
+                      In/Sign Up</nuxt-link
                     >
                   </li>
                   <li>
@@ -95,8 +101,8 @@
                   </li>
                   <li>
                     <nuxt-link to="/privacy-policy"
-                      ><span class="fas fa-long-arrow-alt-right"></span>Privacy &
-                      Policy</nuxt-link
+                      ><span class="fas fa-long-arrow-alt-right"></span>Privacy
+                      & Policy</nuxt-link
                     >
                   </li>
                   <li>
@@ -113,10 +119,20 @@
                 <h3>Newsletter</h3>
                 <ul class="item-4-content">
                   <li>
-                    <form class="footer-newsletter border-radius-5">
+                    <form
+                      class="footer-newsletter border-radius-5"
+                      method="post"
+                      action="https://b2bdemo.visathing.in/api/newsletter/send"
+                    >
+                      <input
+                        type="hidden"
+                        name="_token"
+                        value="1d5ynl0GaeAvl3MbuClfQO4bwYeeOXwXEyspXeRW"
+                      />
                       <label>
                         <input
                           class="footer-newsletter-input"
+                          name="email"
                           v-model="email"
                           placeholder="Enter your mail"
                           type="search"
@@ -126,10 +142,10 @@
                         class="
                           footer-newsletter-icon
                           bgc-gradient
-                          border-radius-5 btn
+                          border-radius-5
+                          btn
                         "
                         type="submit"
-                        @click.prevent="send"
                       >
                         <svg
                           fill="none"
@@ -158,7 +174,8 @@
             <div class="col-lg-7 col-md-6 order-1 order-md-0">
               <div class="copyright">
                 <p class="fs-14">
-                  <a href="#">VISAThing</a> © 2022 . All Rights Reserved.   |  VISAThing is a registered Trademark of Your Trip Mate Ltd.
+                  <a href="#">VISAThing</a> © 2022 . All Rights Reserved. |
+                  VISAThing is a registered Trademark of Your Trip Mate Ltd.
                 </p>
               </div>
             </div>
@@ -206,19 +223,19 @@
 
 <script>
 export default {
-  data: () => ({
-    email: "",
-    message: "",
-  }),
-  methods: {
-    send() {
-      this.$mail.send({
-        from: this.email,
-        subject: "Contact form message",
-        text: this.message,
-      });
-    },
+    asyncData({ req, res }) {
+     if (process.server) {
+        const qs = require('querystring');
+        var body = '';
+        var temp = '';
+        while(temp = req.read()) {
+            body += temp;
+        }  
+        var post = qs.parse(body);
+        return {data: post};
+    }
   },
+ 
 };
 </script>
 
